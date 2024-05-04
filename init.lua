@@ -441,7 +441,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
+        gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -495,6 +495,26 @@ require('lazy').setup({
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
+        },
+      }
+
+      require('lspconfig').dartls.setup {
+        cmd = { 'dart', 'language-server', '--protocol=lsp' },
+        filetype = { 'dart' },
+        capabilities = capabilities,
+        init_options = {
+          closingLabels = true,
+          flutterOutline = true,
+          onlyAnalyzeProjectsWithOpenFiles = true,
+          outline = true,
+          suggestFromUnimportedLibraries = true,
+        },
+        root_dir = require('lspconfig').util.root_pattern 'pubspec.yaml',
+        settings = {
+          dart = {
+            completeFunctionCalls = true,
+            showTodos = true,
+          },
         },
       }
     end,
@@ -704,7 +724,16 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc',
+        --install GO parsers
+        'go',
+        'gomod',
+        'gowork',
+        'gosum',
+
+        --install Dart parser
+        'dart',
+    },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
