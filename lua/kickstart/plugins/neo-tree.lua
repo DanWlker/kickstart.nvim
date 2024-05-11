@@ -4,6 +4,7 @@
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
+  lazy = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
@@ -41,10 +42,12 @@ return {
         },
       },
       filesystem = {
+        hijack_netrw_behavior = 'open_current',
         window = {
           position = 'right',
           mappings = {
             ['\\'] = 'close_window',
+            ['Z'] = 'expand_all_nodes',
           },
         },
         follow_current_file = {
@@ -52,7 +55,6 @@ return {
         },
         hide_dotfiles = false,
         hide_gitignored = false,
-        hijack_netrw_behavior = 'open_current',
       },
     }
   end,
