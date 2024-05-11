@@ -515,6 +515,11 @@ require('lazy').setup({
           dart = {
             completeFunctionCalls = true,
             showTodos = true,
+            analysisExcludedFolders = {
+              vim.fn.expand '$HOME/.pub-cache/',
+              vim.fn.expand '$HOME/fvm/',
+              vim.fn.expand '$HOME/development/flutter/',
+            },
           },
         },
       }
