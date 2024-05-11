@@ -1,6 +1,5 @@
 return {
   'folke/trouble.nvim',
-  branch = 'dev', --IMPORTANT!
   config = function()
     local trouble = require 'trouble'
 
