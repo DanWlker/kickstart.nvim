@@ -1,6 +1,5 @@
--- This disables netrw, but unsure if will lead to issues
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Custom Keybinding
+require 'custom.vim_configs'
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -55,7 +54,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 vim.opt.hlsearch = true
-vim.opt.colorcolumn = '80'
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -75,11 +73,6 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
--- Custom Keybinding
-vim.keymap.set('n', 'Q', '<nop>')
-vim.keymap.set('v', '<S-Up>', ":m '<-2<CR>gv=gv")
-vim.keymap.set('v', '<S-Down>', ":m '>+1<CR>gv=gv")
 
 --  See `:help lua-guide-autocommands`
 vim.api.nvim_create_autocmd('TextYankPost', {
