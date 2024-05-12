@@ -42,6 +42,11 @@ return {
         },
       },
       filesystem = {
+        filtered_items = {
+          visible = true,
+          -- hide_dotfiles = false,
+          -- hide_gitignored = false,
+        },
         hijack_netrw_behavior = 'open_current',
         window = {
           position = 'right',
@@ -54,8 +59,6 @@ return {
           enabled = true,
           leave_dirs_open = true,
         },
-        hide_dotfiles = false,
-        hide_gitignored = false,
       },
     }
   end,
