@@ -28,16 +28,16 @@ return {
         git_status = {
           symbols = {
             -- Change type
-            added = '+', -- or "✚", but this is redundant info if you use git_status_colors on the name
-            modified = '~', -- or "", but this is redundant info if you use git_status_colors on the name
-            deleted = 'x', -- this can only be used in the git_status source
-            renamed = 'r', -- this can only be used in the git_status source
+            added = 'new', -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified = 'chg', -- or "", but this is redundant info if you use git_status_colors on the name
+            deleted = 'del', -- this can only be used in the git_status source
+            renamed = 'ren', -- this can only be used in the git_status source
             -- Status type
             untracked = '?',
-            ignored = '/',
-            unstaged = 'U',
-            staged = '*',
-            conflict = '!',
+            ignored = '-',
+            unstaged = '!',
+            staged = '+',
+            conflict = '~',
           },
         },
       },
