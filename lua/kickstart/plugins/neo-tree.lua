@@ -48,7 +48,7 @@ return {
           -- hide_gitignored = false,
           never_show = { '.git' },
         },
-        hijack_netrw_behavior = 'open_current',
+        hijack_netrw_behavior = 'open_default',
         window = {
           position = 'right',
           mappings = {
