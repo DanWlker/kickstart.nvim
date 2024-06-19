@@ -1,5 +1,6 @@
 -- Custom Keybinding
 require 'custom.vim_configs'
+require 'custom.globals'
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
