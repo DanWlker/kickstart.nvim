@@ -683,6 +683,7 @@ require('lazy').setup({
 
       local CTRL_S = vim.api.nvim_replace_termcodes('<C-S>', true, true, true)
       local CTRL_V = vim.api.nvim_replace_termcodes('<C-V>', true, true, true)
+      ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_mode = function(args)
         local modes = setmetatable({
           ['n'] = { long = '(˵•̀ ᴗ -)', short = 'N', hl = 'MiniStatuslineModeNormal' },
