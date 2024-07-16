@@ -1,0 +1,136 @@
+-- Color highlighting
+local hasEnabledColorHighlighting = false
+
+-- Lsp Lines
+local hasEnabledLspLines = false
+local lspLinesStateIsOn = false
+local toggleLspLines = function()
+  if lspLinesStateIsOn then
+    vim.diagnostic.config {
+      virtual_text = true,
+      virtual_lines = false,
+    }
+    lspLinesStateIsOn = false
+  else
+    vim.diagnostic.config {
+      virtual_text = false,
+      virtual_lines = true,
+    }
+    lspLinesStateIsOn = true
+  end
+end
+
+return {
+  'DanWlker/toolbox.nvim',
+  keys = {
+    {
+      '<leader>ft',
+      function()
+        require('toolbox').show_picker()
+      end,
+      desc = 'Find in Toolbox',
+      mode = { 'n', 'v' },
+    },
+  },
+  dependencies = { 'nvim-telescope/telescope.nvim' },
+  opts = {
+    commands = {
+      {
+        name = 'Visual-whitespace: Toggle',
+        execute = function()
+          require('visual-whitespace').toggle()
+        end,
+      },
+      {
+        name = 'Wrap: Toggle',
+        execute = 'set wrap!',
+      },
+      {
+        name = 'Minimap: Toggle for buffer',
+        execute = 'Neominimap bufToggle',
+      },
+      {
+        name = 'Minimap: Toggle globally',
+        execute = 'Neominimap toggle',
+      },
+      {
+        name = 'Tab: Close',
+        execute = 'tabclose',
+      },
+      {
+        name = 'Json: Format',
+        execute = "%!jq '.'",
+      },
+      {
+        name = 'Print: Vim table',
+        execute = function(v)
+          print(vim.inspect(v))
+        end,
+      },
+      {
+        name = 'Copy: Relative path',
+        execute = function()
+          local path = vim.fn.expand '%'
+          vim.fn.setreg('+', path)
+        end,
+      },
+      {
+        name = 'Copy: Absolute path',
+        execute = function()
+          local path = vim.fn.expand '%:p'
+          vim.fn.setreg('+', path)
+        end,
+      },
+      {
+        name = 'Copy: Vim table',
+        execute = function(v)
+          vim.fn.setreg('+', vim.inspect(v))
+        end,
+      },
+      {
+        name = 'Plugin: Reload',
+        execute = function(name)
+          package.loaded[name] = nil
+          require(name).setup()
+        end,
+      },
+      {
+        name = 'Csv: Align',
+        execute = 'RainbowAlign',
+      },
+      {
+        name = 'Csv: Shrink',
+        execute = 'RainbowShrink',
+      },
+      {
+        name = 'Color Highlighting: Toggle',
+        execute = function()
+          if hasEnabledColorHighlighting then
+            require('nvim-highlight-colors').toggle()
+            return
+          end
+
+          hasEnabledColorHighlighting = true
+          require('nvim-highlight-colors').turnOn()
+        end,
+      },
+      {
+        name = 'Lsp-lines: Toggle',
+        execute = function()
+          if not hasEnabledLspLines then
+            hasEnabledLspLines = true
+            require 'lsp_lines'
+          end
+          toggleLspLines()
+        end,
+      },
+      {
+        name = 'Conform: Format buffer',
+        execute = function()
+          require('conform').format { async = true, lsp_format = 'fallback' }
+        end,
+      },
+    },
+  },
+  config = true,
+}
