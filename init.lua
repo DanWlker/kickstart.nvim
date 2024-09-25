@@ -20,11 +20,10 @@ require('lazy').setup({
 
   -- [[ Plugins ]]
   require 'plugins.vim-sleuth',
-  require 'plugins.which-key', --causes delay with motions like 'V'
+  require 'plugins.which-key',
   require 'plugins.telescope',
   require 'plugins.conform',
-  -- require 'plugins.nvim-cmp',
-  require 'plugins.nvim-autopairs', -- to re-enable integration when autocmds are added
+  require 'plugins.nvim-autopairs',
   require 'plugins.blink-cmp',
   require 'plugins.todo-comments',
   require 'plugins.nvim-treesitter',
@@ -56,11 +55,7 @@ require('lazy').setup({
   require 'plugins.nvim-hlslens',
   require 'plugins.undotree',
   require 'plugins.vim-dadbod-ui',
-
-  -- require 'plugins.indent-blankline',
-  -- require 'plugins.unused.mini-indentscope',
   require 'plugins.hlchunk',
-
   require 'plugins.toolbox',
   -- {
   --   dir = '~/projects/toolbox.nvim',
