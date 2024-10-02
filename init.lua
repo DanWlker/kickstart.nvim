@@ -47,6 +47,7 @@ require('lazy').setup({
   require 'plugins.nvim-dap',
   require 'plugins.blame',
   require 'plugins.flash',
+  -- require 'plugins.nvim-autopairs',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
