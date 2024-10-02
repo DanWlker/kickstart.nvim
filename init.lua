@@ -35,7 +35,7 @@ require('lazy').setup({
   require 'plugins.nvim-cmp',
   require 'plugins.todo-comments',
   require 'plugins.nvim-treesitter',
-  require 'plugins.indent-blankline',
+  -- require 'plugins.indent-blankline',
   require 'plugins.nvim-lint',
   require 'plugins.git-messenger',
   require 'plugins.markview',
@@ -47,7 +47,8 @@ require('lazy').setup({
   require 'plugins.nvim-dap',
   require 'plugins.blame',
   require 'plugins.flash',
-  -- require 'plugins.nvim-autopairs',
+  require 'plugins.nvim-autopairs',
+  require 'plugins.hlchunk',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
