@@ -13,9 +13,28 @@ return {
       's',
       mode = { 'n', 'x', 'o' },
       function()
-        require('flash').jump()
+        require('flash').jump {
+          search = {
+            multi_window = false,
+          },
+        }
       end,
-      desc = 'Flash',
+      desc = 'Flash (On the character)',
+    },
+    {
+      'S',
+      mode = { 'n', 'x', 'o' },
+      function()
+        require('flash').jump {
+          search = {
+            multi_window = false,
+          },
+          jump = {
+            offset = -1,
+          },
+        }
+      end,
+      desc = 'Flash (One character before)',
     },
   },
 }
