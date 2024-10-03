@@ -30,7 +30,8 @@ return {
             multi_window = false,
           },
           jump = {
-            offset = -1,
+            pos = 'end',
+            inclusive = false,
           },
         }
       end,
