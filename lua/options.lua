@@ -2,6 +2,26 @@ local o = vim.opt
 o.number = true
 o.mouse = 'a'
 o.showmode = false
+
+local function isEmpty(s)
+  return s == nil and s == ''
+end
+
+if not isEmpty(vim.env.WSL_INTEROP) or not isEmpty(vim.env.WSL_DISTRO_NAME) then
+  vim.g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
+
 vim.schedule(function()
   o.clipboard = 'unnamedplus'
 end)
