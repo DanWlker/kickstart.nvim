@@ -3,11 +3,10 @@ o.number = true
 o.mouse = 'a'
 o.showmode = false
 
-local function isEmpty(s)
-  return s == nil and s == ''
+function isNotEmpty(s)
+  return s ~= nil and s ~= ''
 end
-
-if not isEmpty(vim.env.WSL_INTEROP) or not isEmpty(vim.env.WSL_DISTRO_NAME) then
+if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
