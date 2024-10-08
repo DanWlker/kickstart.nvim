@@ -72,6 +72,10 @@ require('lazy').setup({
   --             vim.cmd 'thing'
   --           end,
   --         },
+  --         {
+  --           name = 'Testing',
+  --           execute = 's/leader/thing',
+  --         },
   --       },
   --     }
   --
