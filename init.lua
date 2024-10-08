@@ -49,6 +49,35 @@ require('lazy').setup({
   require 'plugins.flash',
   require 'plugins.nvim-autopairs',
   require 'plugins.hlchunk',
+  require 'plugins.toolbox',
+  -- {
+  --   dir = '~/projects/toolbox.nvim',
+  --   name = 'toolbox',
+  --   config = function()
+  --     require('toolbox').setup {
+  --       commands = {
+  --         {
+  --           name = 'Format Json',
+  --           execute = "%!jq '.'",
+  --         },
+  --         {
+  --           name = 'Format Json (Function)',
+  --           execute = function()
+  --             vim.cmd "%!jq '.'"
+  --           end,
+  --         },
+  --         {
+  --           name = 'thing',
+  --           execute = function()
+  --             vim.cmd 'thing'
+  --           end,
+  --         },
+  --       },
+  --     }
+  --
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>h', require('toolbox').show_picker, { desc = '' })
+  --   end,
+  -- },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
