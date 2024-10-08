@@ -11,3 +11,7 @@ R = function(name)
   package.loaded[name] = nil
   require(name).setup()
 end
+
+FormatJson = function()
+  vim.cmd "%!jq '.'"
+end
