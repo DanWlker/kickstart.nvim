@@ -10,6 +10,6 @@ return {
       },
     }
 
-    vim.keymap.set({ 'n', 'v' }, '<leader>ch', require('toolbox').show_picker, { desc = '[C]ode [H]elpers' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>st', require('toolbox').show_picker, { desc = '[S]earch [T]oolbox' })
   end,
 }

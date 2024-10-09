@@ -35,7 +35,6 @@ require('lazy').setup({
   require 'plugins.nvim-cmp',
   require 'plugins.todo-comments',
   require 'plugins.nvim-treesitter',
-  -- require 'plugins.indent-blankline',
   require 'plugins.nvim-lint',
   require 'plugins.git-messenger',
   require 'plugins.markview',
@@ -48,8 +47,13 @@ require('lazy').setup({
   require 'plugins.blame',
   require 'plugins.flash',
   require 'plugins.nvim-autopairs',
+
+  -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',
-  require 'plugins.bigfile',
+
+  -- require 'plugins.bigfile',
+  require 'plugins.faster',
+
   require 'plugins.toolbox',
   -- {
   --   dir = '~/projects/toolbox.nvim',
