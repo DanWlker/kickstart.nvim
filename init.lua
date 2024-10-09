@@ -58,24 +58,19 @@ require('lazy').setup({
   --     require('toolbox').setup {
   --       commands = {
   --         {
+  --           name = 'Format Json Req Input',
+  --           execute = "%!jq '.'",
+  --           require_input = true,
+  --         },
+  --         {
   --           name = 'Format Json',
   --           execute = "%!jq '.'",
   --         },
   --         {
-  --           name = 'Format Json (Function)',
-  --           execute = function()
-  --             vim.cmd "%!jq '.'"
+  --           name = 'Print My NAME',
+  --           execute = function(item)
+  --             print('The name is ' .. item .. '-agen')
   --           end,
-  --         },
-  --         {
-  --           name = 'thing',
-  --           execute = function()
-  --             vim.cmd 'thing'
-  --           end,
-  --         },
-  --         {
-  --           name = 'Testing',
-  --           execute = 's/leader/thing',
   --         },
   --       },
   --     }
