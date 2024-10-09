@@ -49,6 +49,7 @@ require('lazy').setup({
   require 'plugins.flash',
   require 'plugins.nvim-autopairs',
   require 'plugins.hlchunk',
+  require 'plugins.bigfile',
   require 'plugins.toolbox',
   -- {
   --   dir = '~/projects/toolbox.nvim',
