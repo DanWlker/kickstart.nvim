@@ -7,6 +7,25 @@ return {
           name = 'Format Json',
           execute = "%!jq '.'",
         },
+        {
+          name = 'Inspect Vim Table',
+          execute = function(v)
+            print(vim.inspect(v))
+          end,
+        },
+        {
+          name = 'Copy Vim Table To Clipboard',
+          execute = function(v)
+            vim.fn.setreg('+', vim.inspect(v))
+          end,
+        },
+        {
+          name = 'Reload plugin',
+          execute = function(name)
+            package.loaded[name] = nil
+            require(name).setup()
+          end,
+        },
       },
     }
 

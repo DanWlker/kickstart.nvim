@@ -13,8 +13,6 @@ require 'keymaps'
 
 require 'autocmds'
 
-require 'helpers'
-
 require 'install_lazy'
 
 require('lazy').setup({
@@ -63,7 +61,16 @@ require('lazy').setup({
   --       commands = {
   --         {
   --           name = 'Format Json Req Input',
-  --           execute = "%!jq '.'",
+  --           execute = "%!jq '.'<Esc>",
+  --           require_input = true,
+  --         },
+  --         {
+  --           name = 'format leader',
+  --           execute = 's/leader/thing',
+  --         },
+  --         {
+  --           name = 'format leader req input',
+  --           execute = 's/leader/thing',
   --           require_input = true,
   --         },
   --         {
@@ -76,10 +83,16 @@ require('lazy').setup({
   --             print('The name is ' .. item .. '-agen')
   --           end,
   --         },
+  --         {
+  --           name = 'Print My NAME<Left><Left><Left>',
+  --           execute = function(item)
+  --             print('The name is ' .. item .. '-agen')
+  --           end,
+  --         },
   --       },
   --     }
   --
-  --     vim.keymap.set({ 'n', 'v' }, '<leader>h', require('toolbox').show_picker, { desc = '' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>st', require('toolbox').show_picker, { desc = '' })
   --   end,
   -- },
 }, {
