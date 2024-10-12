@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, {
   callback = function()
-    local separator = '   '
+    local separator = '  '
     vim.opt.statuscolumn = '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum."'
       .. separator
       .. '":""}'
