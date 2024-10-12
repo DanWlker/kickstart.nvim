@@ -40,7 +40,5 @@ o.cursorline = true
 o.scrolloff = 10
 o.relativenumber = true
 o.fillchars = { eob = ' ' }
-if vim.g.neovide then
-  o.cursorlineopt = 'number'
-end
+o.cursorlineopt = 'number'
 o.list = false

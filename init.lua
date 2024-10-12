@@ -2,7 +2,6 @@ local g = vim.g
 g.mapleader = ' '
 g.maplocalleader = ' '
 g.have_nerd_font = true
-vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#cdd6f4' })
 vim.diagnostic.config {
   float = { border = 'rounded' },
 }
