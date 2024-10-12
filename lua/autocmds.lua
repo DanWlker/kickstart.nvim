@@ -24,7 +24,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'WinEnter' }, {
       .. '%#LineNr0#%{(v:relnum == 0)?v:lnum." '
       .. separator
       .. '":""}'
-
     vim.cmd 'highlight LineNr0 guifg=#dedede'
     vim.cmd 'highlight LineNr1 guifg=#bdbdbd'
     vim.cmd 'highlight LineNr2 guifg=#9c9c9c'
