@@ -1,0 +1,3 @@
+return {
+  'Domeee/mosel.nvim',
+}
