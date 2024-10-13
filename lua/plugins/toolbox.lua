@@ -4,6 +4,10 @@ return {
     require('toolbox').setup {
       commands = {
         {
+          name = 'Toggle Markview',
+          execute = 'Markview toggleAll',
+        },
+        {
           name = 'Format Json',
           execute = "%!jq '.'",
         },
