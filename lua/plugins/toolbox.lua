@@ -1,5 +1,15 @@
 return {
   'DanWlker/toolbox.nvim',
+  keys = {
+    {
+      '<leader>st',
+      function()
+        require('toolbox').show_picker()
+      end,
+      desc = '[S]earch [T]oolbox',
+      mode = { 'n', 'v' },
+    },
+  },
   config = function()
     require('toolbox').setup {
       commands = {
@@ -36,7 +46,5 @@ return {
         },
       },
     }
-
-    vim.keymap.set({ 'n', 'v' }, '<leader>st', require('toolbox').show_picker, { desc = '[S]earch [T]oolbox' })
   end,
 }
