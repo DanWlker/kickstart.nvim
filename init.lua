@@ -44,6 +44,7 @@ require('lazy').setup({
   require 'plugins.blame',
   require 'plugins.flash',
   require 'plugins.nvim-autopairs',
+  require 'plugins.diffview',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',

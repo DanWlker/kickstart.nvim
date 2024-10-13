@@ -4,6 +4,10 @@ return {
     require('toolbox').setup {
       commands = {
         {
+          name = 'Close current tab',
+          execute = 'tabclose',
+        },
+        {
           name = 'Toggle Markview',
           execute = 'Markview toggleAll',
         },
