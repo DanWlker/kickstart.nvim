@@ -34,12 +34,13 @@ return {
         live_grep = {
           file_ignore_patterns = { 'node_modules', '.git/' },
           additional_args = function()
-            return { '--hidden' }
+            return { '--hidden', '--no-ignore' }
           end,
         },
         find_files = {
           file_ignore_patterns = { 'node_modules', '.git/', '.github/' },
           hidden = true,
+          no_ignore = true,
         },
       },
     }
