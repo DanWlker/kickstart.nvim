@@ -3,21 +3,26 @@ local WIDTH_RATIO = 0.79 -- You can change this too
 
 return {
   'nvim-tree/nvim-tree.lua',
-  keys = { '\\' },
+  keys = {
+    {
+      '\\',
+      function()
+        require('nvim-tree.api').tree.toggle()
+      end,
+    },
+  },
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
-    require('nvim-tree').setup {
-      disable_netrw = true,
-      hijack_netrw = true,
-      sort = {
-        sorter = 'case_sensitive',
-      },
-      -- view = {
-      --   width = 40,
-      --   side = 'right',
-      -- },
+    local floating = false
+
+    local view = {
+      relativenumber = true,
+      width = 40,
+      side = 'right',
+    }
+    if floating then
       view = {
         relativenumber = true,
         float = {
@@ -44,7 +49,16 @@ return {
         width = function()
           return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
         end,
+      }
+    end
+
+    require('nvim-tree').setup {
+      disable_netrw = true,
+      hijack_netrw = true,
+      sort = {
+        sorter = 'case_sensitive',
       },
+      view = view,
       renderer = {
         group_empty = true,
         indent_markers = { enable = true },
@@ -68,34 +82,31 @@ return {
       },
     }
 
+    local tree_api = require 'nvim-tree.api'
+    if floating then
+      vim.api.nvim_create_augroup('NvimTreeResize', {
+        clear = true,
+      })
+      vim.api.nvim_create_autocmd({ 'VimResized' }, {
+        group = 'NvimTreeResize',
+        callback = function()
+          if require('nvim-tree.view').is_visible() then
+            tree_api.tree.close()
+            tree_api.tree.open()
+          end
+        end,
+      })
+    end
+
     -- local nvimTreeFocusOrToggle = function()
-    --   local nvimTree = require 'nvim-tree.api'
     --   local currentBuf = vim.api.nvim_get_current_buf()
     --   local currentBufFt = vim.api.nvim_get_option_value('filetype', { buf = currentBuf })
     --   if currentBufFt == 'NvimTree' then
-    --     nvimTree.tree.toggle()
+    --     tree_api.tree.toggle()
     --   else
-    --     nvimTree.tree.focus()
+    --     tree_api.tree.focus()
     --   end
     -- end
-    --
-    local tree_api = require 'nvim-tree.api'
-    local tree_view = require 'nvim-tree.view'
-
-    vim.api.nvim_create_augroup('NvimTreeResize', {
-      clear = true,
-    })
-
-    vim.api.nvim_create_autocmd({ 'VimResized' }, {
-      group = 'NvimTreeResize',
-      callback = function()
-        if tree_view.is_visible() then
-          tree_api.tree.close()
-          tree_api.tree.open()
-        end
-      end,
-    })
-
-    vim.keymap.set('n', '\\', tree_api.tree.toggle)
+    -- vim.keymap.set('n', '\\', nvimTreeFocusOrToggle)
   end,
 }
