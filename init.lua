@@ -2,10 +2,6 @@ local g = vim.g
 g.mapleader = ' '
 g.maplocalleader = ' '
 g.have_nerd_font = true
-vim.diagnostic.config {
-  float = { border = 'rounded' },
-}
-
 function isNotEmpty(s)
   return s ~= nil and s ~= ''
 end
@@ -24,6 +20,7 @@ if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   }
 end
 
+vim.diagnostic.config { float = { border = 'rounded' } }
 local signs = {
   Error = ' ',
   Warn = ' ',

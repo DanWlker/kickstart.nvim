@@ -14,7 +14,7 @@ o.updatetime = 250
 o.timeoutlen = 500
 o.splitright = true
 o.splitbelow = true
-o.list = true
+o.list = false
 o.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 o.inccommand = 'split'
 o.cursorline = true
@@ -22,4 +22,3 @@ o.scrolloff = 10
 o.relativenumber = true
 o.fillchars = { eob = ' ' }
 o.cursorlineopt = 'number'
-o.list = false
