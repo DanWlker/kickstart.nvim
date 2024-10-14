@@ -6,6 +6,35 @@ vim.diagnostic.config {
   float = { border = 'rounded' },
 }
 
+function isNotEmpty(s)
+  return s ~= nil and s ~= ''
+end
+if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
+  g.clipboard = {
+    name = 'WslClipboard',
+    copy = {
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
+    },
+    paste = {
+      ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
+
+local signs = {
+  Error = ' ',
+  Warn = ' ',
+  Hint = ' ',
+  Info = ' ',
+}
+for type, icon in pairs(signs) do
+  local hl = 'DiagnosticSign' .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 require 'options'
 
 require 'keymaps'
@@ -45,6 +74,7 @@ require('lazy').setup({
   require 'plugins.flash',
   require 'plugins.nvim-autopairs',
   require 'plugins.diffview',
+  require 'plugins.neominimap',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',
