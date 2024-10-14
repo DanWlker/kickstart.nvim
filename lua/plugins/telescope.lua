@@ -32,7 +32,7 @@ return {
       },
       pickers = {
         live_grep = {
-          file_ignore_patterns = { 'node_modules', '.git/' },
+          file_ignore_patterns = { 'node_modules', '.git/', '.github/' },
           additional_args = function()
             return { '--hidden', '--no-ignore' }
           end,
