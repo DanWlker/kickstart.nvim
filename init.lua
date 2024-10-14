@@ -71,7 +71,8 @@ require('lazy').setup({
   require 'plugins.flash',
   require 'plugins.nvim-autopairs',
   require 'plugins.diffview',
-  require 'plugins.neominimap',
+
+  -- require 'plugins.neominimap',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',

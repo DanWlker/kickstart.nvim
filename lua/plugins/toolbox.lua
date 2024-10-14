@@ -13,14 +13,14 @@ return {
   config = function()
     require('toolbox').setup {
       commands = {
-        {
-          name = 'Toggle minimap for buffer',
-          execute = 'Neominimap bufToggle',
-        },
-        {
-          name = 'Toggle minimap globally',
-          execute = 'Neominimap toggle',
-        },
+        -- {
+        --   name = 'Toggle minimap for buffer',
+        --   execute = 'Neominimap bufToggle',
+        -- },
+        -- {
+        --   name = 'Toggle minimap globally',
+        --   execute = 'Neominimap toggle',
+        -- },
         {
           name = 'Close current tab',
           execute = 'tabclose',
