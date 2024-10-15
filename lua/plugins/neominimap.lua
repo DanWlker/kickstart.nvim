@@ -18,13 +18,14 @@ return {
       end,
       float = {
         z_index = 21, -- must be higher than treesitter context
-        window_border = 'rounded',
+        window_border = 'none',
       },
       click = {
         enabled = true,
       },
       winopt = function(wo)
         wo.statuscolumn = ''
+        wo.cursorlineopt = 'line'
       end,
     }
   end,
