@@ -23,6 +23,9 @@ return {
       click = {
         enabled = true,
       },
+      winopt = function(wo)
+        wo.statuscolumn = ''
+      end,
     }
   end,
 }
