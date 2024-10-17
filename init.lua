@@ -39,6 +39,7 @@ require('lazy').setup({
   require 'plugins.diffview',
   require 'plugins.neominimap',
   require 'plugins.grug-far',
+  require 'plugins.bufferline',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',
