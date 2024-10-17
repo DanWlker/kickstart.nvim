@@ -23,7 +23,7 @@ o.relativenumber = true
 o.fillchars = { eob = ' ' }
 o.cursorlineopt = 'number'
 
-local separator = '  '
+local separator = '   '
 vim.opt.statuscolumn = '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum."'
   .. separator
   .. '":""}'
