@@ -97,20 +97,38 @@ return {
         },
       },
       formatting = {
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
-          -- Source
-          vim_item.menu = ({
-            buffer = '[Buffer]',
-            nvim_lsp = '[LSP]',
-            luasnip = '[LuaSnip]',
-            nvim_lua = '[Lua]',
-            latex_symbols = '[LaTeX]',
-          })[entry.source.name]
-          return vim_item
+        format = function(_, item)
+          item.kind = (cmp_kinds[item.kind] or '') .. item.kind
+
+          local widths = {
+            abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+            menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+          }
+
+          for key, width in pairs(widths) do
+            if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+              item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. '…'
+            end
+          end
+
+          return item
         end,
       },
+      -- formatting = {
+      --   format = function(entry, vim_item)
+      --     -- Kind icons
+      --     vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+      --     -- Source
+      --     vim_item.menu = ({
+      --       buffer = '[Buffer]',
+      --       nvim_lsp = '[LSP]',
+      --       luasnip = '[LuaSnip]',
+      --       nvim_lua = '[Lua]',
+      --       latex_symbols = '[LaTeX]',
+      --     })[entry.source.name]
+      --     return vim_item
+      --   end,
+      -- },
     }
   end,
 }

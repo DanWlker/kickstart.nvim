@@ -18,6 +18,7 @@ return {
       c = 'Σ(°△°ꪱꪱ)',
       s = '(´ ▽｀) ',
     }
+    local icons = require 'shared.icons'
     require('lualine').setup {
       options = {
         -- component_separators = '|',
@@ -36,6 +37,18 @@ return {
             fmt = function()
               return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
             end,
+          },
+        },
+        lualine_b = {
+          'branch',
+          {
+            'diagnostics',
+            symbols = {
+              error = icons.Error,
+              warn = icons.Warn,
+              info = icons.Info,
+              hint = icons.Hint,
+            },
           },
         },
         lualine_c = {
