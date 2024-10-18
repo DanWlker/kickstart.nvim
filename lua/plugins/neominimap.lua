@@ -18,7 +18,7 @@ return {
       end,
       float = {
         z_index = 21, -- must be higher than treesitter context
-        window_border = 'none',
+        window_border = 'rounded',
       },
       click = {
         enabled = true,
