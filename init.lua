@@ -40,6 +40,7 @@ require('lazy').setup({
   require 'plugins.neominimap',
   require 'plugins.grug-far',
   require 'plugins.bufferline',
+  require 'plugins.snipe',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',
