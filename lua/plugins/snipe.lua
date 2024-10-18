@@ -9,5 +9,9 @@ return {
       desc = 'Open Snipe buffer menu',
     },
   },
-  opts = {},
+  opts = {
+    hints = {
+      dictionary = 'shwftamrenilu', -- Just gallium layout easy to reach keys
+    },
+  },
 }
