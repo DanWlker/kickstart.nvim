@@ -18,5 +18,10 @@ return {
         },
       },
     },
+    custom_highlights = function(colors)
+      return {
+        WinSeparator = { fg = colors.subtext0 },
+      }
+    end,
   },
 }
