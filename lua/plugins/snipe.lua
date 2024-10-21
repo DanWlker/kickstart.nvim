@@ -13,5 +13,10 @@ return {
     hints = {
       dictionary = 'shwftamrenilu', -- Just gallium layout easy to reach keys
     },
+    ui = {
+      open_win_override = {
+        border = 'rounded',
+      },
+    },
   },
 }
