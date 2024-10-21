@@ -1,9 +1,5 @@
 return {
-  -- TODO: Change back to hrsh7th/nvim-cmp when this is merged:
-  -- https://www.reddit.com/r/neovim/s/vcyOf03zfU
-  -- https://github.com/hrsh7th/nvim-cmp/pull/1980
-  'yioneko/nvim-cmp',
-  branch = 'perf',
+  'hrsh7th/nvim-cmp',
   event = 'InsertEnter',
   dependencies = {
     {
