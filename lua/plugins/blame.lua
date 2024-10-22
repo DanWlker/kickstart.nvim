@@ -7,9 +7,8 @@ return {
       desc = '[G]it Blame [L]ist',
     },
   },
-  config = function()
-    require('blame').setup {
-      blame_options = { '-w' },
-    }
-  end,
+  opts = {
+    blame_options = { '-w' },
+  },
+  config = true,
 }

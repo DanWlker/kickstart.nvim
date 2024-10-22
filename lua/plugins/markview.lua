@@ -4,15 +4,14 @@ return {
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
-  config = function()
-    require('markview').setup {
-      hybrid_modes = { 'n' },
-      callbacks = {
-        on_enable = function(_, win)
-          vim.wo[win].conceallevel = 2
-          vim.wo[win].conecalcursor = 'c'
-        end,
-      },
-    }
-  end,
+  opts = {
+    hybrid_modes = { 'n' },
+    callbacks = {
+      on_enable = function(_, win)
+        vim.wo[win].conceallevel = 2
+        vim.wo[win].conecalcursor = 'c'
+      end,
+    },
+  },
+  config = true,
 }

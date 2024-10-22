@@ -4,7 +4,5 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  config = function()
-    require('lsp-file-operations').setup()
-  end,
+  config = true,
 }
