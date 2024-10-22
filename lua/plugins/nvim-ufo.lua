@@ -1,8 +1,3 @@
-vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-
 -- global handler
 -- `handler` is the 2nd parameter of `setFoldVirtTextHandler`,
 -- check out `./lua/ufo.lua` and search `setFoldVirtTextHandler` for detail.
@@ -57,6 +52,12 @@ return {
       mode = 'n',
     },
   },
+  init = function()
+    vim.o.foldcolumn = '0' -- '0' is not bad
+    vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+    vim.o.foldlevelstart = 99
+    vim.o.foldenable = true
+  end,
   opts = {
     fold_virt_text_handler = handler,
     provider_selector = function(_, _, _)

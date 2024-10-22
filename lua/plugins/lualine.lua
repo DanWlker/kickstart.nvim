@@ -13,6 +13,7 @@ local mode_map = {
   s = '(´ ▽｀) ',
 }
 local icons = require 'shared.icons'
+
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
