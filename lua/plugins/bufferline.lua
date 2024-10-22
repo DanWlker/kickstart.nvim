@@ -1,6 +1,6 @@
 return {
   'akinsho/bufferline.nvim',
-  event = 'VeryLazy',
+  event = 'VimEnter',
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
     local mocha = require('catppuccin.palettes').get_palette 'mocha'
