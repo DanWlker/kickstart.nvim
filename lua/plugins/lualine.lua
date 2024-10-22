@@ -16,6 +16,7 @@ local icons = require 'shared.icons'
 
 return {
   'nvim-lualine/lualine.nvim',
+  event = 'VimEnter',
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },

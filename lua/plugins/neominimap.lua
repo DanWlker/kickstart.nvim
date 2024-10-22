@@ -1,6 +1,7 @@
 return {
   'Isrothy/neominimap.nvim',
   version = 'v3.*.*',
+  event = 'VimEnter',
   init = function()
     -- The following options are recommended when layout == "float"
     vim.opt.wrap = false
