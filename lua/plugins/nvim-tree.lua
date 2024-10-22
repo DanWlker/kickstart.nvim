@@ -1,6 +1,3 @@
-local HEIGHT_RATIO = 0.85 -- You can change this
-local WIDTH_RATIO = 0.79 -- You can change this too
-
 return {
   'nvim-tree/nvim-tree.lua',
   keys = {
@@ -15,6 +12,8 @@ return {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
+    local HEIGHT_RATIO = 0.85 -- You can change this
+    local WIDTH_RATIO = 0.79 -- You can change this too
     local floating = false
 
     local view = {
