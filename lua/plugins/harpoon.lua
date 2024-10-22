@@ -8,7 +8,7 @@ return {
       function()
         require('harpoon'):list():add()
       end,
-      mode = { 'n', 'v' },
+      mode = 'n',
       desc = '[H]arpoon [A]dd',
     },
     {
@@ -16,7 +16,7 @@ return {
       function()
         require('harpoon').ui:toggle_quick_menu(require('harpoon'):list())
       end,
-      mode = { 'n', 'v' },
+      mode = 'n',
       desc = '[H]arpoon [E]dit',
     },
     {
@@ -24,28 +24,28 @@ return {
       function()
         require('harpoon'):list():select(1)
       end,
-      mode = { 'n', 'v' },
+      mode = 'n',
     },
     {
       '<C-a>',
       function()
         require('harpoon'):list():select(2)
       end,
-      mode = { 'n', 'v' },
+      mode = 'n',
     },
     {
       '<C-e>',
       function()
         require('harpoon'):list():select(3)
       end,
-      mode = { 'n', 'v' },
+      mode = 'n',
     },
     {
       '<C-i>',
       function()
         require('harpoon'):list():select(4)
       end,
-      mode = { 'n', 'v' },
+      mode = 'n',
     },
   },
   config = function()
