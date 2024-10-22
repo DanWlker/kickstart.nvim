@@ -68,8 +68,8 @@ vim.opt.statuscolumn = '%s%=%#LineNr4#%{(v:relnum >= 4)?v:relnum."'
   .. '%#LineNr0#%{(v:relnum == 0)?v:lnum." '
   .. separator
   .. '":""}'
-vim.cmd 'highlight LineNr0 guifg=#dedede'
-vim.cmd 'highlight LineNr1 guifg=#bdbdbd'
-vim.cmd 'highlight LineNr2 guifg=#9c9c9c'
-vim.cmd 'highlight LineNr3 guifg=#7b7b7b'
-vim.cmd 'highlight LineNr4 guifg=#5a5a5a'
+vim.api.nvim_set_hl(0, 'LineNr0', { fg = '#dedede' })
+vim.api.nvim_set_hl(0, 'LineNr1', { fg = '#bdbdbd' })
+vim.api.nvim_set_hl(0, 'LineNr2', { fg = '#9c9c9c' })
+vim.api.nvim_set_hl(0, 'LineNr3', { fg = '#7b7b7b' })
+vim.api.nvim_set_hl(0, 'LineNr4', { fg = '#5a5a5a' })
