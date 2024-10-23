@@ -13,7 +13,7 @@ require('lazy').setup({
   -- [[ LSP ]]
   require 'lsp.luvit-meta',
   require 'lsp.lazydev',
-  require 'lsp.nvim-lsp-file-operations',
+  require 'lsp.mason',
   require 'lsp.nvim-lspconfig',
 
   -- [[ Plugins ]]

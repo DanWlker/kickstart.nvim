@@ -1,12 +1,18 @@
 return {
-  --https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
   'neovim/nvim-lspconfig',
+  event = { 'BufReadPost', 'BufNewFile' },
   dependencies = {
-    { 'williamboman/mason.nvim', config = true },
-    'williamboman/mason-lspconfig.nvim',
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'williamboman/mason.nvim', --Ensure mason is run first before setting up
     { 'j-hui/fidget.nvim', opts = {} },
     'hrsh7th/cmp-nvim-lsp',
+    {
+      'antosha417/nvim-lsp-file-operations',
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        'nvim-tree/nvim-tree.lua',
+      },
+      config = true,
+    },
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -77,66 +83,7 @@ return {
       ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
     }
 
-    local servers = {
-      -- clangd = {},
-      gopls = {
-        settings = {
-          gopls = {
-            gofumpt = true,
-          },
-        },
-      },
-      gofumpt = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      ts_ls = {
-        init_options = {
-          plugins = {
-            {
-              name = '@vue/typescript-plugin',
-              location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
-              languages = { 'javascript', 'typescript', 'vue' },
-            },
-          },
-        },
-        filetypes = {
-          'javascript',
-          'typescript',
-          'vue',
-        },
-      },
-      eslint = {},
-      html = {},
-      cssls = {},
-      volar = {},
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-            diagnostics = {
-              disable = { 'missing-fields' },
-            },
-          },
-        },
-      },
-    }
-
-    require('mason').setup()
-
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua',
-      'markdownlint',
-      'prettierd',
-      'prettier',
-      'golangci-lint',
-    })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
+    local servers = require('shared.lsp').getServers()
     require('mason-lspconfig').setup {
       handlers = {
         function(server_name)
