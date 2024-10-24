@@ -57,32 +57,38 @@ require('lazy').setup({
   --     require('toolbox').setup {
   --       commands = {
   --         {
-  --           name = 'Format Json Req Input',
+  --           -- name = 'Format Json Req Input',
+  --           name = 'A',
   --           execute = "%!jq '.'<Esc>",
   --           require_input = true,
   --         },
   --         {
-  --           name = 'format leader',
+  --           -- name = 'format leader',
+  --           name = 'c',
   --           execute = 's/leader/thing',
   --         },
   --         {
-  --           name = 'format leader req input',
+  --           -- name = 'format leader req input',
+  --           name = 'b',
   --           execute = 's/leader/thing',
   --           require_input = true,
   --         },
   --         {
-  --           name = 'Format Json',
+  --           -- name = 'Format Json',
+  --           name = 'F',
   --           execute = "%!jq '.'",
   --         },
   --         {
-  --           name = 'Print My NAME',
+  --           -- name = 'Print My NAME',
+  --           name = 'this1',
   --           execute = function(item)
   --             print('The name is ' .. item .. '-agen')
   --           end,
   --         },
   --         {
-  --           name = 'Print My NAME<Left><Left><Left>',
-  --           execute = function(item)
+  --           -- name = 'Print My NAME<Left><Left><Left>',
+  --           name = 'this2',
+  --           execute = function(item, item2, item3)
   --             print('The name is ' .. item .. '-agen')
   --           end,
   --         },

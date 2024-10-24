@@ -34,7 +34,7 @@ return {
         execute = "%!jq '.'",
       },
       {
-        name = 'Inspect Vim table',
+        name = 'Print Vim table',
         execute = function(v)
           print(vim.inspect(v))
         end,
