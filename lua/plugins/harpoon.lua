@@ -40,13 +40,6 @@ return {
       end,
       mode = 'n',
     },
-    {
-      '<C-i>',
-      function()
-        require('harpoon'):list():select(4)
-      end,
-      mode = 'n',
-    },
   },
   config = function()
     local harpoon = require 'harpoon'
