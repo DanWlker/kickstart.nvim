@@ -28,6 +28,7 @@
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "mosel.nvim": { "branch": "main", "commit": "3b0e8fe44eb3888d2b45226a77f425d6f7f0c624" },
   "neominimap.nvim": { "branch": "main", "commit": "c1566cad9d1c3a2abce9fdac430f2893ffbe5d41" },
+  "no-clown-fiesta.nvim": { "branch": "master", "commit": "6fda94cc0748a57e7057ce1e68ae4a3480ff4b78" },
   "nvim-autopairs": { "branch": "master", "commit": "ee297f215e95a60b01fde33275cc3c820eddeebe" },
   "nvim-cmp": { "branch": "main", "commit": "29fb4854573355792df9e156cb779f0d31308796" },
   "nvim-dap": { "branch": "master", "commit": "7ff6936010b7222fea2caea0f67ed77f1b7c60dd" },
