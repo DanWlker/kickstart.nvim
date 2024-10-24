@@ -66,6 +66,14 @@ return {
           require(name).setup()
         end,
       },
+      {
+        name = 'Align csv file',
+        execute = 'RainbowAlign',
+      },
+      {
+        name = 'Shrink csv file (Remove spaces)',
+        execute = 'RainbowShrink',
+      },
     },
   },
   config = true,

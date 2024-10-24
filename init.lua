@@ -41,6 +41,7 @@ require('lazy').setup({
   require 'plugins.grug-far',
   require 'plugins.bufferline',
   require 'plugins.harpoon',
+  require 'plugins.rainbow_csv',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',
