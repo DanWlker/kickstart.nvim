@@ -34,13 +34,27 @@ return {
         execute = "%!jq '.'",
       },
       {
-        name = 'Inspect Vim Table',
+        name = 'Inspect Vim table',
         execute = function(v)
           print(vim.inspect(v))
         end,
       },
       {
-        name = 'Copy Vim Table To Clipboard',
+        name = 'Copy relative path to clipboard',
+        execute = function()
+          local path = vim.fn.expand '%'
+          vim.fn.setreg('+', path)
+        end,
+      },
+      {
+        name = 'Copy absolute path to clipboard',
+        execute = function()
+          local path = vim.fn.expand '%:p'
+          vim.fn.setreg('+', path)
+        end,
+      },
+      {
+        name = 'Copy Vim table to clipboard',
         execute = function(v)
           vim.fn.setreg('+', vim.inspect(v))
         end,
