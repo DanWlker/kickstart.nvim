@@ -4,7 +4,14 @@ return {
     {
       '\\',
       function()
-        require('nvim-tree.api').tree.toggle()
+        local nvimTree = require 'nvim-tree.api'
+        local currentBuf = vim.api.nvim_get_current_buf()
+        local currentBufFt = vim.api.nvim_get_option_value('filetype', { buf = currentBuf })
+        if currentBufFt == 'NvimTree' then
+          nvimTree.tree.toggle()
+        else
+          nvimTree.tree.focus()
+        end
       end,
     },
   },
@@ -18,7 +25,7 @@ return {
 
     local view = {
       relativenumber = true,
-      width = 40,
+      width = 55,
       side = 'right',
     }
     if floating then
@@ -96,16 +103,5 @@ return {
         end,
       })
     end
-
-    -- local nvimTreeFocusOrToggle = function()
-    --   local currentBuf = vim.api.nvim_get_current_buf()
-    --   local currentBufFt = vim.api.nvim_get_option_value('filetype', { buf = currentBuf })
-    --   if currentBufFt == 'NvimTree' then
-    --     tree_api.tree.toggle()
-    --   else
-    --     tree_api.tree.focus()
-    --   end
-    -- end
-    -- vim.keymap.set('n', '\\', nvimTreeFocusOrToggle)
   end,
 }
