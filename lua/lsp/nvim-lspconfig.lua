@@ -4,7 +4,6 @@ return {
   dependencies = {
     'williamboman/mason.nvim', --Ensure mason is run first before setting up
     { 'j-hui/fidget.nvim', opts = {} },
-    'hrsh7th/cmp-nvim-lsp',
     {
       'antosha417/nvim-lsp-file-operations',
       dependencies = {
@@ -77,7 +76,7 @@ return {
     local capabilities = vim.tbl_deep_extend(
       'force',
       vim.lsp.protocol.make_client_capabilities(),
-      require('cmp_nvim_lsp').default_capabilities(),
+      require('blink.cmp').get_lsp_capabilities(),
       require('lsp-file-operations').default_capabilities()
     )
 
