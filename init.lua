@@ -23,7 +23,9 @@ require('lazy').setup({
   require 'plugins.which-key', --causes delay with motions like 'V'
   require 'plugins.telescope',
   require 'plugins.conform',
-  require 'plugins.nvim-cmp',
+  -- require 'plugins.nvim-cmp',
+  require 'plugins.nvim-autopairs', -- to re-enable integration when autocmds are added
+  require 'plugins.blink-cmp',
   require 'plugins.todo-comments',
   require 'plugins.nvim-treesitter',
   require 'plugins.nvim-lint',
@@ -36,7 +38,6 @@ require('lazy').setup({
   require 'plugins.nvim-dap',
   require 'plugins.blame',
   require 'plugins.flash',
-  require 'plugins.nvim-autopairs',
   require 'plugins.diffview',
   require 'plugins.neominimap',
   require 'plugins.grug-far',

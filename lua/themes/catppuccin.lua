@@ -12,6 +12,7 @@ return {
           information = { 'undercurl' },
         },
       },
+      blink_cmp = true,
       notify = true,
     },
     custom_highlights = function(colors)
@@ -20,36 +21,10 @@ return {
 
         VisualNonText = { fg = colors.surface2, bg = colors.surface1 },
 
-        BlinkCmpMenu = { fg = colors.text, bg = colors.base },
+        BlinkCmpMenu = { bg = colors.base },
         BlinkCmpMenuBorder = { fg = colors.overlay0, bg = colors.base },
-        BlinkCmpDoc = { fg = colors.text, bg = colors.base },
-
-        -- Remove when switching to blink
-        CmpItemKindText = { fg = colors.green },
-        CmpItemKindMethod = { fg = colors.blue },
-        CmpItemKindFunction = { fg = colors.blue },
-        CmpItemKindConstructor = { fg = colors.blue },
-        CmpItemKindField = { fg = colors.green },
-        CmpItemKindVariable = { fg = colors.flamingo },
-        CmpItemKindClass = { fg = colors.yellow },
-        CmpItemKindInterface = { fg = colors.yellow },
-        CmpItemKindModule = { fg = colors.blue },
-        CmpItemKindProperty = { fg = colors.blue },
-        CmpItemKindUnit = { fg = colors.green },
-        CmpItemKindValue = { fg = colors.peach },
-        CmpItemKindEnum = { fg = colors.yellow },
-        CmpItemKindKeyword = { fg = colors.mauve },
-        CmpItemKindSnippet = { fg = colors.flamingo },
-        CmpItemKindColor = { fg = colors.red },
-        CmpItemKindFile = { fg = colors.blue },
-        CmpItemKindReference = { fg = colors.red },
-        CmpItemKindFolder = { fg = colors.blue },
-        CmpItemKindEnumMember = { fg = colors.teal },
-        CmpItemKindConstant = { fg = colors.peach },
-        CmpItemKindStruct = { fg = colors.blue },
-        CmpItemKindEvent = { fg = colors.blue },
-        CmpItemKindOperator = { fg = colors.sky },
-        CmpItemKindTypeParameter = { fg = colors.maroon },
+        BlinkCmpDoc = { bg = colors.base },
+        BlinkCmpDocBorder = { fg = colors.blue, bg = colors.base },
 
         TelescopeNormal = { bg = colors.mantle },
         TelescopePreviewTitle = {
