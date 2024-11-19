@@ -134,6 +134,30 @@ return {
         name = 'Lint: Lint Info',
         execute = 'LintInfo',
       },
+      {
+        name = 'Sql: Open Ui',
+        execute = function()
+          vim.cmd 'tabnew'
+          vim.cmd 'DBUI'
+          vim.cmd 'set shiftwidth=2'
+        end,
+      },
+      {
+        name = 'Sql: Toggle Ui',
+        execute = 'DBUIToggle',
+      },
+      {
+        name = 'Sql: Add Connection',
+        execute = 'DBUIAddConnection',
+      },
+      {
+        name = 'Sql: Clear Cache',
+        execute = 'DBCompletionClearCache',
+      },
+      {
+        name = 'Sql: Format',
+        execute = '!sleek',
+      },
     },
   },
   config = true,
