@@ -3,6 +3,7 @@ return {
   event = 'InsertEnter',
   build = 'rustup run nightly cargo build --release',
   dependencies = {
+    'kristijanhusak/vim-dadbod-completion',
     {
       'L3MON4D3/LuaSnip',
       build = (function()
@@ -43,9 +44,10 @@ return {
     },
     sources = {
       completion = {
-        enabled_providers = { 'lsp', 'path', 'luasnip', 'buffer', 'lazydev'},
+        enabled_providers = { 'lsp', 'path', 'luasnip', 'buffer', 'lazydev', 'dadbod' },
       },
       providers = {
+        dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
         lsp = { fallback_for = { 'lazydev' } },
         lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' },
         luasnip = {

@@ -26,6 +26,10 @@ return {
       click = {
         enabled = true,
       },
+      exclude_filetypes = {
+        'help',
+        'dbout',
+      },
       winopt = function(wo)
         wo.cursorlineopt = 'line'
       end,
