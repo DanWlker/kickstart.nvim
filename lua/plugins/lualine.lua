@@ -45,10 +45,10 @@ return {
         {
           'diagnostics',
           symbols = {
-            error = icons.Error,
-            warn = icons.Warn,
-            info = icons.Info,
-            hint = icons.Hint,
+            error = icons.ERROR,
+            warn = icons.WARN,
+            info = icons.INFO,
+            hint = icons.HINT,
           },
         },
       },

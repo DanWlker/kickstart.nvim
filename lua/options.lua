@@ -26,10 +26,11 @@ end
 
 vim.diagnostic.config { float = { border = 'rounded' } }
 if vim.g.have_nerd_font then
+  local diagnostic_signs = {}
   for type, icon in pairs(require 'shared.icons') do
-    local hl = 'DiagnosticSign' .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    diagnostic_signs[vim.diagnostic.severity[type]] = icon
   end
+  vim.diagnostic.config { signs = { text = diagnostic_signs } }
 end
 
 vim.opt.number = true

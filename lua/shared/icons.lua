@@ -3,8 +3,8 @@ return {
   -- Warn = ' ',
   -- Hint = ' ',
   -- Info = ' ',
-  Error = '󰅚 ',
-  Warn = '󰀪 ',
-  Hint = '󰌶 ',
-  Info = '󰋽 ',
+  ERROR = '󰅚 ',
+  WARN = '󰀪 ',
+  HINT = '󰌶 ',
+  INFO = '󰋽 ',
 }
