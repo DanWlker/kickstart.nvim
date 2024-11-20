@@ -51,9 +51,8 @@ local function ai_buffer(ai_type)
 end
 
 return {
-
   'echasnovski/mini.ai',
-  event = 'InsertEnter',
+  event = 'VimEnter',
   dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
   config = function()
     local ai = require 'mini.ai'
