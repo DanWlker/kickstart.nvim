@@ -47,6 +47,7 @@ require('lazy').setup({
   require 'plugins.nvim-highlight-colors',
   require 'plugins.lsp-lines',
   require 'plugins.mini-ai',
+  require 'plugins.mini-surround',
 
   -- require 'plugins.indent-blankline',
   require 'plugins.hlchunk',
