@@ -62,10 +62,8 @@ return {
     },
     {
       '<leader>tt',
-      function()
-        require('trouble').toggle(require('trouble').last_mode)
-      end,
-      desc = 'Trouble Toggle Last Mode',
+      '<cmd>TodoTrouble<cr>',
+      desc = 'Todo List (Trouble)',
     },
   },
 }

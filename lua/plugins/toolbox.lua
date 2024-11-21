@@ -24,11 +24,11 @@ return {
   'DanWlker/toolbox.nvim',
   keys = {
     {
-      '<leader>ft',
+      '<leader>s',
       function()
         require('toolbox').show_picker()
       end,
-      desc = 'Find in Toolbox',
+      desc = 'Shortcuts in Toolbox',
       mode = { 'n', 'v' },
     },
   },

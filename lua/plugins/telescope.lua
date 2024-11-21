@@ -127,6 +127,11 @@ return {
       end,
       desc = 'Find Neovim Files',
     },
+    {
+      '<leader>ft',
+      '<cmd>TodoTelescope<cr>',
+      desc = 'Find Neovim Files',
+    },
   },
   config = function()
     local open_with_trouble = require('trouble.sources.telescope').open
