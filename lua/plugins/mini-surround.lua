@@ -20,13 +20,13 @@ return {
   end,
   opts = {
     mappings = {
-      add = 'ma', -- Add surrounding in Normal and Visual modes
-      delete = 'md', -- Delete surrounding
-      find = 'mf', -- Find surrounding (to the right)
-      find_left = 'mF', -- Find surrounding (to the left)
-      highlight = 'mh', -- Highlight surrounding
-      replace = 'mr', -- Replace surrounding
-      update_n_lines = 'mn', -- Update `n_lines`
+      add = 'sa', -- Add surrounding in Normal and Visual modes
+      delete = 'sd', -- Delete surrounding
+      find = 'sf', -- Find surrounding (to the right)
+      find_left = 'sF', -- Find surrounding (to the left)
+      highlight = 'sh', -- Highlight surrounding
+      replace = 'sr', -- Replace surrounding
+      update_n_lines = 'sn', -- Update `n_lines`
     },
   },
 }
