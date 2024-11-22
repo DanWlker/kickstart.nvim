@@ -1,3 +1,16 @@
+function vim.getVisualSelection()
+  vim.cmd 'noau normal! "vy"'
+  local text = vim.fn.getreg 'v'
+  vim.fn.setreg('v', {})
+
+  text = string.gsub(text, '\n', '')
+  if #text > 0 then
+    return text
+  else
+    return ''
+  end
+end
+
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -48,9 +61,15 @@ return {
     {
       '<leader>fw',
       function()
+        local text = vim.getVisualSelection()
+        if text ~= '' then
+          require('telescope.builtin').grep_string { search = text }
+          return
+        end
+
         require('telescope.builtin').grep_string()
       end,
-      mode = 'n',
+      mode = { 'n', 'x' },
       desc = 'Find Word',
     },
     {
@@ -139,8 +158,14 @@ return {
     require('telescope').setup {
       defaults = {
         mappings = {
-          i = { ['<c-t>'] = open_with_trouble },
-          n = { ['<c-t>'] = open_with_trouble },
+          i = {
+            ['<C-t>'] = open_with_trouble,
+            ['<C-f>'] = require('telescope.actions').to_fuzzy_refine,
+          },
+          n = {
+            ['<C-t>'] = open_with_trouble,
+            ['<C-f>'] = require('telescope.actions').to_fuzzy_refine,
+          },
         },
         -- prompt_prefix = '  ',
         prompt_prefix = '   ',
