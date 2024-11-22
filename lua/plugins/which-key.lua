@@ -43,15 +43,12 @@ return {
     },
 
     spec = {
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-      { '<leader>d', group = '[D]ocument' },
-      { '<leader>r', group = '[R]ename' },
       { '<leader>s', group = '[S]hortcuts from Toolbox' },
       { '<leader>f', group = '[F]ind using Telescope' },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]rouble' },
       { '<leader>g', group = '[G]it' },
-      { '<leader>h', group = '[H]arpoon', mode = { 'n', 'v' } },
+      { '<leader>h', group = '[H]arpoon' },
     },
   },
 }
