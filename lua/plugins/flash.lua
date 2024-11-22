@@ -9,7 +9,7 @@ return {
   },
   keys = {
     {
-      's',
+      'j',
       mode = { 'n', 'x', 'o' },
       function()
         require('flash').jump {
@@ -18,10 +18,10 @@ return {
           },
         }
       end,
-      desc = 'Flash (On the character)',
+      desc = 'Flash Jump (On the character)',
     },
     {
-      'S',
+      'J',
       mode = { 'n', 'x', 'o' },
       function()
         require('flash').jump {
@@ -34,7 +34,7 @@ return {
           },
         }
       end,
-      desc = 'Flash (One character before)',
+      desc = 'Flash Jump (One character before)',
     },
   },
 }

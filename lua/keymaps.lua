@@ -16,3 +16,9 @@ map('n', '<M-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
 map('n', '<M-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
 map('n', '<M-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 map('n', '<M-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+
+-- Don't cancel me
+map('n', 'h', '<nop>')
+map('n', 'j', '<nop>')
+map('n', 'k', '<nop>')
+map('n', 'l', '<nop>')
