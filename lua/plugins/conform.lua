@@ -22,6 +22,7 @@ return {
       -- python = { 'isort', 'black' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'jq' },
+      c = { 'clang-format' },
     },
   },
 }

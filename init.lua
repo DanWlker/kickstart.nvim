@@ -17,6 +17,7 @@ require('lazy').setup({
   require 'lsp.lazydev',
   require 'lsp.mason',
   require 'lsp.nvim-lspconfig',
+  require 'lsp.clangd-extensions',
 
   -- [[ Plugins ]]
   require 'plugins.vim-sleuth',
