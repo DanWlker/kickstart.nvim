@@ -43,27 +43,29 @@ M.getServers = function()
     },
     gofumpt = {},
 
-    -- Vue, but its messy, probably should refer to LazyVim config
-    ts_ls = {
-      init_options = {
-        plugins = {
-          {
-            name = '@vue/typescript-plugin',
-            location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
-            languages = { 'javascript', 'typescript', 'vue' },
-          },
-        },
-      },
-      filetypes = {
-        'javascript',
-        'typescript',
-        'vue',
-      },
-    },
-    eslint = {},
+    --Html, Css, Js
     html = {},
     cssls = {},
-    volar = {},
+    eslint = {}, -- May need to look into if this will conflict with prettier but, so far not sure
+
+    -- Vue, but its messy, probably should refer to LazyVim config
+    -- ts_ls = {
+    --   init_options = {
+    --     plugins = {
+    --       {
+    --         name = '@vue/typescript-plugin',
+    --         location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
+    --         languages = { 'javascript', 'typescript', 'vue' },
+    --       },
+    --     },
+    --   },
+    --   filetypes = {
+    --     'javascript',
+    --     'typescript',
+    --     'vue',
+    --   },
+    -- },
+    -- volar = {},
 
     -- Lua
     lua_ls = {

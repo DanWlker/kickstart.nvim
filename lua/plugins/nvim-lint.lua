@@ -5,11 +5,11 @@ return {
   config = function()
     local lint = require 'lint'
 
-    local golangcilint = lint.linters.golangcilint
-    -- Add wsl to golangcilint
-    -- https://github.com/bombsimon/wsl?tab=readme-ov-file
-    table.insert(golangcilint.args, '--enable')
-    table.insert(golangcilint.args, 'wsl')
+    -- local golangcilint = lint.linters.golangcilint
+    -- -- Add wsl to golangcilint
+    -- -- https://github.com/bombsimon/wsl?tab=readme-ov-file
+    -- table.insert(golangcilint.args, '--enable')
+    -- table.insert(golangcilint.args, 'wsl')
 
     lint.linters_by_ft = {
       markdown = { 'markdownlint' },
