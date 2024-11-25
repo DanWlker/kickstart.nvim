@@ -51,6 +51,7 @@ require('lazy').setup({
   require 'plugins.mini-surround',
 
   -- require 'plugins.indent-blankline',
+  -- require 'plugins.unused.mini-indentscope',
   require 'plugins.hlchunk',
 
   require 'plugins.toolbox',

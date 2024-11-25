@@ -68,6 +68,8 @@ return {
         TelescopePromptNormal = { fg = colors.text, bg = colors.mantle },
         TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
         TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
+
+        -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
       }
     end,
   },
