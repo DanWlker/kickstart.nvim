@@ -43,6 +43,10 @@ function CheckSymbolOrNumber(current)
     end
   end
 
+  if current < 10 then
+    return ' ' .. current
+  end
+
   return current
 end
 
