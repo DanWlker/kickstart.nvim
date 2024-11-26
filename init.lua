@@ -13,7 +13,6 @@ require('lazy').setup({
   { import = 'themes' },
 
   -- [[ LSP ]]
-  require 'lsp.luvit-meta',
   require 'lsp.lazydev',
   require 'lsp.mason',
   require 'lsp.nvim-lspconfig',
