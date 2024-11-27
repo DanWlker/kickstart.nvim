@@ -48,6 +48,8 @@ require('lazy').setup({
   require 'plugins.lsp-lines',
   require 'plugins.mini-ai',
   require 'plugins.mini-surround',
+  require 'plugins.dressing',
+  require 'plugins.nvim-notify',
 
   -- require 'plugins.indent-blankline',
   -- require 'plugins.unused.mini-indentscope',

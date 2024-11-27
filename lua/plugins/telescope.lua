@@ -22,7 +22,6 @@ return {
         return vim.fn.executable 'make' == 1
       end,
     },
-    'nvim-telescope/telescope-ui-select.nvim',
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   keys = {
@@ -142,6 +141,13 @@ return {
     {
       '<leader>fn',
       function()
+        require('telescope').extensions.notify.notify()
+      end,
+      desc = 'Find Neovim Files',
+    },
+    {
+      '<leader>fN',
+      function()
         require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
       end,
       desc = 'Find Neovim Files',
@@ -202,6 +208,6 @@ return {
     }
 
     pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'notify')
   end,
 }

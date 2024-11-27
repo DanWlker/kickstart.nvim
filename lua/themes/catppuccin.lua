@@ -12,6 +12,7 @@ return {
           information = { 'undercurl' },
         },
       },
+      notify = true,
     },
     custom_highlights = function(colors)
       return {
@@ -70,6 +71,10 @@ return {
         TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
 
         -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
+
+        NotifyINFOBorder = { fg = colors.green },
+        NotifyINFOIcon = { fg = colors.green },
+        NotifyINFOTitle = { fg = colors.green, style = { 'italic' } },
       }
     end,
   },
