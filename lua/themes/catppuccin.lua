@@ -50,6 +50,15 @@ return {
         NotifyINFOBorder = { fg = colors.green },
         NotifyINFOIcon = { fg = colors.green },
         NotifyINFOTitle = { fg = colors.green, style = { 'italic' } },
+
+        FzfLuaNormal = { bg = colors.mantle },
+        FzfLuaBorder = { fg = colors.mantle, bg = colors.mantle },
+        FzfLuaTitle = {
+          fg = colors.base,
+          bg = colors.lavender,
+        },
+        FzfLuaHeaderBind = { fg = colors.rosewater },
+        FzfLuaHeaderText = { fg = colors.green },
       }
     end,
   },
