@@ -20,7 +20,7 @@ require('lazy').setup({
 
   -- [[ Plugins ]]
   require 'plugins.vim-sleuth',
-  require 'plugins.which-key',
+  -- require 'plugins.which-key', --causes delay with motions like 'V'
   require 'plugins.telescope',
   require 'plugins.conform',
   require 'plugins.nvim-cmp',
