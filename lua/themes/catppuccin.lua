@@ -70,6 +70,13 @@ return {
         TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
 
         -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
+
+        FzfLuaNormal = { bg = colors.mantle },
+        FzfLuaBorder = { fg = colors.mantle, bg = colors.mantle },
+        FzfLuaTitle = {
+          fg = colors.base,
+          bg = colors.green,
+        },
       }
     end,
   },

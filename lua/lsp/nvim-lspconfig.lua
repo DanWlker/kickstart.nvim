@@ -27,19 +27,33 @@ return {
         map('grn', vim.lsp.buf.rename, 'Rename References')
         map('gra', vim.lsp.buf.code_action, 'Code Actions', { 'n', 'x' })
         map('grr', function()
-          require('telescope.builtin').lsp_references { reuse_win = true }
+          require('fzf-lua').lsp_references {
+            sync = true,
+            jump_to_single_result = true,
+          }
         end, 'Goto References')
-        map('gri', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-        map('gO', require('telescope.builtin').lsp_document_symbols, 'Show Document Symbols')
+        map('gri', function()
+          require('fzf-lua').lsp_implementations {
+            sync = true,
+            jump_to_single_result = true,
+          }
+        end, 'Goto Implementation')
+        map('gO', require('fzf-lua').lsp_document_symbols, 'Show Document Symbols')
         map('<C-S>', vim.lsp.buf.signature_help, 'Signature help in insert mode', { 'i' }) --Note this is insert mode
 
         map('gd', function()
-          require('telescope.builtin').lsp_definitions { reuse_win = true }
+          require('fzf-lua').lsp_definitions {
+            sync = true,
+            jump_to_single_result = true,
+          }
         end, 'Goto Definition')
         map('<leader>D', function()
-          require('telescope.builtin').lsp_type_definitions { reuse_win = true }
+          require('fzf-lua').lsp_typedefs {
+            sync = true,
+            jump_to_single_result = true,
+          }
         end, 'Show Type Definition')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
+        map('<leader>ws', require('fzf-lua').lsp_live_workspace_symbols, 'Show Workspace Symbols')
         map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)

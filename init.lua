@@ -21,7 +21,6 @@ require('lazy').setup({
   -- [[ Plugins ]]
   require 'plugins.vim-sleuth',
   -- require 'plugins.which-key', --causes delay with motions like 'V'
-  require 'plugins.telescope',
   require 'plugins.conform',
   require 'plugins.nvim-cmp',
   require 'plugins.todo-comments',
@@ -48,6 +47,9 @@ require('lazy').setup({
   require 'plugins.lsp-lines',
   require 'plugins.mini-ai',
   require 'plugins.mini-surround',
+
+  -- require 'plugins.telescope',
+  require 'plugins.fzf-lua',
 
   -- require 'plugins.indent-blankline',
   -- require 'plugins.unused.mini-indentscope',
