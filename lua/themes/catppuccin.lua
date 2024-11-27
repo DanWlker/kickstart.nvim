@@ -58,6 +58,15 @@ return {
         MiniStatuslineDiagnosticInfo = { bg = colors.surface0, fg = colors.sky },
         MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
         MiniStatuslineRecording = { bg = colors.red, fg = colors.base },
+
+        FzfLuaNormal = { bg = colors.mantle },
+        FzfLuaBorder = { fg = colors.mantle, bg = colors.mantle },
+        FzfLuaTitle = {
+          fg = colors.base,
+          bg = colors.lavender,
+        },
+        FzfLuaHeaderBind = { fg = colors.rosewater },
+        FzfLuaHeaderText = { fg = colors.green },
       }
     end,
   },

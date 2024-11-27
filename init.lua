@@ -23,7 +23,6 @@ require('lazy').setup({
   -- [[ Plugins ]]
   require 'plugins.vim-sleuth',
   require 'plugins.which-key',
-  require 'plugins.telescope',
   require 'plugins.conform',
   require 'plugins.nvim-autopairs',
   require 'plugins.blink-cmp',
@@ -56,6 +55,7 @@ require('lazy').setup({
   require 'plugins.mini-move',
   require 'plugins.undotree',
   require 'plugins.vim-dadbod-ui',
+  require 'plugins.fzf-lua',
   require 'plugins.hlchunk',
   require 'plugins.nvim-coverage',
   require 'plugins.toolbox',
