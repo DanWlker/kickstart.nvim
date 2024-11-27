@@ -1,7 +1,7 @@
 return {
-  'folke/todo-comments.nvim',
-  event = { 'BufReadPost', 'BufNewFile' },
-  cmd = { 'TodoTrouble', 'TodoTelescope' },
+  'DanWlker/todo-comments.nvim',
+  -- event = { 'BufReadPost', 'BufNewFile' },
+  cmd = { 'TodoTrouble', 'TodoFzfLua' },
   dependencies = { 'nvim-lua/plenary.nvim' },
   opts = { signs = false },
 }
