@@ -18,6 +18,7 @@ return {
     statuscolumn = {
       right = { 'fold' },
     },
+    image = {},
     -- Not as good as hlchunk
     -- indent = {
     --   indent = {
