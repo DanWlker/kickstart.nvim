@@ -1,5 +1,10 @@
 local map = vim.keymap.set
-map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', '<Esc>', function()
+  if package.loaded['notify'] then
+    require('notify').dismiss()
+  end
+  vim.cmd 'nohlsearch'
+end)
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('n', 'Q', '<nop>')
 map('v', '<S-Down>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = 'Move Down' })
