@@ -18,6 +18,10 @@ return {
       float = {
         z_index = 21, -- must be higher than treesitter context
         window_border = 'none',
+        margin = {
+          top = 2,
+        },
+        minimap_width = 15,
       },
       click = {
         enabled = true,

@@ -50,6 +50,7 @@ require('lazy').setup({
   require 'plugins.mini-surround',
   require 'plugins.dressing',
   require 'plugins.nvim-notify',
+  require 'plugins.incline',
 
   -- require 'plugins.indent-blankline',
   -- require 'plugins.unused.mini-indentscope',
