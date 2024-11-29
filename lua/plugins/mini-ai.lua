@@ -138,8 +138,6 @@ return {
   end,
   config = function(_, opts)
     require('mini.ai').setup(opts)
-    if package.loaded['which-key'] then
-      ai_whichkey(opts)
-    end
+    ai_whichkey(opts)
   end,
 }
