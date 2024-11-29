@@ -51,6 +51,7 @@ require('lazy').setup({
   require 'plugins.dressing',
   require 'plugins.nvim-notify',
   require 'plugins.incline',
+  require 'plugins.mini-splitjoin',
 
   -- require 'plugins.indent-blankline',
   -- require 'plugins.unused.mini-indentscope',
