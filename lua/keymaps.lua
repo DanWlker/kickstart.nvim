@@ -19,8 +19,9 @@ map('n', '<M-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Wi
 map('n', '<M-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
 
 -- Don't cancel me
-map('n', 'h', '<nop>')
-map('n', 'j', '<nop>')
+map('n', 'h', '<nop>') -- this is now mapped to flash nvim, thinking of binding f to flash and freeing up t
+map('n', 'j', '<nop>') -- this is now mapped for jj, js, jt, I don't know what to do with the default j
 map('n', 'k', '<nop>')
 map('n', 'l', '<nop>')
-map('n', 'S', "m'a<CR><Esc>`'")
+-- map('n', 'S', "m'a<CR><Esc>`'")
+map('n', 'S', 'a<CR><Esc>')
