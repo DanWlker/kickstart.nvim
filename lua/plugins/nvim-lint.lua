@@ -5,6 +5,17 @@ return {
   config = function()
     local lint = require 'lint'
 
+    vim.api.nvim_create_user_command('LintInfo', function()
+      local filetype = vim.bo.filetype
+      local linters = require('lint').linters_by_ft[filetype]
+
+      if linters then
+        vim.notify('Linters for ' .. filetype .. ': ' .. table.concat(linters, ', '))
+      else
+        vim.notify('No linters configured for filetype: ' .. filetype)
+      end
+    end, {})
+
     -- local golangcilint = lint.linters.golangcilint
     -- -- Add wsl to golangcilint
     -- -- https://github.com/bombsimon/wsl?tab=readme-ov-file
@@ -14,6 +25,7 @@ return {
     lint.linters_by_ft = {
       markdown = { 'markdownlint' },
       go = { 'golangcilint' },
+      yaml = { 'yamllint' },
     }
 
     -- To allow other plugins to add linters to require('lint').linters_by_ft,

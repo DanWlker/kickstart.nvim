@@ -130,6 +130,10 @@ return {
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
       },
+      {
+        name = 'Lint: Lint Info',
+        execute = 'LintInfo',
+      },
     },
   },
   config = true,

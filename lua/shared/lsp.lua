@@ -145,6 +145,7 @@ M.getEnsureInstalled = function()
     'prettier',
     'golangci-lint',
     'clang-format',
+    'yamllint',
   })
   return ensure_installed
 end
