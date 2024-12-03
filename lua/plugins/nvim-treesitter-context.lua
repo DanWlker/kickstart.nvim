@@ -12,6 +12,7 @@ return {
     separator = nil,
     zindex = 20,
     on_attach = nil,
+    multiwindow = true,
   },
   config = true,
 }
