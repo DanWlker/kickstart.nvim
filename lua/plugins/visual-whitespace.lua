@@ -1,6 +1,6 @@
 return {
   'mcauley-penney/visual-whitespace.nvim',
-  -- event = 'ModeChanged *:[vV]', -- This is handled internally but just in case
+  -- event = 'VimEnter', -- this is handled internally
   opts = {
     --   nl_char = '󰌑',
     excluded = {
