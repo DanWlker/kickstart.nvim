@@ -1,3 +1,4 @@
+vim.g.disable_rainbow_statusline = 1
 return {
   'cameron-wags/rainbow_csv.nvim',
   config = true,
