@@ -70,11 +70,13 @@ require('lazy').setup({
   --           name = 'A',
   --           execute = "%!jq '.'<Esc>",
   --           require_input = true,
+  --           weight = 0,
   --         },
   --         {
   --           -- name = 'format leader',
   --           name = 'c',
   --           execute = 's/leader/thing',
+  --           weight = -1,
   --         },
   --         {
   --           -- name = 'format leader req input',
@@ -93,6 +95,7 @@ require('lazy').setup({
   --           execute = function(item)
   --             print('The name is ' .. item .. '-agen')
   --           end,
+  --           tags = { 'second' },
   --         },
   --         {
   --           -- name = 'Print My NAME<Left><Left><Left>',
@@ -100,11 +103,14 @@ require('lazy').setup({
   --           execute = function(item, item2, item3)
   --             print('The name is ' .. item .. '-agen')
   --           end,
+  --           tags = { 'first', 'second' },
   --         },
   --       },
   --     }
   --
-  --     vim.keymap.set({ 'n', 'v' }, '<leader>st', require('toolbox').show_picker, { desc = '' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>s', function()
+  --       require('toolbox').show_picker()
+  --     end, { desc = '' })
   --   end,
   -- },
 }, {
