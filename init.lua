@@ -56,6 +56,7 @@ require('lazy').setup({
   require 'plugins.undotree',
   require 'plugins.vim-dadbod-ui',
   require 'plugins.hlchunk',
+  require 'plugins.nvim-coverage',
   require 'plugins.toolbox',
   -- {
   --   dir = '~/projects/toolbox.nvim',

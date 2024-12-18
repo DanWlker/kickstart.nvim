@@ -29,6 +29,7 @@
   "mini.surround": { "branch": "main", "commit": "aa5e245829dd12d8ff0c96ef11da28681d6049aa" },
   "neominimap.nvim": { "branch": "main", "commit": "7e4657f1ce04d74be87a77bd442257ad293308b9" },
   "nvim-autopairs": { "branch": "master", "commit": "b464658e9b880f463b9f7e6ccddd93fb0013f559" },
+  "nvim-coverage": { "branch": "main", "commit": "aa4b4400588e2259e87e372b1e4e90ae13cf5a39" },
   "nvim-dap": { "branch": "master", "commit": "567da83810dd9da32f9414d941bc6848715fc102" },
   "nvim-dap-go": { "branch": "main", "commit": "6aa88167ea1224bcef578e8c7160fe8afbb44848" },
   "nvim-dap-ui": { "branch": "master", "commit": "ffa89839f97bad360e78428d5c740fdad9a0ff02" },

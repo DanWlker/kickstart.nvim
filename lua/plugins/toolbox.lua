@@ -158,6 +158,18 @@ return {
         name = 'Sql: Format',
         execute = '!sleek',
       },
+      {
+        name = 'Coverage: Load and Show',
+        execute = 'Coverage',
+      },
+      {
+        name = 'Coverage: Toggle',
+        execute = 'CoverageToggle',
+      },
+      {
+        name = 'Coverage: Summary',
+        execute = 'CoverageSummary',
+      },
     },
   },
   config = true,
