@@ -44,7 +44,7 @@ return {
 
     spec = {
       { '<leader>s', group = '[S]hortcuts from Toolbox' },
-      { '<leader>f', group = '[F]ind using Telescope' },
+      { '<leader>f', group = '[F]ind' },
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]rouble' },
       { '<leader>g', group = '[G]it' },
