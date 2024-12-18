@@ -38,7 +38,7 @@ require('lazy').setup({
   require 'plugins.blame',
   require 'plugins.flash',
   require 'plugins.diffview',
-  require 'plugins.neominimap',
+  require 'plugins.nvim-scrollbar',
   require 'plugins.grug-far',
   require 'plugins.bufferline',
   require 'plugins.harpoon',
