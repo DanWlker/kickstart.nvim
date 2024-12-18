@@ -52,7 +52,6 @@ require('lazy').setup({
   require 'plugins.nvim-notify',
   require 'plugins.mini-splitjoin',
   require 'plugins.mini-move',
-  require 'plugins.nvim-hlslens',
   require 'plugins.undotree',
   require 'plugins.vim-dadbod-ui',
   require 'plugins.hlchunk',
