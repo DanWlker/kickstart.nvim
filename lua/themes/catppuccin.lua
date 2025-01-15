@@ -27,25 +27,6 @@ return {
         BlinkCmpDoc = { bg = colors.base },
         BlinkCmpDocBorder = { fg = colors.blue, bg = colors.base },
 
-        TelescopeNormal = { bg = colors.mantle },
-        TelescopePreviewTitle = {
-          fg = colors.base,
-          bg = colors.green,
-        },
-        TelescopePromptTitle = {
-          fg = colors.base,
-          bg = colors.pink,
-        },
-        TelescopeSelection = { bg = colors.surface0, fg = colors.text },
-        TelescopeResultsDiffAdd = { fg = colors.green },
-        TelescopeResultsDiffChange = { fg = colors.yellow },
-        TelescopeResultsDiffDelete = { fg = colors.red },
-        TelescopeBorder = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptBorder = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptNormal = { fg = colors.text, bg = colors.mantle },
-        TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
-
         -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
 
         NotifyINFOBorder = { fg = colors.green },

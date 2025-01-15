@@ -4,14 +4,6 @@ return {
   dependencies = {
     'williamboman/mason.nvim', --Ensure mason is run first before setting up
     { 'j-hui/fidget.nvim', config = true },
-    {
-      'antosha417/nvim-lsp-file-operations',
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-tree/nvim-tree.lua',
-      },
-      config = true,
-    },
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -26,25 +18,29 @@ return {
         map('grn', vim.lsp.buf.rename, 'Rename References')
         map('gra', vim.lsp.buf.code_action, 'Code Actions', { 'n', 'x' })
         map('grr', function()
-          require('telescope.builtin').lsp_references { reuse_win = true }
+          Snacks.picker.lsp_references()
         end, 'Goto References')
-        map('gri', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-        map('gO', require('telescope.builtin').lsp_document_symbols, 'Show Document Symbols')
+        map('gri', function()
+          Snacks.picker.lsp_implementations()
+        end, 'Goto Implementation')
+        map('gO', function()
+          Snacks.picker.lsp_symbols()
+        end, 'Show Document Symbols')
         map('<C-S>', vim.lsp.buf.signature_help, 'Signature help in insert mode', { 'i' }) --Note this is insert mode
-        map('grc', function()
-          require('telescope.builtin').lsp_incoming_calls()
-        end, 'Goto incoming calls')
-        map('gro', function()
-          require('telescope.builtin').lsp_outgoing_calls()
-        end, 'Goto outgoing calls')
+        -- map('grc', function()
+        --   require('telescope.builtin').lsp_incoming_calls()
+        -- end, 'Goto incoming calls')
+        -- map('gro', function()
+        --   require('telescope.builtin').lsp_outgoing_calls()
+        -- end, 'Goto outgoing calls')
 
         map('gd', function()
-          require('telescope.builtin').lsp_definitions { reuse_win = true }
+          Snacks.picker.lsp_definitions()
         end, 'Goto Definition')
         map('<leader>D', function()
-          require('telescope.builtin').lsp_type_definitions { reuse_win = true }
+          Snacks.picker.lsp_type_definitions()
         end, 'Show Type Definition')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
+        -- map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
         map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -79,12 +75,7 @@ return {
       end,
     })
 
-    local capabilities = vim.tbl_deep_extend(
-      'force',
-      vim.lsp.protocol.make_client_capabilities(),
-      require('blink.cmp').get_lsp_capabilities(),
-      require('lsp-file-operations').default_capabilities()
-    )
+    local capabilities = vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), require('blink.cmp').get_lsp_capabilities())
 
     local border_handlers = {
       ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' }),

@@ -22,7 +22,6 @@ require('lazy').setup({
   -- [[ Plugins ]]
   require 'plugins.vim-sleuth',
   require 'plugins.which-key',
-  require 'plugins.telescope',
   require 'plugins.conform',
   require 'plugins.nvim-autopairs',
   require 'plugins.blink-cmp',
@@ -30,7 +29,6 @@ require('lazy').setup({
   require 'plugins.nvim-treesitter',
   require 'plugins.nvim-lint',
   require 'plugins.git-messenger',
-  require 'plugins.nvim-tree',
   require 'plugins.nvim-ufo',
   require 'plugins.nvim-treesitter-context',
   require 'plugins.trouble',
