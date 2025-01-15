@@ -28,24 +28,24 @@ return {
         BlinkCmpDocBorder = { fg = colors.blue, bg = colors.base },
         BlinkCmpSignatureHelpBorder = { fg = colors.blue, bg = colors.base },
 
-        TelescopeNormal = { bg = colors.mantle },
-        TelescopePreviewTitle = {
-          fg = colors.base,
-          bg = colors.green,
-        },
-        TelescopePromptTitle = {
-          fg = colors.base,
-          bg = colors.pink,
-        },
-        TelescopeSelection = { bg = colors.surface0, fg = colors.text },
-        TelescopeResultsDiffAdd = { fg = colors.green },
-        TelescopeResultsDiffChange = { fg = colors.yellow },
-        TelescopeResultsDiffDelete = { fg = colors.red },
-        TelescopeBorder = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptBorder = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptNormal = { fg = colors.text, bg = colors.mantle },
-        TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
+        -- TelescopeNormal = { bg = colors.mantle },
+        -- TelescopePreviewTitle = {
+        --   fg = colors.base,
+        --   bg = colors.green,
+        -- },
+        -- TelescopePromptTitle = {
+        --   fg = colors.base,
+        --   bg = colors.pink,
+        -- },
+        -- TelescopeSelection = { bg = colors.surface0, fg = colors.text },
+        -- TelescopeResultsDiffAdd = { fg = colors.green },
+        -- TelescopeResultsDiffChange = { fg = colors.yellow },
+        -- TelescopeResultsDiffDelete = { fg = colors.red },
+        -- TelescopeBorder = { fg = colors.mantle, bg = colors.mantle },
+        -- TelescopePromptBorder = { fg = colors.mantle, bg = colors.mantle },
+        -- TelescopePromptNormal = { fg = colors.text, bg = colors.mantle },
+        -- TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
+        -- TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
 
         -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
 
@@ -63,6 +63,10 @@ return {
 
         SnacksIndentChunk = { fg = '#9399b2' },
         SnacksIndentScope = { fg = '#9399b2' },
+        SnacksPickerBorder = { fg = colors.mantle, bg = colors.mantle },
+        SnacksPickerTitle = { fg = colors.base, bg = colors.lavender },
+        --
+        -- SnacksPickerBorder = { fg = colors.lavender, bg = colors.mantle },
       }
     end,
   },
