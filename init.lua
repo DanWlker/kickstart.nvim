@@ -44,7 +44,6 @@ require('lazy').setup({
   require 'plugins.rainbow-csv',
   require 'plugins.visual-whitespace',
   require 'plugins.mini-hipatterns',
-  require 'plugins.lsp-lines',
   require 'plugins.mini-ai',
   require 'plugins.mini-surround',
   require 'plugins.mini-splitjoin',

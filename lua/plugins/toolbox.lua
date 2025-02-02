@@ -1,22 +1,3 @@
--- Lsp Lines
-local hasEnabledLspLines = false
-local lspLinesStateIsOn = false
-local toggleLspLines = function()
-  if lspLinesStateIsOn then
-    vim.diagnostic.config {
-      virtual_text = true,
-      virtual_lines = false,
-    }
-    lspLinesStateIsOn = false
-  else
-    vim.diagnostic.config {
-      virtual_text = false,
-      virtual_lines = true,
-    }
-    lspLinesStateIsOn = true
-  end
-end
-
 return {
   'DanWlker/toolbox.nvim',
   keys = {
@@ -100,16 +81,6 @@ return {
       {
         name = 'Csv: Shrink',
         execute = 'RainbowShrink',
-      },
-      {
-        name = 'Lsp-lines: Toggle',
-        execute = function()
-          if not hasEnabledLspLines then
-            hasEnabledLspLines = true
-            require 'lsp_lines'
-          end
-          toggleLspLines()
-        end,
       },
       {
         name = 'Conform: Format buffer',
