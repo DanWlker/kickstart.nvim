@@ -21,7 +21,9 @@ return {
   opts = {
     keymap = {
       preset = 'enter',
-      cmdline = {
+    },
+    cmdline = {
+      keymap = {
         preset = 'super-tab',
       },
     },
@@ -43,17 +45,6 @@ return {
           module = 'lazydev.integrations.blink',
           score_offset = 100,
         },
-        -- luasnip = {
-        --   name = 'luasnip',
-        --   module = 'blink.compat.source',
-        --
-        --   score_offset = -3,
-        --
-        --   opts = {
-        --     use_show_condition = false,
-        --     show_autosnippets = true,
-        --   },
-        -- },
       },
     },
     signature = {
