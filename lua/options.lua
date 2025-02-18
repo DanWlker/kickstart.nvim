@@ -24,14 +24,33 @@ if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   }
 end
 
-vim.diagnostic.config { float = { border = 'rounded' } }
-if vim.g.have_nerd_font then
-  local diagnostic_signs = {}
-  for type, icon in pairs(require 'shared.icons') do
-    diagnostic_signs[vim.diagnostic.severity[type]] = icon
-  end
-  vim.diagnostic.config { signs = { text = diagnostic_signs } }
-end
+local icons = require 'shared.icons'
+vim.diagnostic.config {
+  severity_sort = true,
+  float = { border = 'rounded', source = 'if_many' },
+  underline = { severity = vim.diagnostic.severity.ERROR },
+  signs = vim.g.have_nerd_font and {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.ERROR,
+      [vim.diagnostic.severity.WARN] = icons.WARN,
+      [vim.diagnostic.severity.INFO] = icons.INFO,
+      [vim.diagnostic.severity.HINT] = icons.HINT,
+    },
+  } or {},
+  virtual_text = {
+    source = 'if_many',
+    spacing = 2,
+    format = function(diagnostic)
+      local diagnostic_message = {
+        [vim.diagnostic.severity.ERROR] = diagnostic.message,
+        [vim.diagnostic.severity.WARN] = diagnostic.message,
+        [vim.diagnostic.severity.INFO] = diagnostic.message,
+        [vim.diagnostic.severity.HINT] = diagnostic.message,
+      }
+      return diagnostic_message[diagnostic.severity]
+    end,
+  },
+}
 
 vim.opt.number = true
 vim.opt.relativenumber = true
