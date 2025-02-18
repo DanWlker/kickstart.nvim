@@ -22,16 +22,12 @@ return {
         end,
       },
       {
-        name = 'Wrap: Toggle',
+        name = 'Wrap: Toggle for current window',
         execute = 'set wrap!',
       },
       {
-        name = 'Minimap: Toggle for buffer',
-        execute = 'Neominimap bufToggle',
-      },
-      {
-        name = 'Minimap: Toggle globally',
-        execute = 'Neominimap toggle',
+        name = 'Wrap: Toggle for all open windows',
+        execute = 'windo set wrap!',
       },
       {
         name = 'Tab: Close',
