@@ -39,7 +39,6 @@ require('lazy').setup({
   require 'plugins.blame',
   require 'plugins.flash',
   require 'plugins.diffview',
-  require 'plugins.nvim-scrollbar',
   require 'plugins.harpoon',
   require 'plugins.rainbow-csv',
   require 'plugins.visual-whitespace',
