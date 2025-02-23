@@ -107,8 +107,25 @@ require('lazy').setup({
   --       },
   --     }
   --
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>w', function()
+  --       vim.list_extend(require('toolbox').opts.commands, {
+  --         {
+  --           -- name = 'Print My NAME<Left><Left><Left>',
+  --           name = 'this4',
+  --           execute = function(item, item2, item3)
+  --             print('The name is ' .. item .. '-agen')
+  --           end,
+  --           tags = { 'first', 'second' },
+  --         },
+  --       })
+  --     end, { desc = '' })
+  --
   --     vim.keymap.set({ 'n', 'v' }, '<leader>s', function()
-  --       require('toolbox').show_picker()
+  --       require('toolbox').show_picker(nil, {
+  --         layout = {
+  --           preset = 'telescope',
+  --         },
+  --       })
   --     end, { desc = '' })
   --   end,
   -- },
