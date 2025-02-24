@@ -5,6 +5,11 @@ return {
   main = 'nvim-treesitter.configs',
   -- [[ Configure Treesitter ]]
   opts = {
+    textobjects = {
+      lsp_interop = {
+        enable = true,
+      },
+    },
     ensure_installed = {
       'bash',
       'c',
