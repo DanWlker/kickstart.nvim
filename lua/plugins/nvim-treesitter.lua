@@ -39,7 +39,7 @@ return {
       'sql',
 
       -- json
-      'json5',
+      'json',
     },
     auto_install = true,
     highlight = {
