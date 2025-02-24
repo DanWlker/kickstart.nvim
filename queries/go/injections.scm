@@ -73,8 +73,7 @@
    (#lua-match? @injection.content "^`[\n|\t| ]*\{.*\}[\n|\t| ]*`$")
    (#offset! @injection.content 0 1 0 -1)
    (#set! injection.include-children)
-   (#set! injection.combined "json")
-   ))
+   (#set! injection.language "json")))
 
 (short_var_declaration
     left: (expression_list (identifier))
@@ -82,8 +81,7 @@
   (#lua-match? @injection.content "^`[\n|\t| ]*\{.*\}[\n|\t| ]*`$")
   (#offset! @injection.content 0 1 0 -1)
   (#set! injection.include-children)
-  (#set! injection.combined "json")
-  )
+  (#set! injection.language "json"))
 
 (var_spec
   name: (identifier)
@@ -91,5 +89,4 @@
    (#lua-match? @injection.content "^`[\n|\t| ]*\{.*\}[\n|\t| ]*`$")
    (#offset! @injection.content 0 1 0 -1)
    (#set! injection.include-children)
-   (#set! injection.combined "json")
-   ))
+   (#set! injection.language "json")))
