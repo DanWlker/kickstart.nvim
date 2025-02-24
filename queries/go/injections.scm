@@ -77,7 +77,6 @@
 	    )
    ))
 
-
 (short_var_declaration
     left: (expression_list (identifier))
     right: (expression_list 
@@ -97,3 +96,12 @@
              (#set! injection.language "json")
              ) 
    ))
+
+; This is technically incorrect but whatever
+(field_declaration
+  name: (field_identifier)
+  type: (type_identifier)
+  tag: (raw_string_literal
+    (raw_string_literal_content) @injection.content
+    (#set! injection.self)
+  ))
