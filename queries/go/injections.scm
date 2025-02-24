@@ -72,21 +72,24 @@
   value: (expression_list (raw_string_literal) @injection.content
    (#lua-match? @injection.content "^`[\n|\t| ]*\{.*\}[\n|\t| ]*`$")
    (#offset! @injection.content 0 1 0 -1)
-   (#set! injection.language "json")
-   (#set! injection.include-children)))
+   (#set! injection.include-children)
+   (#set! injection.combined "json")
+   ))
 
 (short_var_declaration
     left: (expression_list (identifier))
     right: (expression_list (raw_string_literal) @injection.content)
   (#lua-match? @injection.content "^`[\n|\t| ]*\{.*\}[\n|\t| ]*`$")
   (#offset! @injection.content 0 1 0 -1)
-  (#set! injection.language "json")
-  (#set! injection.include-children))
+  (#set! injection.include-children)
+  (#set! injection.combined "json")
+  )
 
 (var_spec
   name: (identifier)
   value: (expression_list (raw_string_literal) @injection.content
    (#lua-match? @injection.content "^`[\n|\t| ]*\{.*\}[\n|\t| ]*`$")
    (#offset! @injection.content 0 1 0 -1)
-   (#set! injection.language "json")
-   (#set! injection.include-children)))
+   (#set! injection.include-children)
+   (#set! injection.combined "json")
+   ))
