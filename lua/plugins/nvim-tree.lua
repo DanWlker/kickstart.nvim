@@ -59,7 +59,48 @@ return {
       }
     end
 
+    local tree_api = require 'nvim-tree.api'
+
     require('nvim-tree').setup {
+      on_attach = function(bufnr)
+        local function opts(desc)
+          return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+        end
+
+        vim.keymap.set('n', 'K', tree_api.node.show_info_popup, opts 'Info')
+        vim.keymap.set('n', '<C-t>', tree_api.node.open.tab, opts 'Open: New Tab')
+        vim.keymap.set('n', '<C-v>', tree_api.node.open.vertical, opts 'Open: Vertical Split')
+        vim.keymap.set('n', '<C-s>', tree_api.node.open.horizontal, opts 'Open: Horizontal Split')
+        vim.keymap.set('n', '<BS>', tree_api.node.navigate.parent_close, opts 'Close Directory')
+        vim.keymap.set('n', '<CR>', tree_api.node.open.edit, opts 'Open')
+        vim.keymap.set('n', '.', tree_api.node.run.cmd, opts 'Run Command')
+        vim.keymap.set('n', 'a', tree_api.fs.create, opts 'Create File Or Directory')
+        vim.keymap.set('n', 'bd', tree_api.marks.bulk.delete, opts 'Delete Bookmarked')
+        vim.keymap.set('n', 'bD', tree_api.marks.bulk.trash, opts 'Trash Bookmarked')
+        vim.keymap.set('n', 'bmv', tree_api.marks.bulk.move, opts 'Move Bookmarked')
+        vim.keymap.set('n', 'B', tree_api.tree.toggle_no_buffer_filter, opts 'Toggle Filter: No Buffer')
+        vim.keymap.set('n', 'y', tree_api.fs.copy.node, opts 'Copy')
+        vim.keymap.set('n', 'd', tree_api.fs.remove, opts 'Delete')
+        vim.keymap.set('n', 'D', tree_api.fs.trash, opts 'Trash')
+        vim.keymap.set('n', 'E', tree_api.tree.expand_all, opts 'Expand All')
+        vim.keymap.set('n', 'F', tree_api.live_filter.clear, opts 'Live Filter: Clear')
+        vim.keymap.set('n', 'f', tree_api.live_filter.start, opts 'Live Filter: Start')
+        vim.keymap.set('n', 'g?', tree_api.tree.toggle_help, opts 'Help')
+        vim.keymap.set('n', 'H', tree_api.tree.toggle_hidden_filter, opts 'Toggle Filter: Dotfiles')
+        vim.keymap.set('n', 'I', tree_api.tree.toggle_gitignore_filter, opts 'Toggle Filter: Git Ignore')
+        vim.keymap.set('n', 'M', tree_api.tree.toggle_no_bookmark_filter, opts 'Toggle Filter: No Bookmark')
+        vim.keymap.set('n', 'm', tree_api.marks.toggle, opts 'Toggle Bookmark')
+        vim.keymap.set('n', 'p', tree_api.fs.paste, opts 'Paste')
+        vim.keymap.set('n', 'P', tree_api.node.navigate.parent, opts 'Parent Directory')
+        vim.keymap.set('n', 'q', tree_api.tree.close, opts 'Close')
+        vim.keymap.set('n', 'r', tree_api.fs.rename_full, opts 'Rename')
+        vim.keymap.set('n', 'R', tree_api.tree.reload, opts 'Refresh')
+        vim.keymap.set('n', 'W', tree_api.tree.collapse_all, opts 'Collapse')
+        vim.keymap.set('n', 'x', tree_api.fs.cut, opts 'Cut')
+        vim.keymap.set('n', 'gc', tree_api.fs.copy.filename, opts 'Copy Name')
+        vim.keymap.set('n', 'c', tree_api.fs.copy.relative_path, opts 'Copy Relative Path')
+        vim.keymap.set('n', 'C', tree_api.fs.copy.absolute_path, opts 'Copy Absolute Path')
+      end,
       disable_netrw = true,
       hijack_netrw = true,
       sort = {
@@ -89,7 +130,6 @@ return {
       },
     }
 
-    local tree_api = require 'nvim-tree.api'
     if floating then
       vim.api.nvim_create_augroup('NvimTreeResize', {
         clear = true,
