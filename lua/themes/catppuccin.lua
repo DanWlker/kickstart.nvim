@@ -60,6 +60,9 @@ return {
         MiniStatuslineDiagnosticInfo = { bg = colors.surface0, fg = colors.sky },
         MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
         MiniStatuslineRecording = { bg = colors.red, fg = colors.base },
+
+        SnacksIndentChunk = { fg = '#9399b2' },
+        SnacksIndentScope = { fg = '#9399b2' },
       }
     end,
   },

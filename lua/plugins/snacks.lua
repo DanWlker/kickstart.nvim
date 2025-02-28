@@ -20,7 +20,7 @@ return {
     },
     indent = {
       indent = {
-        only_scope = true,
+        enabled = false,
       },
       animate = {
         enabled = false,
