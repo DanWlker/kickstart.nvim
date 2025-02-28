@@ -18,5 +18,23 @@ return {
     statuscolumn = {
       right = { 'fold' },
     },
+    indent = {
+      indent = {
+        only_scope = true,
+      },
+      animate = {
+        enabled = false,
+      },
+      chunk = {
+        enabled = true,
+        char = {
+          horizontal = '─',
+          vertical = '│',
+          corner_top = '╭',
+          corner_bottom = '╰',
+          arrow = '─',
+        },
+      },
+    },
   },
 }
