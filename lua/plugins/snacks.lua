@@ -18,23 +18,24 @@ return {
     statuscolumn = {
       right = { 'fold' },
     },
-    indent = {
-      indent = {
-        enabled = false,
-      },
-      animate = {
-        enabled = false,
-      },
-      chunk = {
-        enabled = true,
-        char = {
-          horizontal = '─',
-          vertical = '│',
-          corner_top = '╭',
-          corner_bottom = '╰',
-          arrow = '─',
-        },
-      },
-    },
+    -- Not as good as hlchunk
+    -- indent = {
+    --   indent = {
+    --     enabled = false,
+    --   },
+    --   animate = {
+    --     enabled = false,
+    --   },
+    --   chunk = {
+    --     enabled = true,
+    --     char = {
+    --       horizontal = '─',
+    --       vertical = '│',
+    --       corner_top = '╭',
+    --       corner_bottom = '╰',
+    --       arrow = '─',
+    --     },
+    --   },
+    -- },
   },
 }
