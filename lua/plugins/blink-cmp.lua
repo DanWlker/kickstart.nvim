@@ -22,11 +22,6 @@ return {
     keymap = {
       preset = 'enter',
     },
-    cmdline = {
-      keymap = {
-        preset = 'super-tab',
-      },
-    },
     appearance = {
       nerd_font_variant = 'mono',
     },
@@ -62,9 +57,6 @@ return {
       },
       menu = {
         border = 'rounded',
-        auto_show = function(ctx)
-          return ctx.mode ~= 'cmdline' or not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
-        end,
       },
       documentation = {
         auto_show = true,
