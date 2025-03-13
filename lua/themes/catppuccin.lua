@@ -1,4 +1,5 @@
 local color_menu = '#161617'
+local color_doc = '#3a3f54'
 return {
   'catppuccin/nvim',
   name = 'catppuccin',
@@ -24,19 +25,20 @@ return {
         VisualNonText = { fg = colors.surface2, bg = colors.surface1 },
 
         -- With border
-        BlinkCmpMenu = { bg = colors.base },
-        BlinkCmpMenuBorder = { fg = colors.overlay0, bg = colors.base },
-        BlinkCmpDoc = { bg = colors.base },
-        BlinkCmpDocBorder = { fg = colors.blue, bg = colors.base },
-        BlinkCmpSignatureHelpBorder = { fg = colors.blue, bg = colors.base },
-        NormalFloat = { fg = colors.text, bg = colors.none },
+        -- BlinkCmpMenu = { bg = colors.base },
+        -- BlinkCmpMenuBorder = { fg = colors.overlay0, bg = colors.base },
+        -- BlinkCmpDoc = { bg = colors.base },
+        -- BlinkCmpDocBorder = { fg = colors.blue, bg = colors.base },
+        -- BlinkCmpSignatureHelpBorder = { fg = colors.blue, bg = colors.base },
+        -- NormalFloat = { fg = colors.text, bg = colors.none },
 
         -- No Border
-        -- BlinkCmpDoc = { bg = color_menu },
-        -- BlinkCmpDocBorder = { fg = color_menu, bg = color_menu },
-        -- BlinkCmpSignatureHelpBorder = { fg = color_menu, bg = color_menu },
-        -- NormalFloat = { bg = color_menu },
-        -- FloatBorder = { fg = color_menu, bg = color_menu },
+        BlinkCmpMenu = { bg = color_menu },
+        BlinkCmpDoc = { bg = color_doc },
+        BlinkCmpDocBorder = { fg = color_doc, bg = color_doc },
+        BlinkCmpDocSeparator = { bg = color_doc },
+        BlinkCmpSignatureHelpBorder = { fg = color_doc, bg = color_doc },
+        BlinkCmpSignatureHelp = { bg = color_doc },
 
         TelescopeNormal = { bg = colors.mantle },
         TelescopePreviewTitle = {
