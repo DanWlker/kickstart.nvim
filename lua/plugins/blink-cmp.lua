@@ -59,7 +59,7 @@ return {
         auto_brackets = { enabled = true },
       },
       menu = {
-        border = 'rounded',
+        -- border = 'rounded',
         draw = {
           -- treesitter = { 'lsp' },
           align_to = 'cursor',
