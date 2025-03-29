@@ -6,7 +6,6 @@ return {
   },
   config = function()
     require('mason').setup()
-    local ensure_installed = require('shared.lsp').getEnsureInstalled()
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    require('mason-tool-installer').setup { ensure_installed = require('shared.lsp_configs').ensure_installed }
   end,
 }

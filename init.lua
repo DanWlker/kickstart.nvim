@@ -1,5 +1,3 @@
-vim.hl = vim.highlight --https://github.com/neovim/neovim/issues/31675
-
 require 'options'
 
 require 'keymaps'
@@ -12,11 +10,11 @@ require('lazy').setup({
   -- [[ Themes ]]
   { import = 'themes' },
 
-  -- [[ LSP ]]
-  { import = 'lsp' },
-
   -- [[ Plugins ]]
   { import = 'plugins' },
+
+  -- [[ LSP ]]
+  { import = 'lsp_extras' },
 
   -- {
   --   dir = '~/projects/toolbox.nvim',
@@ -125,11 +123,6 @@ require('lazy').setup({
   change_detection = { notify = false },
 })
 
-vim.cmd.colorscheme 'catppuccin'
+require 'lsp_setup'
 
-local cwd = vim.fn.getcwd()
-local pipepath = cwd .. '/server.pipe'
-local project_godot_path = cwd .. '/project.godot'
-if vim.uv.fs_stat(project_godot_path) then
-  vim.fn.serverstart(pipepath)
-end
+vim.cmd.colorscheme 'catppuccin'

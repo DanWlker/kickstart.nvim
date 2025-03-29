@@ -49,9 +49,6 @@ return {
     },
     signature = {
       enabled = true,
-      window = {
-        border = 'rounded',
-      },
     },
     completion = {
       keyword = {
@@ -61,7 +58,6 @@ return {
         auto_brackets = { enabled = true },
       },
       menu = {
-        border = 'rounded',
         draw = {
           -- treesitter = { 'lsp' },
           align_to = 'cursor',
@@ -75,9 +71,6 @@ return {
       },
       documentation = {
         auto_show = true,
-        window = {
-          border = 'rounded',
-        },
       },
       ghost_text = {
         enabled = true,

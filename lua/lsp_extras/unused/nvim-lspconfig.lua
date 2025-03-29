@@ -102,7 +102,7 @@ return {
       ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
     }
 
-    local servers = require('shared.lsp').getServers()
+    local servers = require('shared.unused.lsp').getServers()
     require('mason-lspconfig').setup {
       ensure_installed = {},
       automatic_installation = false,
