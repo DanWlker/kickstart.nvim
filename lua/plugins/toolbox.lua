@@ -12,7 +12,6 @@ return {
       mode = { 'n', 'v' },
     },
   },
-  dependencies = { 'nvim-telescope/telescope.nvim' },
   opts = {
     commands = {
       {

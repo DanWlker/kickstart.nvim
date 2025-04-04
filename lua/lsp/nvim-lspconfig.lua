@@ -22,26 +22,30 @@ return {
         end
 
         map('grr', function()
-          require('telescope.builtin').lsp_references { reuse_win = true }
+          Snacks.picker.lsp_references()
         end, 'Goto References')
-        map('gri', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-        map('gO', require('telescope.builtin').lsp_document_symbols, 'Show Document Symbols')
-        map('grc', function()
-          require('telescope.builtin').lsp_incoming_calls()
-        end, 'Goto incoming calls')
-        map('gro', function()
-          require('telescope.builtin').lsp_outgoing_calls()
-        end, 'Goto outgoing calls')
+        map('gri', function()
+          Snacks.picker.lsp_implementations()
+        end, 'Goto Implementation')
+        map('gO', function()
+          Snacks.picker.lsp_symbols { layout = { preset = 'vscode', preview = 'main' } }
+        end, 'Show Document Symbols')
+        -- map('grc', function()
+        --   require('telescope.builtin').lsp_incoming_calls()
+        -- end, 'Goto incoming calls')
+        -- map('gro', function()
+        --   require('telescope.builtin').lsp_outgoing_calls()
+        -- end, 'Goto outgoing calls')
         map('K', function()
           vim.lsp.buf.hover { border = 'rounded' }
         end, '')
         map('gd', function()
-          require('telescope.builtin').lsp_definitions { reuse_win = true }
+          Snacks.picker.lsp_definitions()
         end, 'Goto Definition')
         map('grt', function()
-          require('telescope.builtin').lsp_type_definitions { reuse_win = true }
+          Snacks.picker.lsp_type_definitions()
         end, 'Show Type Definition')
-        map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
+        -- map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
         map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)

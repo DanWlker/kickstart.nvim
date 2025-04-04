@@ -34,24 +34,24 @@ return {
         BlinkCmpMenuSelection = { bg = '#474b66' },
 
         -- [[ Telescope ]]
-        TelescopeNormal = { bg = colors.mantle },
-        TelescopePreviewTitle = {
-          fg = colors.base,
-          bg = colors.green,
-        },
-        TelescopePromptTitle = {
-          fg = colors.base,
-          bg = colors.pink,
-        },
-        TelescopeSelection = { bg = colors.surface0, fg = colors.text },
-        TelescopeResultsDiffAdd = { fg = colors.green },
-        TelescopeResultsDiffChange = { fg = colors.yellow },
-        TelescopeResultsDiffDelete = { fg = colors.red },
-        TelescopeBorder = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptBorder = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptNormal = { fg = colors.text, bg = colors.mantle },
-        TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
-        TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
+        -- TelescopeNormal = { bg = colors.mantle },
+        -- TelescopePreviewTitle = {
+        --   fg = colors.base,
+        --   bg = colors.green,
+        -- },
+        -- TelescopePromptTitle = {
+        --   fg = colors.base,
+        --   bg = colors.pink,
+        -- },
+        -- TelescopeSelection = { bg = colors.surface0, fg = colors.text },
+        -- TelescopeResultsDiffAdd = { fg = colors.green },
+        -- TelescopeResultsDiffChange = { fg = colors.yellow },
+        -- TelescopeResultsDiffDelete = { fg = colors.red },
+        -- TelescopeBorder = { fg = colors.mantle, bg = colors.mantle },
+        -- TelescopePromptBorder = { fg = colors.mantle, bg = colors.mantle },
+        -- TelescopePromptNormal = { fg = colors.text, bg = colors.mantle },
+        -- TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
+        -- TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
 
         -- [[ Mini indent scope ]]
         -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
