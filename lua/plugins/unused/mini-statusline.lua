@@ -1,10 +1,3 @@
--- MiniStatuslineDevinfo = { bg = colors.surface0 },
--- MiniStatuslineFileinfo = { bg = colors.surface0 },
--- MiniStatuslineDiagnosticError = { bg = colors.surface0, fg = colors.red },
--- MiniStatuslineDiagnosticWarn = { bg = colors.surface0, fg = colors.yellow },
--- MiniStatuslineDiagnosticInfo = { bg = colors.surface0, fg = colors.sky },
--- MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
-
 local icons = require 'shared.icons'
 local diagnostics_highlight = {
   { name = 'ERROR', hl = 'MiniStatuslineDiagnosticError' },
@@ -23,6 +16,32 @@ local function show_macro_recording()
     -- return '󰑋  ' .. recording_register
   end
 end
+
+local make_color = function(hl_fg, hl_bg)
+  ---@class vim.api.keyset.highlight
+  ---@diagnostic disable-next-line: assign-type-mismatch
+  local fghl = vim.api.nvim_get_hl(0, { name = hl_fg })
+  local bghl = vim.api.nvim_get_hl(0, { name = hl_bg })
+  fghl.fg = fghl.bg
+  fghl.bg = bghl.bg
+  vim.api.nvim_set_hl(0, hl_fg .. '2', fghl)
+end
+
+local modify_mode_group_hl = function(changeTo)
+  local _, mode_hl = MiniStatusline.section_mode { trunc_width = 50 }
+  make_color(mode_hl, changeTo)
+end
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  pattern = '*',
+  desc = 'add more hl groups',
+  callback = function()
+    local _, mode_hl = MiniStatusline.section_mode { trunc_width = 50 }
+    make_color(mode_hl, 'MiniStatuslineFilename')
+    make_color('MiniStatuslineDevinfo', 'MiniStatuslineFilename')
+    make_color('MiniStatuslineFileInfo', 'MiniStatuslineFilename')
+  end,
+})
 
 return {
   'echasnovski/mini.statusline',
@@ -101,6 +120,36 @@ return {
       return table.concat(t, '')
     end
 
+    MiniStatusline.combine_groups = function(groups)
+      local parts = vim.tbl_map(function(s)
+        if type(s) == 'string' then
+          return s
+        end
+        if type(s) ~= 'table' then
+          return ''
+        end
+
+        local string_arr = vim.tbl_filter(function(x)
+          return type(x) == 'string' and x ~= ''
+        end, s.strings or {})
+        local str = table.concat(string_arr, ' ')
+
+        -- Use previous highlight group
+        if s.hl == nil then
+          return ' ' .. str .. ' '
+        end
+
+        -- Allow using this highlight group later
+        if #str == 0 then
+          return '%#' .. s.hl .. '#'
+        end
+
+        return string.format('%%#%s#%s', s.hl, str) -- If you're wondering this is where it changed, removed space
+      end, groups)
+
+      return table.concat(parts, '')
+    end
+
     MiniStatusline.setup {
       content = {
         active = function()
@@ -112,16 +161,37 @@ return {
           local location = MiniStatusline.section_location()
           local recording = show_macro_recording()
 
-          return MiniStatusline.combine_groups {
-            { hl = mode_hl, strings = { mode } },
-            { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
+          local tab = {
+            -- { hl = mode_hl .. '2', strings = { ' ' } },
+            -- { hl = mode_hl .. '2', strings = { '' } },
+            { hl = mode_hl, strings = { ' ' .. mode .. ' ' } },
+            { hl = mode_hl .. '2', strings = { '' } },
             '%<', -- Mark general truncate point
-            { hl = 'MiniStatuslineFilename', strings = { '%=' .. filename } },
-            '%=', -- End left alignment
-            { hl = 'MiniStatuslineRecording', strings = { recording } },
-            { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-            { hl = mode_hl, strings = { location } },
           }
+
+          if #table.concat { git, diagnostics } > 0 then
+            modify_mode_group_hl 'MiniStatuslineDevinfo'
+            table.insert(tab, { hl = 'MiniStatuslineDevinfo', strings = { ' ', git, diagnostics } })
+            table.insert(tab, { hl = 'MiniStatuslineDevinfo2', strings = { '' } })
+            table.insert(tab, '%<') -- Mark general truncate point
+          else
+            modify_mode_group_hl 'MiniStatuslineFilename'
+          end
+          table.insert(tab, { hl = 'MiniStatuslineFilename', strings = { '%=' .. filename } })
+          table.insert(tab, '%=')
+          if #recording > 0 then
+            table.insert(tab, { hl = 'MiniStatuslineRecording', strings = { recording } })
+          end
+          if #fileinfo > 0 then
+            table.insert(tab, { hl = 'MiniStatuslineFileinfo2', strings = { '' } })
+            table.insert(tab, { hl = 'MiniStatuslineFileinfo', strings = { ' ' .. fileinfo .. ' ' } })
+          end
+          table.insert(tab, { hl = mode_hl .. '2', strings = { '' } })
+          table.insert(tab, { hl = mode_hl, strings = { location } })
+          -- table.insert(tab, { hl = mode_hl .. '2', strings = { '' } })
+          -- table.insert(tab, { hl = mode_hl .. '2', strings = { ' ' } })
+
+          return MiniStatusline.combine_groups(tab)
         end,
         inactive = function()
           return '%=%#MiniStatuslineInactive#%F%='
