@@ -36,14 +36,14 @@ return {
         map('K', function()
           vim.lsp.buf.hover { border = 'rounded' }
         end, '')
-        map('grd', function()
+        map('gd', function()
           require('telescope.builtin').lsp_definitions { reuse_win = true }
         end, 'Goto Definition')
         map('grt', function()
           require('telescope.builtin').lsp_type_definitions { reuse_win = true }
         end, 'Show Type Definition')
         map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
-        map('grD', vim.lsp.buf.declaration, 'Goto Declaration')
+        map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
