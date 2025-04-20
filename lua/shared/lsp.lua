@@ -2,6 +2,7 @@ local M = {}
 
 M.getServers = function()
   return {
+    helm_ls = {},
     graphql = {},
     marksman = {},
     -- yamlls from LazyVim
