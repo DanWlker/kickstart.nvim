@@ -6,8 +6,6 @@ require 'autocmds'
 
 require 'install-lazy'
 
-require 'filetypes'
-
 require('lazy').setup({
   -- [[ Themes ]]
   { import = 'themes' },
@@ -123,9 +121,6 @@ require('lazy').setup({
     },
   },
   change_detection = { notify = false },
-  rocks = {
-    enabled = false,
-  },
 })
 
 vim.cmd.colorscheme 'catppuccin'
