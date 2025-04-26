@@ -6,6 +6,10 @@ require 'autocmds'
 
 require 'install-lazy'
 
+require 'statusline'
+
+require 'winbar'
+
 require('lazy').setup({
   -- [[ Themes ]]
   { import = 'themes' },

@@ -3,7 +3,7 @@ return {
   event = { 'BufReadPost', 'BufNewFile' },
   dependencies = {
     'williamboman/mason.nvim', --Ensure mason is run first before setting up
-    { 'j-hui/fidget.nvim', config = true },
+    -- { 'j-hui/fidget.nvim', config = true },
     {
       'antosha417/nvim-lsp-file-operations',
       dependencies = {

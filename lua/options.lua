@@ -27,28 +27,50 @@ end
 local icons = require 'shared.icons'
 vim.diagnostic.config {
   severity_sort = true,
-  float = { border = 'rounded', source = 'if_many' },
   underline = { severity = vim.diagnostic.severity.ERROR },
-  signs = vim.g.have_nerd_font and {
-    text = {
-      [vim.diagnostic.severity.ERROR] = icons.ERROR,
-      [vim.diagnostic.severity.WARN] = icons.WARN,
-      [vim.diagnostic.severity.INFO] = icons.INFO,
-      [vim.diagnostic.severity.HINT] = icons.HINT,
-    },
-  } or {},
-  virtual_text = {
-    source = 'if_many',
-    -- severity = {
-    --   max = vim.diagnostic.severity.WARN,
-    -- },
-  },
+  signs = false,
   -- virtual_lines = {
   --   current_line = true,
   --   severity = {
   --     min = vim.diagnostic.severity.ERROR,
   --   },
   -- },
+
+  virtual_text = {
+    source = 'if_many',
+    -- severity = {
+    --   max = vim.diagnostic.severity.WARN,
+    -- },
+    prefix = '',
+    spacing = 2,
+    format = function(diagnostic)
+      -- Use shorter, nicer names for some sources:
+      local special_sources = {
+        ['Lua Diagnostics.'] = 'lua',
+        ['Lua Syntax Check.'] = 'lua',
+      }
+
+      local message = icons.diagnostics[vim.diagnostic.severity[diagnostic.severity]]
+      if diagnostic.source then
+        message = string.format('%s %s', message, special_sources[diagnostic.source] or diagnostic.source)
+      end
+      if diagnostic.code then
+        message = string.format('%s[%s]', message, diagnostic.code)
+      end
+
+      return message .. ' '
+    end,
+  },
+  float = {
+    source = 'if_many',
+    border = 'rounded',
+    -- Show severity icons as prefixes.
+    prefix = function(diag)
+      local level = vim.diagnostic.severity[diag.severity]
+      local prefix = string.format(' %s ', icons.diagnostics[level])
+      return prefix, 'Diagnostic' .. level:gsub('^%l', string.upper)
+    end,
+  },
 }
 
 vim.opt.number = true

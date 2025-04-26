@@ -1,6 +1,12 @@
 return {
   'stevearc/quicker.nvim',
   ft = 'qf',
+  opts = {
+    borders = {
+      -- Thinner separator.
+      vert = require('shared.icons').misc.vertical_bar,
+    },
+  },
   keys = {
     {
       '<leader>tl',

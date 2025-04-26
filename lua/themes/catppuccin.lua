@@ -18,7 +18,7 @@ return {
       snacks = true,
     },
     custom_highlights = function(colors)
-      return {
+      local custom_stuff = {
         WinSeparator = { fg = colors.surface2 },
 
         VisualNonText = { fg = colors.surface2, bg = colors.surface1 },
@@ -63,13 +63,13 @@ return {
         NotifyINFOIcon = { fg = colors.green },
         NotifyINFOTitle = { fg = colors.green, style = { 'italic' } },
 
-        MiniStatuslineDevinfo = { bg = colors.surface0 },
-        MiniStatuslineFileinfo = { bg = colors.surface0 },
-        MiniStatuslineDiagnosticError = { bg = colors.surface0, fg = colors.red },
-        MiniStatuslineDiagnosticWarn = { bg = colors.surface0, fg = colors.yellow },
-        MiniStatuslineDiagnosticInfo = { bg = colors.surface0, fg = colors.sky },
-        MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
-        MiniStatuslineRecording = { bg = colors.red, fg = colors.base },
+        -- MiniStatuslineDevinfo = { bg = colors.surface0 },
+        -- MiniStatuslineFileinfo = { bg = colors.surface0 },
+        -- MiniStatuslineDiagnosticError = { bg = colors.surface0, fg = colors.red },
+        -- MiniStatuslineDiagnosticWarn = { bg = colors.surface0, fg = colors.yellow },
+        -- MiniStatuslineDiagnosticInfo = { bg = colors.surface0, fg = colors.sky },
+        -- MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
+        -- MiniStatuslineRecording = { bg = colors.red, fg = colors.base },
 
         SnacksIndentChunk = { fg = '#9399b2' },
         SnacksIndentScope = { fg = '#9399b2' },
@@ -80,7 +80,36 @@ return {
         -- SnacksPickerTitle = { fg = colors.base, bg = colors.lavender },
         --
         -- SnacksPickerBorder = { fg = colors.lavender, bg = colors.mantle },
+
+        StatuslineModeSeparator = { bg = colors.lavender },
+        StatuslineMode = { bg = colors.lavender },
+
+        WinBar = { fg = colors.fg, bg = colors.base },
+        WinBarNC = { bg = colors.base },
+        WinBarDir = { fg = colors.lavender, bg = colors.base, italic = true },
+        WinBarSeparator = { fg = colors.lavender, bg = colors.base },
+
+        HighlightUrl = { underline = true, fg = colors.blue, sp = colors.blue },
+
+        BufferLineBufferSelected = { bg = colors.base, sp = colors.lavender },
+        BufferLineFill = { bg = colors.base },
+        TabLine = { fg = colors.text, bg = colors.base },
+        TabLineFill = { bg = colors.base },
+        TabLineSel = { bg = colors.lavender },
       }
+
+      for mode, color in pairs {
+        Normal = colors.lavender,
+        Pending = colors.pink,
+        Visual = colors.yellow,
+        Insert = colors.green,
+        Command = colors.teal,
+        Other = colors.peach,
+      } do
+        custom_stuff['StatuslineMode' .. mode] = { fg = colors.base, bg = color }
+        custom_stuff['StatuslineModeSeparator' .. mode] = { fg = color, bg = colors.base }
+      end
+      return custom_stuff
     end,
   },
 }
