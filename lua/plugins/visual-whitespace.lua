@@ -12,7 +12,7 @@ return {
   },
   opts = {
     --   nl_char = '󰌑',
-    excluded = {
+    ignore = {
       buftypes = {
         'nofile',
         'help',
