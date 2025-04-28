@@ -13,6 +13,9 @@ require('lazy').setup({
   -- [[ LSP ]]
   { import = 'lsp' },
 
+  -- [[ GIT ]]
+  { import = 'git' },
+
   -- [[ Plugins ]]
   { import = 'plugins' },
 
