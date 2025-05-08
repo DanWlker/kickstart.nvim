@@ -32,9 +32,6 @@ return {
     keymap = {
       preset = 'enter',
     },
-    appearance = {
-      nerd_font_variant = 'mono',
-    },
     snippets = {
       preset = 'luasnip',
     },
@@ -85,13 +82,19 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 500,
         window = {
           border = 'rounded',
         },
       },
       ghost_text = {
         enabled = true,
+      },
+    },
+    fuzzy = {
+      sorts = {
+        'exact',
+        'score',
+        'sort_text',
       },
     },
   },
