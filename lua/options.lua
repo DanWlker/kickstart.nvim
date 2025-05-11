@@ -100,16 +100,32 @@ vim.o.splitbelow = true
 vim.o.list = false
 vim.o.inccommand = 'split'
 vim.o.cursorline = true
-vim.o.scrolloff = 10
+vim.o.scrolloff = 4
 vim.o.cursorlineopt = 'number'
 vim.o.laststatus = 3 -- global statusline
 vim.o.termguicolors = true -- True color support
 vim.o.jumpoptions = 'stack' -- Make jumplist more intuitive
+vim.o.grepformat = '%f:%l:%c:%m'
+vim.o.grepprg = 'rg --vimgrep'
+vim.o.shiftround = true
+-- vim.o.smartindent = true
 -- vim.o.wrap = false
 vim.o.confirm = true
+vim.o.foldexpr = "v:lua.require'shared.fold'.foldexpr()"
+vim.o.foldmethod = 'expr'
+vim.o.foldtext = ''
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.fillchars = { eob = ' ' }
+vim.opt.fillchars = {
+  eob = ' ',
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
+}
 
 --https://www.reddit.com/r/neovim/comments/1d9gzud/comment/l7e6akp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 -- vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
