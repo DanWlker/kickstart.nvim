@@ -7,8 +7,6 @@ return {
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
 
-    'williamboman/mason.nvim', -- ensure mason is setup
-
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
   },
