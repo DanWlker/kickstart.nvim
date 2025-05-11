@@ -77,37 +77,8 @@ return {
       end,
     })
 
-    local capabilities = vim.tbl_deep_extend('force', require('blink.cmp').get_lsp_capabilities(), require('lsp-file-operations').default_capabilities())
-
-    local servers = require('shared.lsp').getServers()
-    require('mason-lspconfig').setup {
-      ensure_installed = {},
-      automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
-    }
-
-    require('lspconfig').gdscript.setup {
-      cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
-      capabilities = capabilities,
-    }
-
-    require('lspconfig').dartls.setup {
-      capabilities = capabilities,
-      settings = {
-        dart = {
-          analysisExcludedFolders = {
-            vim.fn.expand '$HOME/.pub-cache/',
-            vim.fn.expand '$HOME/fvm/',
-            vim.fn.expand '$HOME/development/flutter/',
-          },
-        },
-      },
-    }
+    for key, value in pairs(require('shared.lsp').getAllServers()) do
+      require('lspconfig')[key].setup(value)
+    end
   end,
 }
