@@ -77,7 +77,7 @@ return {
       end,
     })
 
-    for key, value in pairs(require('shared.lsp').getAllServers()) do
+    for key, value in pairs(require('shared.lsp').allServers) do
       require('lspconfig')[key].setup(value)
     end
   end,

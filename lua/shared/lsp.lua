@@ -229,7 +229,7 @@ M.masonInstalledServers = {
   },
 }
 
-M.manualInstalledServers = {
+M.manuallyInstalledServers = {
   gdscript = {
     cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
   },
@@ -246,11 +246,11 @@ M.manualInstalledServers = {
   },
 }
 
-M.getAllServers = function()
-  return vim.tbl_extend('force', {}, M.masonInstalledServers, M.manualInstalledServers)
-end
+M.allServers = (function()
+  return vim.tbl_extend('force', {}, M.masonInstalledServers, M.manuallyInstalledServers)
+end)()
 
-M.getEnsureInstalled = function()
+M.ensureInstalled = (function()
   local ensure_installed = vim.tbl_keys(M.masonInstalledServers)
   vim.list_extend(ensure_installed, {
     'stylua',
@@ -264,8 +264,9 @@ M.getEnsureInstalled = function()
     'gofumpt',
     'hadolint',
     'sqlfluff',
+    'delve',
   })
   return ensure_installed
-end
+end)()
 
 return M
