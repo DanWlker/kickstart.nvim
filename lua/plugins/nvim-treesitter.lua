@@ -4,7 +4,7 @@ return {
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   -- [[ Configure Treesitter ]]
-  config = function(opts)
+  config = function()
     require('nvim-treesitter.configs').setup {
       textobjects = {
         lsp_interop = {
