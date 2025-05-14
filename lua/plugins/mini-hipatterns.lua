@@ -346,11 +346,11 @@ return {
         if not vim.tbl_contains(require('shared.tools').allServers.tailwindcss.filetypes, vim.bo.filetype) then
           return
         end
-        if opts.tailwind.style == 'full' then
-          return '%f[%w:-]()[%w:-]+%-[a-z%-]+%-%d+()%f[^%w:-]'
-        elseif opts.tailwind.style == 'compact' then
-          return '%f[%w:-][%w:-]+%-()[a-z%-]+%-%d+()%f[^%w:-]'
-        end
+        -- if opts.tailwind.style == 'full' then
+        --   return '%f[%w:-]()[%w:-]+%-[a-z%-]+%-%d+()%f[^%w:-]'
+        -- elseif opts.tailwind.style == 'compact' then
+        return '%f[%w:-][%w:-]+%-()[a-z%-]+%-%d+()%f[^%w:-]'
+        -- end
       end,
       group = function(_, _, m)
         ---@type string

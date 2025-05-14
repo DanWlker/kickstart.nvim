@@ -138,64 +138,64 @@ M.masonInstalledServers = {
   eslint = {}, -- May need to look into if this will conflict with prettier but, so far not sure
 
   -- Alternate to ts_ls
-  -- vtsls = {
-  --   root_dir = { 'tsconfig.json', 'package.json', 'jsconfig.json' },
-  --   -- explicitly add default filetypes, so that we can extend
-  --   -- them in related extras
-  --   filetypes = {
-  --     'javascript',
-  --     'javascriptreact',
-  --     'javascript.jsx',
-  --     'typescript',
-  --     'typescriptreact',
-  --     'typescript.tsx',
-  --   },
-  --   settings = {
-  --     complete_function_calls = true,
-  --     vtsls = {
-  --       enableMoveToFileCodeAction = true,
-  --       autoUseWorkspaceTsdk = true,
-  --       experimental = {
-  --         maxInlayHintLength = 30,
-  --         completion = {
-  --           enableServerSideFuzzyMatch = true,
-  --         },
-  --       },
-  --     },
-  --     typescript = {
-  --       updateImportsOnFileMove = { enabled = 'always' },
-  --       suggest = {
-  --         completeFunctionCalls = true,
-  --       },
-  --       inlayHints = {
-  --         enumMemberValues = { enabled = true },
-  --         functionLikeReturnTypes = { enabled = true },
-  --         parameterNames = { enabled = 'literals' },
-  --         parameterTypes = { enabled = true },
-  --         propertyDeclarationTypes = { enabled = true },
-  --         variableTypes = { enabled = false },
-  --       },
-  --     },
-  --   },
-  -- },
-
-  -- Vue, but its messy, probably should refer to LazyVim config
-  ts_ls = {
-    -- init_options = {
-    --   plugins = {
-    --     {
-    --       name = '@vue/typescript-plugin',
-    --       location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
-    --       languages = { 'javascript', 'typescript', 'vue' },
-    --     },
-    --   },
-    -- },
+  vtsls = {
+    root_dir = { 'tsconfig.json', 'package.json', 'jsconfig.json' },
+    -- explicitly add default filetypes, so that we can extend
+    -- them in related extras
     filetypes = {
       'javascript',
+      'javascriptreact',
+      'javascript.jsx',
       'typescript',
-      'vue',
+      'typescriptreact',
+      'typescript.tsx',
+    },
+    settings = {
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          maxInlayHintLength = 30,
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+      },
+      typescript = {
+        updateImportsOnFileMove = { enabled = 'always' },
+        suggest = {
+          completeFunctionCalls = true,
+        },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = 'literals' },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = false },
+        },
+      },
     },
   },
+
+  -- Vue, but its messy, probably should refer to LazyVim config
+  -- ts_ls = {
+  --   -- init_options = {
+  --   --   plugins = {
+  --   --     {
+  --   --       name = '@vue/typescript-plugin',
+  --   --       location = require('mason-registry').get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server',
+  --   --       languages = { 'javascript', 'typescript', 'vue' },
+  --   --     },
+  --   --   },
+  --   -- },
+  --   filetypes = {
+  --     'javascript',
+  --     'typescript',
+  --     'vue',
+  --   },
+  -- },
   -- volar = {},
 
   -- Lua
