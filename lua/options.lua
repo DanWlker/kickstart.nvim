@@ -45,11 +45,11 @@ vim.diagnostic.config {
   -- },
 
   virtual_text = {
-    source = 'if_many',
+    -- source = 'if_many',
     -- severity = {
     --   max = vim.diagnostic.severity.WARN,
     -- },
-    prefix = '',
+    -- prefix = '',
     spacing = 2,
     format = function(diagnostic)
       -- Use shorter, nicer names for some sources:
@@ -58,12 +58,17 @@ vim.diagnostic.config {
         ['Lua Syntax Check.'] = 'lua',
       }
 
-      local message = icons.diagnostics[vim.diagnostic.severity[diagnostic.severity]]
-      if diagnostic.source then
-        message = string.format('%s %s', message, special_sources[diagnostic.source] or diagnostic.source)
-      end
+      local message = ''
+      -- local message = icons.diagnostics[vim.diagnostic.severity[diagnostic.severity]]
       if diagnostic.code then
-        message = string.format('%s[%s]', message, diagnostic.code)
+        message = string.format('%s %s', message, diagnostic.code)
+      end
+      if diagnostic.source then
+        message = string.format('%s[%s]', message, special_sources[diagnostic.source] or diagnostic.source)
+      end
+
+      if message == '' then
+        message = diagnostic.message
       end
 
       return message .. ' '
@@ -78,6 +83,7 @@ vim.diagnostic.config {
       local prefix = '▍' .. string.format(' %s ', icons.diagnostics[level])
       return prefix, 'Diagnostic' .. level:gsub('^%l', string.upper)
     end,
+    suffix = '',
   },
 }
 
