@@ -1,7 +1,7 @@
 return {
   'Saghen/blink.cmp',
   event = { 'VimEnter' },
-  build = 'rustup run nightly cargo build --release',
+  version = '1.*',
   dependencies = {
     'kristijanhusak/vim-dadbod-completion',
     {
