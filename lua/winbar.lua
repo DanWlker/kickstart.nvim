@@ -1,4 +1,7 @@
 local folder_icon = require('shared.icons').symbol_kinds.Folder
+local function escape_pattern(text)
+  return text:gsub('([^%w])', '%%%1')
+end
 
 local M = {}
 
@@ -26,18 +29,23 @@ function M.render()
     -- sure to pick the longest prefix).
     ---@type table<string, string>
     local special_dirs = {
-      XDG_CONFIG = vim.env.XDG_CONFIG_HOME,
       HOME = vim.env.HOME,
+      XDG_CONFIG = vim.env.XDG_CONFIG_HOME,
       DOTFILES = vim.env.HOME .. '/.dotfiles',
       PROJECTS = vim.env.HOME .. '/projects',
+      CWD = vim.uv.cwd() or '',
     }
     for dir_name, dir_path in pairs(special_dirs) do
+      if dir_path == '' then
+        goto continue
+      end
       if vim.startswith(path, vim.fs.normalize(dir_path)) and #dir_path > #prefix_path then
         prefix, prefix_path = dir_name, dir_path
       end
+      ::continue::
     end
     if prefix ~= '' then
-      path = path:gsub('^' .. prefix_path, '')
+      path = path:gsub('^' .. escape_pattern(prefix_path), '')
       prefix = string.format('%%#WinBarDir#%s %s%s', folder_icon, prefix, separator)
     end
   end
