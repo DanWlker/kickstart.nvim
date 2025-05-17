@@ -76,8 +76,15 @@ return {
       end,
     })
 
-    for key, value in pairs(require('shared.tools').allServers) do
-      require('lspconfig')[key].setup(value)
+    for server_name, server in pairs(require('shared.tools').allServers) do
+      server.capabilities = vim.tbl_deep_extend(
+        'force',
+        {},
+        require('blink.cmp').get_lsp_capabilities(),
+        require('lsp-file-operations').default_capabilities(),
+        server.capabilities or {}
+      )
+      require('lspconfig')[server_name].setup(server)
     end
   end,
 }
