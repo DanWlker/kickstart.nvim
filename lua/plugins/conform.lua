@@ -44,7 +44,7 @@ return {
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       json = { 'jq' },
       c = { 'clang-format' },
-      -- go = { 'goimports', 'gofumpt' }, --lsp handled, slows down gopls for some reason
+      -- go = { 'goimports', 'gofumpt' }, --lsp handled, slows down gopls if configured here
       sql = { 'sqlfluff' },
       mysql = { 'sqlfluff' },
       plsql = { 'sqlfluff' },

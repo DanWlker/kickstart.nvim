@@ -249,6 +249,9 @@ M.masonInstalledServers = {
     },
     style = 'full',
   },
+  bashls = {
+    filetypes = { 'bash', 'sh' },
+  },
 }
 
 M.manuallyInstalledServers = {
@@ -287,6 +290,8 @@ M.ensureInstalled = (function()
     'hadolint',
     'sqlfluff',
     'delve',
+    'shellcheck', --used by bashls
+    'shfmt', --used by bashls
   })
   return ensure_installed
 end)()
