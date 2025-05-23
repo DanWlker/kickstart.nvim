@@ -25,10 +25,10 @@ return {
 
         -- With border
         BlinkCmpMenu = { bg = colors.base },
-        BlinkCmpMenuBorder = { fg = colors.overlay0, bg = colors.base },
+        BlinkCmpMenuBorder = { fg = colors.lavender, bg = colors.base },
         BlinkCmpDoc = { bg = colors.base },
-        BlinkCmpDocBorder = { fg = colors.blue, bg = colors.base },
-        BlinkCmpSignatureHelpBorder = { fg = colors.blue, bg = colors.base },
+        BlinkCmpDocBorder = { fg = colors.overlay0, bg = colors.base },
+        BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
         NormalFloat = { fg = colors.text, bg = colors.none },
 
         -- No Border
