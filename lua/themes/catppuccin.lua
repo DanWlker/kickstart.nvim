@@ -30,6 +30,7 @@ return {
         BlinkCmpDocBorder = { fg = colors.overlay0, bg = colors.base },
         BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
         NormalFloat = { fg = colors.text, bg = colors.none },
+        BlinkCmpMenuSelection = { bg = '#474b66' },
 
         -- No Border
         -- BlinkCmpDoc = { bg = color_menu },
