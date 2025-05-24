@@ -279,6 +279,18 @@ function M.position_component()
   }
 end
 
+-- scrollbar ---------------------------------------------
+local SBAR = { '▔', '🮂', '🬂', '🮃', '▀', '▄', '▃', '🬭', '▂', '▁' }
+local function hl_str(hl, str)
+  return '%#' .. hl .. '#' .. str .. '%*'
+end
+function M.scrollbar_widget()
+  local cur = vim.api.nvim_win_get_cursor(0)[1]
+  local total = vim.api.nvim_buf_line_count(0)
+  local idx = math.floor((cur - 1) / total * #SBAR) + 1
+  return hl_str('Substitute', SBAR[idx]:rep(2))
+end
+
 --- Renders the statusline.
 ---@return string
 function M.render()
@@ -302,6 +314,7 @@ function M.render()
       M.filetype_component(),
       M.encoding_component(),
       M.position_component(),
+      -- M.scrollbar_widget(),
     },
     ' ',
   }

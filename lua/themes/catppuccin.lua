@@ -79,8 +79,12 @@ return {
         StatuslineMode = { bg = colors.lavender },
 
         WinBar = { fg = colors.fg, bg = colors.base },
-        WinBarDir = { fg = colors.lavender, bg = colors.base, italic = true },
-        WinBarSeparator = { fg = colors.lavender, bg = colors.base },
+        -- WinBarDir = { fg = colors.lavender, bg = colors.base, italic = true },
+        -- WinBarSeparator = { fg = colors.lavender, bg = colors.base },
+        WinBarIndDir = { fg = colors.fg, bg = colors.surface1 },
+        WinBarDir = { fg = colors.lavender, bg = colors.surface1, italic = true },
+        WinBarSeparator = { fg = colors.lavender, bg = colors.surface1 },
+        WinBarEndSeparators = { fg = colors.surface1 },
 
         HighlightUrl = { underline = true, fg = colors.blue, sp = colors.blue },
 
