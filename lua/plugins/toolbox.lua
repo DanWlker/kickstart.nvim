@@ -30,9 +30,17 @@ return {
         end,
       },
       {
+        name = 'Copy: Relative path without file',
+        execute = function()
+          local path = vim.fn.expand '%:.'
+          local dir = path:match '(.*/)'
+          vim.fn.setreg('+', dir)
+        end,
+      },
+      {
         name = 'Copy: Relative path',
         execute = function()
-          local path = vim.fn.expand '%'
+          local path = vim.fn.expand '%:.'
           vim.fn.setreg('+', path)
         end,
       },
