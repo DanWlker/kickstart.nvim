@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  event = { 'BufReadPost', 'BufNewFile' },
+  lazy = false, -- repo says not lazy loadable
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   -- [[ Configure Treesitter ]]

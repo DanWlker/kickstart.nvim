@@ -21,8 +21,10 @@ return {
       local custom_stuff = {
         WinSeparator = { fg = colors.surface2 },
 
+        -- [[ Visual whitespace ]]
         VisualNonText = { fg = colors.overlay0, bg = colors.surface1 },
 
+        -- [[ Blink cmp ]]
         -- With border
         BlinkCmpMenu = { bg = colors.base },
         BlinkCmpMenuBorder = { fg = colors.lavender, bg = colors.base },
@@ -31,7 +33,6 @@ return {
         BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
         NormalFloat = { fg = colors.text, bg = colors.none },
         BlinkCmpMenuSelection = { bg = '#474b66' },
-
         -- No Border
         -- BlinkCmpDoc = { bg = color_menu },
         -- BlinkCmpDocBorder = { fg = color_menu, bg = color_menu },
@@ -39,6 +40,7 @@ return {
         -- NormalFloat = { bg = color_menu },
         -- FloatBorder = { fg = color_menu, bg = color_menu },
 
+        -- [[ Telescope ]]
         TelescopeNormal = { bg = colors.mantle },
         TelescopePreviewTitle = {
           fg = colors.base,
@@ -58,12 +60,15 @@ return {
         TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
         TelescopePromptPrefix = { fg = colors.red, bg = colors.mantle },
 
+        -- [[ Mini indent scope ]]
         -- MiniIndentscopeSymbol = { fg = colors.overlay2 },
 
-        NotifyINFOBorder = { fg = colors.green },
-        NotifyINFOIcon = { fg = colors.green },
-        NotifyINFOTitle = { fg = colors.green, style = { 'italic' } },
+        -- [[ Nvim notify ]]
+        -- NotifyINFOBorder = { fg = colors.green },
+        -- NotifyINFOIcon = { fg = colors.green },
+        -- NotifyINFOTitle = { fg = colors.green, style = { 'italic' } },
 
+        -- [[ Mini statusline ]]
         -- MiniStatuslineDevinfo = { bg = colors.surface0 },
         -- MiniStatuslineFileinfo = { bg = colors.surface0 },
         -- MiniStatuslineDiagnosticError = { bg = colors.surface0, fg = colors.red },
@@ -72,22 +77,29 @@ return {
         -- MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
         -- MiniStatuslineRecording = { bg = colors.red, fg = colors.base },
 
+        -- [[ Snacks nvim ]]
         SnacksIndentChunk = { fg = '#9399b2' },
         SnacksIndentScope = { fg = '#9399b2' },
+        SnacksPickerBorder = { fg = colors.lavender },
+        -- SnacksPickerBorder = { fg = colors.mantle, bg = colors.mantle },
+        -- SnacksPicker = { fg = colors.text, bg = colors.mantle },
+        -- SnacksPickerTitle = { fg = colors.base, bg = colors.lavender },
+        --
+        -- SnacksPickerBorder = { fg = colors.lavender, bg = colors.mantle },
 
-        StatuslineModeSeparator = { bg = colors.lavender },
-        StatuslineMode = { bg = colors.lavender },
-
+        -- [[ Winbar from maria's config ]]
         WinBar = { fg = colors.fg, bg = colors.base },
+        WinBarIndDir = { fg = colors.fg, bg = colors.surface0 },
         -- WinBarDir = { fg = colors.lavender, bg = colors.base, italic = true },
         -- WinBarSeparator = { fg = colors.lavender, bg = colors.base },
-        WinBarIndDir = { fg = colors.fg, bg = colors.surface0 },
         WinBarDir = { fg = colors.lavender, bg = colors.surface0, italic = true },
         WinBarSeparator = { fg = colors.lavender, bg = colors.surface0 },
         WinBarEndSeparators = { fg = colors.surface0 },
 
-        HighlightUrl = { underline = true, fg = colors.blue, sp = colors.blue },
+        --[[ Highlight Url ]]
+        -- HighlightUrl = { underline = true, fg = colors.blue, sp = colors.blue },
 
+        -- [[ Bufferline ]]
         BufferLineBufferSelected = { bg = colors.base, sp = colors.lavender },
         BufferLineFill = { bg = colors.base },
         TabLine = { fg = colors.text, bg = colors.base },
