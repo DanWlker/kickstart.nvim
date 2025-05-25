@@ -2,13 +2,13 @@ return {
   'DanWlker/toolbox.nvim',
   keys = {
     {
-      '<leader>s',
+      '<leader>fs',
       function()
         require('toolbox').show_picker(nil, {
           prompt = 'Toolbox ',
         })
       end,
-      desc = 'Shortcuts in Toolbox',
+      desc = 'Find Shortcuts in Toolbox',
       mode = { 'n', 'v' },
     },
   },

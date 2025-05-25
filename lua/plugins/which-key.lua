@@ -50,6 +50,7 @@ return {
       { '<leader>t', group = '[T]oggle' },
     },
     triggers = {
+      { '<auto>', mode = 'nixsotc' },
       { 'j', mode = { 'n' } }, -- for mini.splitjoin
     },
   },
