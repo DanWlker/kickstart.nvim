@@ -284,11 +284,16 @@ local SBAR = { '▔', '🮂', '🬂', '🮃', '▀', '▄', '▃', '🬭', '▂'
 local function hl_str(hl, str)
   return '%#' .. hl .. '#' .. str .. '%*'
 end
-function M.scrollbar_widget()
+function M.scrollbar_component()
   local cur = vim.api.nvim_win_get_cursor(0)[1]
   local total = vim.api.nvim_buf_line_count(0)
   local idx = math.floor((cur - 1) / total * #SBAR) + 1
   return hl_str('Substitute', SBAR[idx]:rep(2))
+end
+
+-- cwd ---------------------------------------------
+function M.cwd_component()
+  return '%#StatusLine#' .. icons.symbol_kinds.Folder .. ' ' .. vim.uv.cwd()
 end
 
 --- Renders the statusline.
@@ -306,7 +311,7 @@ function M.render()
     concat_components {
       M.mode_component(),
       M.git_component(),
-      M.dap_component() or M.lsp_progress_component() or icons.symbol_kinds.Folder .. ' ' .. vim.uv.cwd() or '',
+      M.dap_component() or M.lsp_progress_component() or M.cwd_component(),
     },
     '%#StatusLine#%=',
     concat_components {
