@@ -153,15 +153,15 @@ vim.api.nvim_create_autocmd('LspProgress', {
   end,
 })
 --- The latest LSP progress message.
----@return string
+---@return string|nil
 function M.lsp_progress_component()
   if not progress_status.client or not progress_status.title then
-    return ''
+    return nil
   end
 
   -- Avoid noisy messages while typing.
   if vim.startswith(vim.api.nvim_get_mode().mode, 'i') then
-    return ''
+    return nil
   end
 
   return table.concat {
@@ -306,7 +306,7 @@ function M.render()
     concat_components {
       M.mode_component(),
       M.git_component(),
-      M.dap_component() or M.lsp_progress_component(),
+      M.dap_component() or M.lsp_progress_component() or icons.symbol_kinds.Folder .. ' ' .. vim.uv.cwd() or '',
     },
     '%#StatusLine#%=',
     concat_components {
