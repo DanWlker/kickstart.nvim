@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPost', 'BufNewFile' },
+  event = { 'BufReadPre', 'BufReadPost', 'BufNewFile' },
   dependencies = {
     -- { 'j-hui/fidget.nvim', config = true },
     {
@@ -85,14 +85,16 @@ return {
     })
 
     for server_name, server in pairs(require('shared.tools').allServers) do
-      server.capabilities = vim.tbl_deep_extend(
-        'force',
-        {},
-        require('blink.cmp').get_lsp_capabilities(),
-        require('lsp-file-operations').default_capabilities(),
-        server.capabilities or {}
-      )
-      require('lspconfig')[server_name].setup(server)
+      vim.lsp.config(server_name, server)
+      vim.lsp.enable(server_name)
+      -- server.capabilities = vim.tbl_deep_extend(
+      --   'force',
+      --   {},
+      --   require('blink.cmp').get_lsp_capabilities(),
+      --   require('lsp-file-operations').default_capabilities(),
+      --   server.capabilities or {}
+      -- )
+      -- require('lspconfig')[server_name].setup(server)
     end
   end,
 }

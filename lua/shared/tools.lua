@@ -61,19 +61,16 @@ M.masonInstalledServers = {
     keys = {
       { '<leader>ch', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Switch Source/Header (C/C++)' },
     },
-    root_dir = function(fname)
-      return require('lspconfig.util').root_pattern(
-        'Makefile',
-        'configure.ac',
-        'configure.in',
-        'config.h.in',
-        'meson.build',
-        'meson_options.txt',
-        'build.ninja'
-      )(fname) or require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt')(fname) or require('lspconfig.util').find_git_ancestor(
-        fname
-      )
-    end,
+    root_markers = {
+      'Makefile',
+      'configure.in',
+      'config.h.in',
+      'meson.build',
+      'meson_options.txt',
+      'build.ninja',
+      'compile_commands.json',
+      'compile_flags.txt',
+    },
     capabilities = {
       offsetEncoding = { 'utf-16' },
     },
@@ -139,17 +136,6 @@ M.masonInstalledServers = {
 
   -- Alternate to ts_ls
   vtsls = {
-    root_dir = { 'tsconfig.json', 'package.json', 'jsconfig.json' },
-    -- explicitly add default filetypes, so that we can extend
-    -- them in related extras
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-    },
     settings = {
       complete_function_calls = true,
       vtsls = {
@@ -191,8 +177,6 @@ M.masonInstalledServers = {
   --   --   },
   --   -- },
   --   filetypes = {
-  --     'javascript',
-  --     'typescript',
   --     'vue',
   --   },
   -- },
@@ -234,24 +218,11 @@ M.masonInstalledServers = {
     filetypes_include = {},
     -- to fully override the default_config, change the below
     filetypes = {
-      'astro',
-      'css',
-      'heex',
-      'html',
-      'html-eex',
-      'javascript',
-      'javascriptreact',
       'rust',
-      'svelte',
-      'typescript',
-      'typescriptreact',
-      'vue',
     },
     style = 'full',
   },
-  bashls = {
-    filetypes = { 'bash', 'sh' },
-  },
+  bashls = {},
 }
 
 M.manuallyInstalledServers = {
