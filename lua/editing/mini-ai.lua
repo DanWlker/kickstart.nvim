@@ -70,7 +70,7 @@ return {
   event = 'VimEnter',
   dependencies = {
     { 'nvim-mini/mini.extra', config = true },
-    { 'nvim-treesitter/nvim-treesitter-textobjects' },
+    { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
   },
   opts = function()
     local ai = require 'mini.ai'

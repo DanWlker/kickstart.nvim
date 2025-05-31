@@ -288,6 +288,7 @@ M.ensureInstalled = (function()
     'shellcheck', --used by bashls
     'shfmt', --used by bashls
     -- 'goimports',
+    'tree-sitter-cli',
   })
   return ensure_installed
 end)()
