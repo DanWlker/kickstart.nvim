@@ -118,6 +118,7 @@ vim.o.shiftround = true
 -- vim.o.wrap = false
 vim.o.confirm = true
 vim.o.foldexpr = "v:lua.require'shared.fold'.foldexpr()"
+vim.o.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 vim.o.foldmethod = 'expr'
 vim.o.foldtext = ''
 vim.o.foldlevel = 99
