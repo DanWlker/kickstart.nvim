@@ -14,10 +14,6 @@ M.masonInstalledServers = {
         },
       },
     },
-    -- lazy-load schemastore when needed
-    on_new_config = function(new_config)
-      new_config.settings.yaml.schemas = vim.tbl_deep_extend('force', new_config.settings.yaml.schemas or {}, require('schemastore').yaml.schemas())
-    end,
     settings = {
       redhat = { telemetry = { enabled = false } },
       yaml = {
@@ -32,23 +28,20 @@ M.masonInstalledServers = {
           enable = false,
           -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
           url = '',
+          schemas = require('schemastore').yaml.schemas(),
         },
       },
     },
   },
   -- jsonls from LazyVim
   jsonls = {
-    -- lazy-load schemastore when needed
-    on_new_config = function(new_config)
-      new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-      vim.list_extend(new_config.settings.json.schemas, require('schemastore').json.schemas())
-    end,
     settings = {
       json = {
         format = {
           enable = true,
         },
         validate = { enable = true },
+        schemas = require('schemastore').json.schemas(),
       },
     },
   },
@@ -61,19 +54,16 @@ M.masonInstalledServers = {
     keys = {
       { '<leader>ch', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Switch Source/Header (C/C++)' },
     },
-    root_dir = function(fname)
-      return require('lspconfig.util').root_pattern(
-        'Makefile',
-        'configure.ac',
-        'configure.in',
-        'config.h.in',
-        'meson.build',
-        'meson_options.txt',
-        'build.ninja'
-      )(fname) or require('lspconfig.util').root_pattern('compile_commands.json', 'compile_flags.txt')(fname) or require('lspconfig.util').find_git_ancestor(
-        fname
-      )
-    end,
+    -- root_markers = {
+    --   'Makefile',
+    --   'configure.in',
+    --   'config.h.in',
+    --   'meson.build',
+    --   'meson_options.txt',
+    --   'build.ninja',
+    --   'compile_commands.json',
+    --   'compile_flags.txt',
+    -- },
     capabilities = {
       offsetEncoding = { 'utf-16' },
     },
@@ -137,19 +127,9 @@ M.masonInstalledServers = {
   cssls = {},
   eslint = {}, -- May need to look into if this will conflict with prettier but, so far not sure
 
+  -- TODO: Migrate to golang typescript lsp when it is done
   -- Alternate to ts_ls
   vtsls = {
-    root_dir = { 'tsconfig.json', 'package.json', 'jsconfig.json' },
-    -- explicitly add default filetypes, so that we can extend
-    -- them in related extras
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'javascript.jsx',
-      'typescript',
-      'typescriptreact',
-      'typescript.tsx',
-    },
     settings = {
       complete_function_calls = true,
       vtsls = {
@@ -191,8 +171,6 @@ M.masonInstalledServers = {
   --   --   },
   --   -- },
   --   filetypes = {
-  --     'javascript',
-  --     'typescript',
   --     'vue',
   --   },
   -- },
@@ -249,9 +227,7 @@ M.masonInstalledServers = {
     },
     style = 'full',
   },
-  bashls = {
-    filetypes = { 'bash', 'sh' },
-  },
+  bashls = {},
 }
 
 M.manuallyInstalledServers = {

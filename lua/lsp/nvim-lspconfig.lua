@@ -1,17 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  event = { 'BufReadPost', 'BufNewFile' },
-  dependencies = {
-    -- { 'j-hui/fidget.nvim', config = true },
-    {
-      'antosha417/nvim-lsp-file-operations',
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-        'nvim-tree/nvim-tree.lua',
-      },
-      config = true,
-    },
-  },
+  event = { 'BufReadPre', 'BufReadPost', 'BufNewFile' },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
@@ -85,14 +74,16 @@ return {
     })
 
     for server_name, server in pairs(require('shared.tools').allServers) do
-      server.capabilities = vim.tbl_deep_extend(
-        'force',
-        {},
-        require('blink.cmp').get_lsp_capabilities(),
-        require('lsp-file-operations').default_capabilities(),
-        server.capabilities or {}
-      )
-      require('lspconfig')[server_name].setup(server)
+      vim.lsp.config(server_name, server)
+      vim.lsp.enable(server_name)
+      -- server.capabilities = vim.tbl_deep_extend(
+      --   'force',
+      --   {},
+      --   require('blink.cmp').get_lsp_capabilities(),
+      --   require('lsp-file-operations').default_capabilities(),
+      --   server.capabilities or {}
+      -- )
+      -- require('lspconfig')[server_name].setup(server)
     end
   end,
 }
