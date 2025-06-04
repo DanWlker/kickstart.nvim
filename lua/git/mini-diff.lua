@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.diff',
-  event = 'VimEnter',
+  event = { 'BufReadPost', 'BufNewFile' },
   keys = {
     {
       '<leader>gd',
