@@ -1,5 +1,6 @@
 return {
   'echasnovski/mini-git',
+  event = 'VimEnter',
   main = 'mini.git',
   config = function()
     require('mini.git').setup {}
