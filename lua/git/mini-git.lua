@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini-git',
-  event = 'VimEnter',
+  event = { 'BufReadPost', 'BufNewFile' },
   main = 'mini.git',
   config = function()
     require('mini.git').setup {}
