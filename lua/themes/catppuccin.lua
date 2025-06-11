@@ -1,4 +1,3 @@
-local color_menu = '#161617'
 return {
   'catppuccin/nvim',
   name = 'catppuccin',
@@ -33,12 +32,6 @@ return {
         BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
         NormalFloat = { fg = colors.text, bg = colors.none },
         BlinkCmpMenuSelection = { bg = '#474b66' },
-        -- No Border
-        -- BlinkCmpDoc = { bg = color_menu },
-        -- BlinkCmpDocBorder = { fg = color_menu, bg = color_menu },
-        -- BlinkCmpSignatureHelpBorder = { fg = color_menu, bg = color_menu },
-        -- NormalFloat = { bg = color_menu },
-        -- FloatBorder = { fg = color_menu, bg = color_menu },
 
         -- [[ Telescope ]]
         TelescopeNormal = { bg = colors.mantle },
