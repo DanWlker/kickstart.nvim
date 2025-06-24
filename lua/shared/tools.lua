@@ -1,6 +1,15 @@
 local M = {}
 
 M.masonInstalledServers = {
+  helm_ls = {
+    settings = {
+      ['helm-ls'] = {
+        yamlls = {
+          path = 'yaml-language-server',
+        },
+      },
+    },
+  },
   graphql = {},
   marksman = {},
   -- yamlls from LazyVim

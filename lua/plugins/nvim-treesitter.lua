@@ -41,6 +41,9 @@ return {
 
         -- json
         'json',
+
+        -- helm
+        'helm',
       },
       auto_install = true,
       highlight = {
