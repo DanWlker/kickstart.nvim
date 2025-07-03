@@ -138,6 +138,10 @@ return {
           require('snacks').scratch.select()
         end,
       },
+      {
+        name = 'Undotree: Focus',
+        execute = 'UndotreeFocus',
+      },
     },
   },
 }

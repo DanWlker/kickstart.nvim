@@ -1,3 +1,4 @@
+vim.g.undotree_SetFocusWhenToggle = 1
 return {
   'mbbill/undotree',
   keys = {
