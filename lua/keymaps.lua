@@ -17,14 +17,20 @@ map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('n', 'Q', '<nop>')
 map('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
 map('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
-map('n', '<C-Left>', '<C-w>h', { desc = 'Switch Window Left' })
-map('n', '<C-Right>', '<C-w>l', { desc = 'Switch Window Right' })
-map('n', '<C-Down>', '<C-w>j', { desc = 'Switch Window Down' })
-map('n', '<C-Up>', '<C-w>k', { desc = 'Switch Window Up' })
 map('n', '<M-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
 map('n', '<M-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
 map('n', '<M-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 map('n', '<M-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+
+-- window
+map('n', '<C-Left>', '<C-w>h', { desc = 'Switch Window Left' })
+map('n', '<C-Right>', '<C-w>l', { desc = 'Switch Window Right' })
+map('n', '<C-Down>', '<C-w>j', { desc = 'Switch Window Down' })
+map('n', '<C-Up>', '<C-w>k', { desc = 'Switch Window Up' })
+map('n', '<C-w><S-Left>', '<C-w>H', { desc = 'Switch Window Far Left' })
+map('n', '<C-w><S-Right>', '<C-w>L', { desc = 'Switch Window Far Right' })
+map('n', '<C-w><S-Down>', '<C-w>J', { desc = 'Switch Window Top' })
+map('n', '<C-w><S-Up>', '<C-w>K', { desc = 'Switch Window Bottom' })
 
 -- Don't cancel me
 map({ 'n', 'x' }, 'h', '<nop>') -- this is now mapped to flash nvim
