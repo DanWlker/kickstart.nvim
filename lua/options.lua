@@ -1,16 +1,17 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.g.have_nerd_font = true
+local g = vim.g
+g.mapleader = ' '
+g.maplocalleader = ' '
+g.have_nerd_font = true
 
 -- disable netrw (copied from nvim-tree)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 local function isNotEmpty(s)
   return s ~= nil and s ~= ''
 end
 if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
-  vim.g.clipboard = {
+  g.clipboard = {
     name = 'WslClipboard',
     copy = {
       ['+'] = 'clip.exe',
@@ -87,44 +88,46 @@ vim.diagnostic.config {
   },
 }
 
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.signcolumn = 'yes'
-vim.o.mouse = 'a'
-vim.o.showmode = false
+local o = vim.o
+o.number = true
+o.relativenumber = true
+o.signcolumn = 'yes'
+o.mouse = 'a'
+o.showmode = false
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+  o.clipboard = 'unnamedplus'
 end)
-vim.o.breakindent = true
-vim.o.undofile = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.updatetime = 250
-vim.o.timeoutlen = 500
-vim.o.splitright = true
-vim.o.splitbelow = true
-vim.o.list = false
-vim.o.inccommand = 'split'
-vim.o.cursorline = true
-vim.o.scrolloff = 4
-vim.o.cursorlineopt = 'number'
-vim.o.laststatus = 3 -- global statusline
-vim.o.termguicolors = true -- True color support
-vim.o.jumpoptions = 'stack' -- Make jumplist more intuitive
-vim.o.grepformat = '%f:%l:%c:%m'
-vim.o.grepprg = 'rg --vimgrep'
-vim.o.shiftround = true
--- vim.o.smartindent = true
--- vim.o.wrap = false
-vim.o.confirm = true
-vim.o.foldexpr = "v:lua.require'shared.fold'.foldexpr()"
-vim.o.foldmethod = 'expr'
-vim.o.foldtext = ''
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
+o.breakindent = true
+o.undofile = true
+o.ignorecase = true
+o.smartcase = true
+o.updatetime = 250
+o.timeoutlen = 500
+o.splitright = true
+o.splitbelow = true
+o.list = false
+o.inccommand = 'split'
+o.cursorline = true
+o.scrolloff = 4
+o.cursorlineopt = 'number'
+o.laststatus = 3 -- global statusline
+o.termguicolors = true -- True color support
+o.jumpoptions = 'stack' -- Make jumplist more intuitive
+o.grepformat = '%f:%l:%c:%m'
+o.grepprg = 'rg --vimgrep'
+o.shiftround = true
+-- o.smartindent = true
+-- o.wrap = false
+o.confirm = true
+o.foldexpr = "v:lua.require'shared.fold'.foldexpr()"
+o.foldmethod = 'expr'
+o.foldtext = ''
+o.foldlevel = 99
+o.foldlevelstart = 99
 
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.fillchars = {
+local opt = vim.opt
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.fillchars = {
   eob = ' ',
   foldopen = '',
   foldclose = '',

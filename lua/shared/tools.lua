@@ -188,6 +188,19 @@ M.masonInstalledServers = {
     },
   },
 
+  -- use either emmet_language server or emmet_ls, emmet_language_server was created as an improvement
+  emmet_language_server = {},
+  -- emmet_ls = {
+  --   init_options = {
+  --     html = {
+  --       options = {
+  --         -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+  --         ['bem.enabled'] = true,
+  --       },
+  --     },
+  --   },
+  -- },
+
   -- Vue, but its messy, probably should refer to LazyVim config
   -- ts_ls = {
   --   -- init_options = {
