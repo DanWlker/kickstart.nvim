@@ -125,6 +125,9 @@ return {
 
         -- [[ Diffview ]]
         DiffviewNormal = { fg = colors.text, bg = colors.base },
+
+        -- [[ Fyler ]]
+        FylerBorder = { fg = colors.blue },
       }
 
       for mode, color in pairs({
