@@ -21,7 +21,7 @@ return {
   },
   config = function()
     local HEIGHT_RATIO = 0.85 -- You can change this
-    local WIDTH_RATIO = 0.79 -- You can change this too
+    local WIDTH_RATIO = 0.79  -- You can change this too
     local floating = true
 
     local view = {
@@ -133,11 +133,8 @@ return {
     }
 
     if floating then
-      vim.api.nvim_create_augroup('NvimTreeResize', {
-        clear = true,
-      })
       vim.api.nvim_create_autocmd({ 'VimResized' }, {
-        group = 'NvimTreeResize',
+        group = vim.api.nvim_create_augroup('NvimTreeResize', { clear = true }),
         callback = function()
           if require('nvim-tree.view').is_visible() then
             tree_api.tree.close()

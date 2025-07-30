@@ -120,7 +120,6 @@ o.shiftround = true
 -- o.smartindent = true
 o.wrap = false
 o.confirm = true
-o.foldexpr = "v:lua.require'shared.fold'.foldexpr()"
 o.foldmethod = 'expr'
 o.foldtext = ''
 o.foldlevel = 99
