@@ -1,10 +1,6 @@
-local function augroup(name)
-  return vim.api.nvim_create_augroup('kickstart_' .. name, { clear = true })
-end
-
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  group = vim.api.nvim_create_augroup('danwlker/highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
@@ -12,7 +8,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
-  group = vim.api.nvim_create_augroup('checktime', { clear = true }),
+  group = vim.api.nvim_create_augroup('danwlker/checktime', { clear = true }),
   callback = function()
     if vim.o.buftype ~= 'nofile' then
       vim.cmd 'checktime'
@@ -22,7 +18,7 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
 
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ 'VimResized' }, {
-  group = vim.api.nvim_create_augroup('resize_splits', { clear = true }),
+  group = vim.api.nvim_create_augroup('danwlker/resize-splits', { clear = true }),
   callback = function()
     local current_tab = vim.fn.tabpagenr()
     vim.cmd 'tabdo wincmd ='

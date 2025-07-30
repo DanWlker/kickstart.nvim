@@ -8,9 +8,9 @@
 local icons = require 'shared.icons'
 local diagnostics_highlight = {
   { name = 'ERROR', hl = 'MiniStatuslineDiagnosticError' },
-  { name = 'WARN', hl = 'MiniStatuslineDiagnosticWarn' },
-  { name = 'INFO', hl = 'MiniStatuslineDiagnosticInfo' },
-  { name = 'HINT', hl = 'MiniStatuslineDiagnosticHint' },
+  { name = 'WARN',  hl = 'MiniStatuslineDiagnosticWarn' },
+  { name = 'INFO',  hl = 'MiniStatuslineDiagnosticInfo' },
+  { name = 'HINT',  hl = 'MiniStatuslineDiagnosticHint' },
 }
 
 local function show_macro_recording()
@@ -34,14 +34,15 @@ return {
         require('mini.git').setup {}
 
         -- Use only HEAD name as summary string
-        local format_summary = function(data)
-          -- Utilize buffer-local table summary
-          local summary = vim.b[data.buf].minigit_summary
-          vim.b[data.buf].minigit_summary_string = summary.head_name or ''
-        end
-
-        local au_opts = { pattern = 'MiniGitUpdated', callback = format_summary }
-        vim.api.nvim_create_autocmd('User', au_opts)
+        vim.api.nvim_create_autocmd('User', {
+          pattern = 'MiniGitUpdated',
+          group = vim.api.nvim_create_augroup('danwlker/mini-git-head', { clear = true }),
+          callback = function(data)
+            -- Utilize buffer-local table summary
+            local summary = vim.b[data.buf].minigit_summary
+            vim.b[data.buf].minigit_summary_string = summary.head_name or ''
+          end,
+        })
       end,
     },
   },
@@ -113,14 +114,14 @@ return {
           local recording = show_macro_recording()
 
           return MiniStatusline.combine_groups {
-            { hl = mode_hl, strings = { mode } },
+            { hl = mode_hl,                 strings = { mode } },
             { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
             '%<', -- Mark general truncate point
-            { hl = 'MiniStatuslineFilename', strings = { '%=' .. filename } },
+            { hl = 'MiniStatuslineFilename',  strings = { '%=' .. filename } },
             '%=', -- End left alignment
             { hl = 'MiniStatuslineRecording', strings = { recording } },
-            { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-            { hl = mode_hl, strings = { location } },
+            { hl = 'MiniStatuslineFileinfo',  strings = { fileinfo } },
+            { hl = mode_hl,                   strings = { location } },
           }
         end,
         inactive = function()

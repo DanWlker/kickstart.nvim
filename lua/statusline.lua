@@ -126,7 +126,7 @@ local progress_status = {
 }
 
 vim.api.nvim_create_autocmd('LspProgress', {
-  group = vim.api.nvim_create_augroup('mariasolos/statusline', { clear = true }),
+  group = vim.api.nvim_create_augroup('danwlker/statusline', { clear = true }),
   desc = 'Update LSP progress in statusline',
   pattern = { 'begin', 'end' },
   callback = function(args)
@@ -197,16 +197,16 @@ function M.diagnostics_component()
   end)
 
   local parts = vim
-    .iter(counts)
-    :map(function(severity, count)
-      if count == 0 then
-        return nil
-      end
+      .iter(counts)
+      :map(function(severity, count)
+        if count == 0 then
+          return nil
+        end
 
-      local hl = 'Diagnostic' .. severity:sub(1, 1) .. severity:sub(2):lower()
-      return string.format('%%#%s#%s %d', M.get_or_create_hl(hl), icons.diagnostics[severity], count)
-    end)
-    :totable()
+        local hl = 'Diagnostic' .. severity:sub(1, 1) .. severity:sub(2):lower()
+        return string.format('%%#%s#%s %d', M.get_or_create_hl(hl), icons.diagnostics[severity], count)
+      end)
+      :totable()
 
   return table.concat(parts, ' ')
 end
@@ -324,6 +324,7 @@ function M.render()
     ' ',
   }
 end
+
 vim.o.statusline = "%!v:lua.require'statusline'.render()"
 
 return M

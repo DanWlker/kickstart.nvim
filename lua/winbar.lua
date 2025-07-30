@@ -73,12 +73,12 @@ function M.render()
     prefix,
     table.concat(
       vim
-        .iter(vim.split(path, '/'))
-        :map(function(segment)
-          -- return string.format('%%#Winbar#%s', segment)
-          return string.format('%%#WinBarIndDir#%s', segment)
-        end)
-        :totable(),
+      .iter(vim.split(path, '/'))
+      :map(function(segment)
+        -- return string.format('%%#Winbar#%s', segment)
+        return string.format('%%#WinBarIndDir#%s', segment)
+      end)
+      :totable(),
       separator
     ),
     '%#WinBarIndDir# ',
@@ -90,14 +90,14 @@ end
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
   -- Thanks Maria <3
-  group = vim.api.nvim_create_augroup('mariasolos/winbar', { clear = true }),
+  group = vim.api.nvim_create_augroup('danwlker/winbar', { clear = true }),
   desc = 'Attach winbar',
   callback = function(args)
     if
-      not vim.api.nvim_win_get_config(0).zindex -- Not a floating window
-      and vim.bo[args.buf].buftype == '' -- Normal buffer
-      and vim.api.nvim_buf_get_name(args.buf) ~= '' -- Has a file name
-      and not vim.wo[0].diff -- Not in diff mode
+        not vim.api.nvim_win_get_config(0).zindex   -- Not a floating window
+        and vim.bo[args.buf].buftype == ''          -- Normal buffer
+        and vim.api.nvim_buf_get_name(args.buf) ~= '' -- Has a file name
+        and not vim.wo[0].diff                      -- Not in diff mode
     then
       vim.wo.winbar = "%{%v:lua.require'winbar'.render()%}"
     end

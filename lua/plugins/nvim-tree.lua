@@ -134,7 +134,7 @@ return {
 
     if floating then
       vim.api.nvim_create_autocmd({ 'VimResized' }, {
-        group = vim.api.nvim_create_augroup('NvimTreeResize', { clear = true }),
+        group = vim.api.nvim_create_augroup('danwlker/nvim-tree-resize', { clear = true }),
         callback = function()
           if require('nvim-tree.view').is_visible() then
             tree_api.tree.close()
