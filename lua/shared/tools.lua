@@ -301,8 +301,8 @@ M.ensureInstalled = (function()
   local ensure_installed = vim.tbl_keys(M.masonInstalledServers)
   vim.list_extend(ensure_installed, {
     'stylua',
-    'markdownlint-cli2',
-    'markdown-toc',
+    -- 'markdownlint-cli2',
+    -- 'markdown-toc',
     'prettierd',
     'prettier',
     'golangci-lint',
@@ -314,6 +314,7 @@ M.ensureInstalled = (function()
     'delve',
     'shellcheck', --used by bashls
     'shfmt', --used by bashls
+    'goimports',
   })
   return ensure_installed
 end)()
