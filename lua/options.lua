@@ -111,8 +111,8 @@ o.cursorline = true
 o.scrolloff = 12
 o.sidescrolloff = 12
 o.cursorlineopt = 'number'
-o.laststatus = 3 -- global statusline
-o.termguicolors = true -- True color support
+o.laststatus = 3        -- global statusline
+o.termguicolors = true  -- True color support
 o.jumpoptions = 'stack' -- Make jumplist more intuitive
 o.grepformat = '%f:%l:%c:%m'
 o.grepprg = 'rg --vimgrep'
@@ -129,7 +129,7 @@ o.swapfile = false
 
 local opt = vim.opt
 opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line
-opt.iskeyword:append '-' -- treat `-` as word character, same as `_`
+opt.iskeyword:append '-'      -- treat `-` as word character, same as `_`
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.fillchars = {
   eob = ' ',
@@ -140,7 +140,7 @@ opt.fillchars = {
   diff = '╱',
 }
 
---https://www.reddit.com/r/neovim/comments/1d9gzud/comment/l7e6akp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+-- https://www.reddit.com/r/neovim/comments/1d9gzud/comment/l7e6akp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 -- vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
 
 -- https://www.reddit.com/r/neovim/comments/1d9gzud/comment/l7igfe0/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
