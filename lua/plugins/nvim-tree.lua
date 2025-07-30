@@ -1,5 +1,6 @@
 return {
   'nvim-tree/nvim-tree.lua',
+  commit = 'd54a1875a91e1a705795ea26074795210b92ce7f',
   keys = {
     {
       '\\',

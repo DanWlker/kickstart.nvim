@@ -108,7 +108,8 @@ o.splitbelow = true
 o.list = false
 o.inccommand = 'split'
 o.cursorline = true
-o.scrolloff = 4
+o.scrolloff = 12
+o.sidescrolloff = 12
 o.cursorlineopt = 'number'
 o.laststatus = 3 -- global statusline
 o.termguicolors = true -- True color support
@@ -117,15 +118,18 @@ o.grepformat = '%f:%l:%c:%m'
 o.grepprg = 'rg --vimgrep'
 o.shiftround = true
 -- o.smartindent = true
--- o.wrap = false
+o.wrap = false
 o.confirm = true
 o.foldexpr = "v:lua.require'shared.fold'.foldexpr()"
 o.foldmethod = 'expr'
 o.foldtext = ''
 o.foldlevel = 99
 o.foldlevelstart = 99
+o.swapfile = false
 
 local opt = vim.opt
+opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line
+opt.iskeyword:append '-' -- treat `-` as word character, same as `_`
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.fillchars = {
   eob = ' ',
