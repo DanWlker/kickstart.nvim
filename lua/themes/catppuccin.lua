@@ -15,10 +15,18 @@ return {
       blink_cmp = true,
       notify = true,
       snacks = true,
+      float = {
+        transparent = true,
+      },
     },
     custom_highlights = function(colors)
       local custom_stuff = {
         WinSeparator = { fg = colors.surface2 },
+        NormalFloat = { fg = colors.text, bg = colors.none },
+        FloatBorder = { fg = colors.blue, bg = colors.none },
+
+        -- [[ Which key ]]
+        WhichKeyTitle = { fg = colors.subtext0, bg = colors.none },
 
         -- [[ Visual whitespace ]]
         VisualNonText = { fg = colors.overlay0, bg = colors.surface1 },
@@ -30,7 +38,6 @@ return {
         BlinkCmpDoc = { bg = colors.base },
         BlinkCmpDocBorder = { fg = colors.overlay0, bg = colors.base },
         BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
-        NormalFloat = { fg = colors.text, bg = colors.none },
         BlinkCmpMenuSelection = { bg = '#474b66' },
 
         -- [[ Telescope ]]
