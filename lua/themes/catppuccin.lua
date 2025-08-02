@@ -15,15 +15,15 @@ return {
       blink_cmp = true,
       notify = true,
       snacks = true,
-      float = {
-        transparent = true,
-      },
+    },
+    float = {
+      transparent = true,
     },
     custom_highlights = function(colors)
       local custom_stuff = {
         WinSeparator = { fg = colors.surface2 },
-        NormalFloat = { fg = colors.text, bg = colors.none },
-        FloatBorder = { fg = colors.blue, bg = colors.none },
+        -- NormalFloat = { fg = colors.text, bg = colors.none },
+        -- FloatBorder = { fg = colors.blue, bg = colors.none },
 
         -- [[ Which key ]]
         WhichKeyTitle = { fg = colors.subtext0, bg = colors.none },
@@ -35,9 +35,11 @@ return {
         -- With border
         BlinkCmpMenu = { bg = colors.base },
         BlinkCmpMenuBorder = { fg = colors.lavender, bg = colors.base },
-        BlinkCmpDoc = { bg = colors.base },
-        BlinkCmpDocBorder = { fg = colors.overlay0, bg = colors.base },
-        BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
+        -- BlinkCmpDoc = { bg = colors.base },
+        -- BlinkCmpDocBorder = { fg = colors.overlay0, bg = colors.base },
+        BlinkCmpDocBorder = { fg = colors.overlay0 },
+        -- BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
+        BlinkCmpSignatureHelpBorder = { fg = colors.overlay0 },
         BlinkCmpMenuSelection = { bg = '#474b66' },
 
         -- [[ Telescope ]]
@@ -78,8 +80,8 @@ return {
         -- MiniStatuslineRecording = { bg = colors.red, fg = colors.base },
 
         -- [[ Snacks nvim ]]
-        SnacksIndentChunk = { fg = '#9399b2' },
-        SnacksIndentScope = { fg = '#9399b2' },
+        -- SnacksIndentChunk = { fg = '#9399b2' },
+        -- SnacksIndentScope = { fg = '#9399b2' },
         SnacksPickerBorder = { fg = colors.lavender },
         -- SnacksPickerBorder = { fg = colors.mantle, bg = colors.mantle },
         -- SnacksPicker = { fg = colors.text, bg = colors.mantle },
