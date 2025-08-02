@@ -79,7 +79,7 @@
 
 (short_var_declaration
     left: (expression_list (identifier))
-    right: (expression_list 
+    right: (expression_list
              (raw_string_literal
                (raw_string_literal_content) @injection.content
                (#lua-match? @injection.content "^[\n|\t| ]*\{.*\}[\n|\t| ]*$")
@@ -89,12 +89,12 @@
 
 (var_spec
   name: (identifier)
-  value: (expression_list 
+  value: (expression_list
            (raw_string_literal
              (raw_string_literal_content) @injection.content
              (#lua-match? @injection.content "^[\n|\t| ]*\{.*\}[\n|\t| ]*$")
              (#set! injection.language "json")
-             ) 
+             )
    ))
 
 (field_declaration

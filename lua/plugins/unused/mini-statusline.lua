@@ -8,9 +8,9 @@
 local icons = require 'shared.icons'
 local diagnostics_highlight = {
   { name = 'ERROR', hl = 'MiniStatuslineDiagnosticError' },
-  { name = 'WARN',  hl = 'MiniStatuslineDiagnosticWarn' },
-  { name = 'INFO',  hl = 'MiniStatuslineDiagnosticInfo' },
-  { name = 'HINT',  hl = 'MiniStatuslineDiagnosticHint' },
+  { name = 'WARN', hl = 'MiniStatuslineDiagnosticWarn' },
+  { name = 'INFO', hl = 'MiniStatuslineDiagnosticInfo' },
+  { name = 'HINT', hl = 'MiniStatuslineDiagnosticHint' },
 }
 
 local function show_macro_recording()
@@ -114,14 +114,14 @@ return {
           local recording = show_macro_recording()
 
           return MiniStatusline.combine_groups {
-            { hl = mode_hl,                 strings = { mode } },
+            { hl = mode_hl, strings = { mode } },
             { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
             '%<', -- Mark general truncate point
-            { hl = 'MiniStatuslineFilename',  strings = { '%=' .. filename } },
+            { hl = 'MiniStatuslineFilename', strings = { '%=' .. filename } },
             '%=', -- End left alignment
             { hl = 'MiniStatuslineRecording', strings = { recording } },
-            { hl = 'MiniStatuslineFileinfo',  strings = { fileinfo } },
-            { hl = mode_hl,                   strings = { location } },
+            { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+            { hl = mode_hl, strings = { location } },
           }
         end,
         inactive = function()
