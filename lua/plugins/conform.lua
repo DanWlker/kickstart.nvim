@@ -1,16 +1,16 @@
--- local function Set(list)
---   local set = {}
---   for _, l in ipairs(list) do
---     set[l] = true
---   end
---   return set
--- end
+local function Set(list)
+  local set = {}
+  for _, l in ipairs(list) do
+    set[l] = true
+  end
+  return set
+end
 
 local prettier = { 'prettierd', 'prettier', stop_after_first = true }
 
 -- local disable_filetypes = {}
--- local only_lsp = Set {}
--- local only_formatters = Set {}
+local prefer_lsp = Set {}
+local fallback_to_lsp = Set { 'lua' }
 
 return {
   'stevearc/conform.nvim',
@@ -30,17 +30,16 @@ return {
 
       local to_return = { timeout_ms = 500 }
       -- Reenable when needed
-      -- if only_lsp[vim.bo[bufnr].filetype] then
-      --   to_return['lsp_format'] = 'prefer'
-      -- elseif only_formatters[vim.bo[bufnr].filetype] then
-      --   to_return['lsp_format'] = 'never'
-      -- else
-      --
-      -- -- should be safe to put this as default, most people and projects have lsp
-      -- -- and lsp is usually the priority? I think
-      to_return['lsp_format'] = 'last'
-      --
-      -- end
+      if prefer_lsp[vim.bo[bufnr].filetype] then
+        to_return['lsp_format'] = 'prefer'
+      elseif fallback_to_lsp[vim.bo[bufnr].filetype] then
+        to_return['lsp_format'] = 'fallback'
+      else
+        -- -- should be safe to put this as default, most people and projects have lsp
+        -- -- and lsp is usually the priority? I think
+        to_return['lsp_format'] = 'last'
+        --
+      end
 
       -- Why not use 'fallback'?
       -- Gopls should be prioritised
