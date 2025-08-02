@@ -197,16 +197,16 @@ function M.diagnostics_component()
   end)
 
   local parts = vim
-      .iter(counts)
-      :map(function(severity, count)
-        if count == 0 then
-          return nil
-        end
+    .iter(counts)
+    :map(function(severity, count)
+      if count == 0 then
+        return nil
+      end
 
-        local hl = 'Diagnostic' .. severity:sub(1, 1) .. severity:sub(2):lower()
-        return string.format('%%#%s#%s %d', M.get_or_create_hl(hl), icons.diagnostics[severity], count)
-      end)
-      :totable()
+      local hl = 'Diagnostic' .. severity:sub(1, 1) .. severity:sub(2):lower()
+      return string.format('%%#%s#%s %d', M.get_or_create_hl(hl), icons.diagnostics[severity], count)
+    end)
+    :totable()
 
   return table.concat(parts, ' ')
 end

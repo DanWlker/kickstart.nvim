@@ -111,8 +111,8 @@ o.cursorline = true
 o.scrolloff = 12
 o.sidescrolloff = 12
 o.cursorlineopt = 'number'
-o.laststatus = 3        -- global statusline
-o.termguicolors = true  -- True color support
+o.laststatus = 3 -- global statusline
+o.termguicolors = true -- True color support
 o.jumpoptions = 'stack' -- Make jumplist more intuitive
 o.grepformat = '%f:%l:%c:%m'
 o.grepprg = 'rg --vimgrep'
@@ -128,7 +128,7 @@ o.swapfile = false
 
 local opt = vim.opt
 opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line
-opt.iskeyword:append '-'      -- treat `-` as word character, same as `_`
+opt.iskeyword:append '-' -- treat `-` as word character, same as `_`
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.fillchars = {
   eob = ' ',
