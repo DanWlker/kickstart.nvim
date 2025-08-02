@@ -25,9 +25,6 @@ return {
         -- NormalFloat = { fg = colors.text, bg = colors.none },
         -- FloatBorder = { fg = colors.blue, bg = colors.none },
 
-        -- [[ Which key ]]
-        WhichKeyTitle = { fg = colors.subtext0, bg = colors.none },
-
         -- [[ Visual whitespace ]]
         VisualNonText = { fg = colors.overlay0, bg = colors.surface1 },
 
