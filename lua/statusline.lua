@@ -214,15 +214,12 @@ end
 --- The buffer's filetype.
 ---@return string
 function M.filetype_component()
-  local devicons = require 'nvim-web-devicons'
+  local devicons = require 'mini.icons'
 
   -- Special icons for some filetypes.
   local special_icons = {
     DiffviewFileHistory = { icons.misc.git, 'Number' },
     DiffviewFiles = { icons.misc.git, 'Number' },
-    OverseerForm = { icons.misc.toolbox, 'Special' },
-    OverseerList = { icons.misc.toolbox, 'Special' },
-    ['ccc-ui'] = { icons.misc.palette, 'Comment' },
     ['grug-far'] = { icons.misc.search, 'Constant' },
     dapui_breakpoints = { icons.misc.bug, 'DapUIRestart' },
     dapui_scopes = { icons.misc.bug, 'DapUIRestart' },
@@ -230,9 +227,9 @@ function M.filetype_component()
     fzf = { icons.misc.terminal, 'Special' },
     gitcommit = { icons.misc.git, 'Number' },
     gitrebase = { icons.misc.git, 'Number' },
-    lazy = { icons.symbol_kinds.Method, 'Special' },
+    lazy = { icons.misc.func, 'Special' },
     lazyterm = { icons.misc.terminal, 'Special' },
-    minifiles = { icons.symbol_kinds.Folder, 'Directory' },
+    minifiles = { icons.misc.folder, 'Directory' },
     qf = { icons.misc.search, 'Conditional' },
   }
 
@@ -246,11 +243,13 @@ function M.filetype_component()
     icon, icon_hl = unpack(special_icons[filetype])
   else
     local buf_name = vim.api.nvim_buf_get_name(0)
-    local name, ext = vim.fn.fnamemodify(buf_name, ':t'), vim.fn.fnamemodify(buf_name, ':e')
+    -- local name, ext = vim.fn.fnamemodify(buf_name, ':t'), vim.fn.fnamemodify(buf_name, ':e')
 
-    icon, icon_hl = devicons.get_icon(name, ext)
+    -- icon, icon_hl = devicons.get(name, ext)
+    icon, icon_hl = devicons.get('file', buf_name)
     if not icon then
-      icon, icon_hl = devicons.get_icon_by_filetype(filetype, { default = true })
+      -- icon, icon_hl = devicons.get_icon_by_filetype(filetype, { default = true })
+      icon, icon_hl = devicons.get('filetype', filetype)
     end
   end
   icon_hl = M.get_or_create_hl(icon_hl)
@@ -293,7 +292,7 @@ end
 
 -- cwd ---------------------------------------------
 function M.cwd_component()
-  return '%#StatusLine#' .. icons.symbol_kinds.Folder .. ' ' .. vim.uv.cwd()
+  return '%#StatusLine#' .. icons.misc.folder .. ' ' .. vim.uv.cwd()
 end
 
 --- Renders the statusline.

@@ -17,7 +17,7 @@ return {
     },
   },
   dependencies = {
-    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'echasnovski/mini.icons', version = false },
   },
   config = function()
     local HEIGHT_RATIO = 0.85 -- You can change this
