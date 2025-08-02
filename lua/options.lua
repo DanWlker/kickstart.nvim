@@ -120,10 +120,10 @@ o.shiftround = true
 -- o.smartindent = true
 o.wrap = false
 o.confirm = true
-o.foldmethod = 'expr'
-o.foldtext = ''
-o.foldlevel = 99
-o.foldlevelstart = 99
+-- o.foldmethod = 'expr'
+-- o.foldtext = ''
+-- o.foldlevel = 99
+-- o.foldlevelstart = 99
 o.swapfile = false
 
 local opt = vim.opt
