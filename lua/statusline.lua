@@ -318,7 +318,7 @@ function M.render()
       M.filetype_component(),
       M.encoding_component(),
       M.position_component(),
-      -- M.scrollbar_widget(),
+      -- M.scrollbar_component(),
     },
     ' ',
   }

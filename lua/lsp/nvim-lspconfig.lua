@@ -63,7 +63,7 @@ return {
             group = vim.api.nvim_create_augroup('danwlker/lsp-detach', { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
+              vim.api.nvim_clear_autocmds { group = highlight_augroup, buffer = event2.buf }
             end,
           })
         end
