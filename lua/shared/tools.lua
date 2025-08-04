@@ -314,7 +314,7 @@ M.ensureInstalled = (function()
     'delve',
     'shellcheck', --used by bashls
     'shfmt', --used by bashls
-    'goimports',
+    -- 'goimports',
   })
   return ensure_installed
 end)()

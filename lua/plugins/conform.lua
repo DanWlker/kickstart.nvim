@@ -76,7 +76,7 @@ return {
     },
     formatters_by_ft = {
       c = { 'clang-format' },
-      go = { 'goimports' }, -- 'gofumpt' is lsp handled, slows down gopls if configured here
+      -- go = { 'goimports' }, -- 'gofumpt' is lsp handled, slows down gopls if configured here
       javascript = prettier,
       javascriptreact = prettier,
       json = prettier,
