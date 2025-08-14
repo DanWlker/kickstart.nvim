@@ -19,7 +19,7 @@ return {
       mason = true,
       dadbod_ui = true,
       which_key = true,
-      -- lsp_trouble = true,
+      lsp_trouble = true,
     },
     float = {
       transparent = true,
@@ -110,10 +110,11 @@ return {
         TabLineFill = { bg = colors.base },
         TabLineSel = { bg = colors.lavender },
 
-        -- [[ Trouble]] Copied from catppuccin lsp_trouble config
-        TroubleText = { fg = colors.green },
-        TroubleCount = { fg = colors.pink, bg = colors.surface1 },
+        -- [[ Trouble ]]
         TroubleNormal = { fg = colors.text, bg = colors.base },
+
+        -- [[ Diffview ]]
+        DiffviewNormal = { fg = colors.text, bg = colors.base },
       }
 
       for mode, color in pairs {
