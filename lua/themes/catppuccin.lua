@@ -15,6 +15,11 @@ return {
       blink_cmp = true,
       notify = true,
       snacks = true,
+      diffview = true,
+      mason = true,
+      dadbod_ui = true,
+      which_key = true,
+      -- lsp_trouble = true,
     },
     float = {
       transparent = true,
@@ -95,7 +100,7 @@ return {
         -- WinBarSeparator = { fg = colors.lavender, bg = colors.surface0 },
         WinBarEndSeparators = { fg = colors.base },
 
-        --[[ Highlight Url ]]
+        -- [[ Highlight Url ]]
         -- HighlightUrl = { underline = true, fg = colors.blue, sp = colors.blue },
 
         -- [[ Bufferline ]]
@@ -104,6 +109,11 @@ return {
         TabLine = { fg = colors.text, bg = colors.base },
         TabLineFill = { bg = colors.base },
         TabLineSel = { bg = colors.lavender },
+
+        -- [[ Trouble]] Copied from catppuccin lsp_trouble config
+        TroubleText = { fg = colors.green },
+        TroubleCount = { fg = colors.pink, bg = colors.surface1 },
+        TroubleNormal = { fg = colors.text, bg = colors.base },
       }
 
       for mode, color in pairs {
