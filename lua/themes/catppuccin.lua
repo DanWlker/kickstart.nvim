@@ -15,7 +15,7 @@ return {
       },
       colorful_winsep = {
         enabled = true,
-        color = 'pink',
+        color = 'lavender',
       },
     },
     float = {
