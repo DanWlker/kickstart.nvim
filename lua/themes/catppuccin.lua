@@ -3,6 +3,7 @@ return {
   name = 'catppuccin',
   priority = 1000,
   opts = {
+    auto_integrations = true,
     integrations = {
       native_lsp = {
         underlines = {
@@ -12,14 +13,10 @@ return {
           information = { 'undercurl' },
         },
       },
-      blink_cmp = true,
-      notify = true,
-      snacks = true,
-      diffview = true,
-      mason = true,
-      dadbod_ui = true,
-      which_key = true,
-      lsp_trouble = true,
+      colorful_winsep = {
+        enabled = true,
+        color = 'lavender',
+      },
     },
     float = {
       transparent = true,
@@ -36,13 +33,14 @@ return {
         -- [[ Blink cmp ]]
         -- With border
         BlinkCmpMenu = { bg = colors.base },
-        BlinkCmpMenuBorder = { fg = colors.lavender, bg = colors.base },
+        -- BlinkCmpMenuBorder = { fg = colors.lavender, bg = colors.base },
+        BlinkCmpMenuBorder = { bg = colors.base },
         -- BlinkCmpDoc = { bg = colors.base },
         -- BlinkCmpDocBorder = { fg = colors.overlay0, bg = colors.base },
         BlinkCmpDocBorder = { fg = colors.overlay0 },
         -- BlinkCmpSignatureHelpBorder = { fg = colors.overlay0, bg = colors.base },
         BlinkCmpSignatureHelpBorder = { fg = colors.overlay0 },
-        BlinkCmpMenuSelection = { bg = '#474b66' },
+        -- BlinkCmpMenuSelection = { bg = '#474b66' },
 
         -- [[ Telescope ]]
         TelescopeNormal = { bg = colors.mantle },
@@ -84,7 +82,7 @@ return {
         -- [[ Snacks nvim ]]
         -- SnacksIndentChunk = { fg = '#9399b2' },
         -- SnacksIndentScope = { fg = '#9399b2' },
-        SnacksPickerBorder = { fg = colors.lavender },
+        -- SnacksPickerBorder = { fg = colors.lavender },
         -- SnacksPickerBorder = { fg = colors.mantle, bg = colors.mantle },
         -- SnacksPicker = { fg = colors.text, bg = colors.mantle },
         -- SnacksPickerTitle = { fg = colors.base, bg = colors.lavender },
