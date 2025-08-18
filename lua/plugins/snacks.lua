@@ -13,6 +13,13 @@ return {
   },
   ---@type snacks.Config
   opts = {
+    styles = {
+      input = {
+        relative = 'cursor',
+        row = -3,
+        col = 0,
+      },
+    },
     input = { enabled = true },
     notifier = { enabled = true },
     statuscolumn = {
