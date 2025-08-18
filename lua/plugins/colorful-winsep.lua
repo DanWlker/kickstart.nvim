@@ -3,5 +3,8 @@ return {
   event = { 'WinLeave' },
   opts = {
     border = 'rounded',
+    animate = {
+      enabled = false,
+    },
   },
 }
