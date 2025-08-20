@@ -1,5 +1,9 @@
 return {
-  'qvalentin/helm-ls.nvim',
+  'DanWlker/helm-ls.nvim',
   ft = 'helm',
-  config = true,
+  opts = {
+    indent_hints = {
+      enabled = false,
+    },
+  },
 }
