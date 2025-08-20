@@ -21,6 +21,8 @@ map('n', '<M-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
 map('n', '<M-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
 map('n', '<M-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
 map('n', '<M-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+map('x', '/', '<Esc>/\\%V')
+map('n', 'yc', 'yy<cmd>normal gcc<cr>p')
 
 -- window
 map('n', '<C-Left>', '<C-w>h', { desc = 'Switch Window Left' })
@@ -39,8 +41,6 @@ map({ 'n', 'x' }, 'k', '<nop>')
 map({ 'n', 'x' }, 'l', '<nop>') -- this is now mapped to mini.surround ('Lasso')
 -- map('n', 'S', "m'a<CR><Esc>`'")
 -- map('n', 'S', 'a<CR><Esc>')
-map('n', 'yc', 'yy<cmd>normal gcc<cr>p')
-map('x', 'g/', '<esc>/\\%V')
 
 -- Toggles
 map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Toggle wrap' })
