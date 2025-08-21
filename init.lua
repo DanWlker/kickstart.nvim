@@ -44,10 +44,3 @@ require('lazy').setup({
 })
 
 vim.cmd.colorscheme 'catppuccin'
-
-local cwd = vim.fn.getcwd()
-local pipepath = cwd .. '/server.pipe'
-local project_godot_path = cwd .. '/project.godot'
-if vim.uv.fs_stat(project_godot_path) then
-  vim.fn.serverstart(pipepath)
-end
