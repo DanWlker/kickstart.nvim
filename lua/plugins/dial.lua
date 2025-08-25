@@ -6,28 +6,24 @@ return {
       function()
         require('dial.map').manipulate('increment', 'normal')
       end,
-      mode = 'n',
     },
     {
       '<C-x>',
       function()
         require('dial.map').manipulate('decrement', 'normal')
       end,
-      mode = 'n',
     },
     {
       'g<C-a>',
       function()
         require('dial.map').manipulate('increment', 'gnormal')
       end,
-      mode = 'n',
     },
     {
       'g<C-x>',
       function()
         require('dial.map').manipulate('decrement', 'gnormal')
       end,
-      mode = 'n',
     },
     {
       '<C-a>',

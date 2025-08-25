@@ -42,14 +42,12 @@ return {
       function()
         require('ufo').openAllFolds()
       end,
-      mode = 'n',
     },
     {
       'zM',
       function()
         require('ufo').closeAllFolds()
       end,
-      mode = 'n',
     },
   },
   init = function()
