@@ -1,5 +1,12 @@
 -- Everything in here is from LazyVim
 local function ai_whichkey(opts)
+  local ok, module = pcall(function()
+    return require 'which-key'
+  end)
+  if not ok then
+    return
+  end
+
   local objects = {
     { ' ', desc = 'whitespace' },
     { '"', desc = '" string' },
@@ -54,7 +61,8 @@ local function ai_whichkey(opts)
       ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
     end
   end
-  require('which-key').add(ret, { notify = false })
+
+  module.add(ret, { notify = false })
 end
 
 local function ai_buffer(ai_type)
