@@ -4,6 +4,7 @@ g.maplocalleader = ' '
 
 local o = vim.o
 o.clipboard = 'unnamedplus'
+o.timeoutlen = 500
 
 local map = vim.keymap.set
 map('n', 'Q', '<nop>')
