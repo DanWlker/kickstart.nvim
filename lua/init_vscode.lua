@@ -71,10 +71,10 @@ require('lazy').setup {
   require 'plugins.mini-move',
   require 'plugins.mini-splitjoin',
   require 'plugins.mini-surround',
-  require 'plugins.nvim-autopairs',
   require 'plugins.substitute',
   require 'plugins.vim-sleuth',
   require 'plugins.ts-comments',
+  -- require 'plugins.nvim-autopairs', -- doesn't work
 
   require 'themes.catppuccin',
 }
