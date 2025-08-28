@@ -50,6 +50,9 @@ end)
 map('n', '<c-r>', function()
   require('vscode').action 'redo'
 end)
+map('n', '<c-w>d', function()
+  require('vscode').action 'editor.action.showHover'
+end)
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
