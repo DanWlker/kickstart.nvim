@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini-git',
+  'nvim-mini/mini-git',
   event = { 'BufReadPost', 'BufNewFile' },
   main = 'mini.git',
   config = function()
