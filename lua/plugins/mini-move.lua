@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.move',
+  'nvim-mini/mini.move',
   event = 'ModeChanged *:[vV\22]', -- only using it in visual mode for now
   opts = {
     mappings = {

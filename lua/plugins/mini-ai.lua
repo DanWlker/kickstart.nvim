@@ -106,7 +106,7 @@ local function ai_line(ai_type, _, opts)
 end
 
 return {
-  'echasnovski/mini.ai',
+  'nvim-mini/mini.ai',
   event = 'VimEnter',
   dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
   opts = function()

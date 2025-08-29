@@ -19,7 +19,7 @@ return {
         'folke/lazydev.nvim',
       },
     },
-    { 'echasnovski/mini.icons', version = false },
+    { 'nvim-mini/mini.icons', version = false },
   },
   opts = {
     keymap = {

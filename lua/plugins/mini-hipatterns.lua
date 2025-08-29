@@ -312,7 +312,7 @@ local colors = {
 }
 
 return {
-  'echasnovski/mini.hipatterns',
+  'nvim-mini/mini.hipatterns',
   event = { 'BufReadPost', 'BufNewFile' },
   opts = function()
     local hi = require 'mini.hipatterns'

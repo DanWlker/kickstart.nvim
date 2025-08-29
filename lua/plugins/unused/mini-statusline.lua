@@ -25,10 +25,10 @@ local function show_macro_recording()
 end
 
 return {
-  'echasnovski/mini.statusline',
+  'nvim-mini/mini.statusline',
   dependencies = {
     {
-      'echasnovski/mini-git',
+      'nvim-mini/mini-git',
       main = 'mini.git',
       config = function()
         require('mini.git').setup {}

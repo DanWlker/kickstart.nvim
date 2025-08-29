@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.splitjoin',
+  'nvim-mini/mini.splitjoin',
   keys = {
     { 'jt', desc = 'Join/Split Toggle' },
     { 'js', desc = 'Split' },
