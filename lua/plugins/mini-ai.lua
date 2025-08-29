@@ -65,50 +65,13 @@ local function ai_whichkey(opts)
   module.add(ret, { notify = false })
 end
 
-local function ai_buffer(ai_type)
-  local start_line, end_line = 1, vim.fn.line '$'
-  if ai_type == 'i' then
-    -- Skip first and last blank lines for `i` textobject
-    local first_nonblank, last_nonblank = vim.fn.nextnonblank(start_line), vim.fn.prevnonblank(end_line)
-    -- Do nothing for buffer with all blanks
-    if first_nonblank == 0 or last_nonblank == 0 then
-      return { from = { line = start_line, col = 1 } }
-    end
-    start_line, end_line = first_nonblank, last_nonblank
-  end
-
-  local to_col = math.max(vim.fn.getline(end_line):len(), 1)
-  return { from = { line = start_line, col = 1 }, to = { line = end_line, col = to_col } }
-end
-
-local function ai_line(ai_type, _, opts)
-  local n_lines = opts.n_lines or -1
-  local initial = 1
-  local limit = vim.api.nvim_buf_line_count(0)
-  if n_lines ~= -1 then
-    local line_num = vim.fn.line '.'
-    initial = math.max(line_num - n_lines, initial)
-    limit = math.min(line_num + n_lines, limit)
-  end
-
-  local res = {}
-  for i = initial, limit, 1 do
-    local line = vim.fn.getline(i)
-    if ai_type == 'a' then
-      table.insert(res, { from = { line = i, col = 1 }, to = { line = i, col = #line } })
-      goto continue
-    end
-
-    table.insert(res, { from = { line = i, col = line:find '%S' or 1 }, to = { line = i, col = line:find '%S%s*$' or 0 } })
-    ::continue::
-  end
-  return res
-end
-
 return {
   'nvim-mini/mini.ai',
   event = 'VimEnter',
-  dependencies = 'nvim-treesitter/nvim-treesitter-textobjects',
+  dependencies = {
+    { 'nvim-mini/mini.extra', config = true },
+    { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  },
   opts = function()
     local ai = require 'mini.ai'
     return {
@@ -121,27 +84,15 @@ return {
         f = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' }, -- function
         c = ai.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' }, -- class
         t = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' }, -- tags
-        d = { '%f[%d]%d+' }, -- digits
+        d = MiniExtra.gen_ai_spec.number(),
         e = { -- Word with case
           { '%u[%l%d]+%f[^%l%d]', '%f[%S][%l%d]+%f[^%l%d]', '%f[%P][%l%d]+%f[^%l%d]', '^[%l%d]+%f[^%l%d]' },
           '^().*()$',
         },
-        g = ai_buffer, -- buffer
+        g = MiniExtra.gen_ai_spec.buffer(), -- buffer
         u = ai.gen_spec.function_call(), -- u for "Usage"
         U = ai.gen_spec.function_call { name_pattern = '[%w_]' }, -- without dot in function name
-        -- l = { '^%s*().-()%s*\n' },
-        -- l = function(ai_type)
-        --   local line = vim.api.nvim_get_current_line()
-        --   local line_num = vim.fn.line '.'
-        --   if ai_type == 'a' then
-        --     return { from = { line = line_num, col = 1 }, to = { line = line_num, col = #line } }
-        --   end
-        --
-        --   local start_col = line:find '%S' or 1
-        --   local end_col = line:find '%S%s*$' or #line
-        --   return { from = { line = line_num, col = start_col }, to = { line = line_num, col = end_col } }
-        -- end,
-        l = ai_line,
+        l = MiniExtra.gen_ai_spec.line(),
       },
       mappings = {
         around_next = '',
