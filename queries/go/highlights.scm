@@ -10,11 +10,13 @@
     right: (nil)
   ) @comment
   consequence: (block
-    (return_statement
-      (expression_list
-        (identifier) @ret_id (#eq? @ret_id "err")
-      )
-    ) @comment
+    (statement_list
+      (return_statement
+        (expression_list
+          (identifier) @ret_id (#eq? @ret_id "err")
+        )
+      ) @comment
+    )
   )
  (#set! "priority" 128)
 )
