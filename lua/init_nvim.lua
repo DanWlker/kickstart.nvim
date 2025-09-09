@@ -14,14 +14,17 @@ require('lazy').setup({
   -- [[ Themes ]]
   { import = 'themes' },
 
-  -- [[ LSP ]]
+  -- [[ Lsp ]]
   { import = 'lsp' },
 
-  -- [[ GIT ]]
+  -- [[ Git ]]
   { import = 'git' },
 
   -- [[ Plugins ]]
   { import = 'plugins' },
+
+  -- [[ Editing ]]
+  { import = 'editing' },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

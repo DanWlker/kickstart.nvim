@@ -65,17 +65,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require 'personal.install-lazy'
 
 require('lazy').setup {
-  require 'plugins.dial',
-  require 'plugins.flash',
-  require 'plugins.mini-ai',
-  require 'plugins.mini-move',
-  require 'plugins.mini-splitjoin',
-  require 'plugins.mini-surround',
-  require 'plugins.substitute',
-  require 'plugins.vim-sleuth',
-  require 'plugins.ts-comments',
-  -- require 'plugins.nvim-autopairs', -- doesn't work
+  { import = 'editing' },
 
+  -- require 'plugins.nvim-autopairs', -- doesn't work
   require 'themes.catppuccin',
 }
 
