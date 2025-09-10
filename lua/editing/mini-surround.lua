@@ -11,7 +11,6 @@ return {
       { opts.mappings.find_left, desc = 'Find Left Matching' },
       { opts.mappings.highlight, desc = 'Highlight Matching' },
       { opts.mappings.replace, desc = 'Replace Matching' },
-      { opts.mappings.update_n_lines, desc = 'Update `MiniSurround.config.n_lines`' },
     }
     mappings = vim.tbl_filter(function(m)
       return m[1] and #m[1] > 0
@@ -26,7 +25,6 @@ return {
       find_left = '', -- Find surrounding (to the left)
       highlight = '', -- Highlight surrounding
       replace = 'lr', -- Replace surrounding
-      update_n_lines = '', -- Update `n_lines`
     },
   },
 }
