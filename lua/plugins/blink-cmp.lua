@@ -29,7 +29,10 @@ return {
       preset = 'luasnip',
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'dadbod' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
+      per_filetype = {
+        lua = { inherit_defaults = true, 'lazydev' },
+      },
       providers = {
         dadbod = {
           name = 'Dadbod',
