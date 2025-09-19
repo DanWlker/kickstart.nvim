@@ -12,21 +12,6 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
-local dontUseTreesitterIndent = { 'bash', 'zsh', 'markdown' }
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '*' },
-  group = vim.api.nvim_create_augroup('danwlker/nvim-treesitter-start-and-indentexpr', { clear = true }),
-  callback = function(ctx)
-    -- highlights
-    local started = pcall(vim.treesitter.start) -- errors for filetypes with no parser, note this starts the parser as well
-
-    -- indent
-    if started and not vim.list_contains(dontUseTreesitterIndent, ctx.match) then
-      vim.bo[ctx.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
-  end,
-})
-
 return {
   'nvim-treesitter/nvim-treesitter',
   lazy = false,
@@ -37,6 +22,21 @@ return {
       vim.notify('**treesitter-main** requires the `tree-sitter` executable to be installed', vim.log.levels.ERROR)
       return
     end
+
+    local dontUseTreesitterIndent = { 'bash', 'zsh', 'markdown' }
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { '*' },
+      group = vim.api.nvim_create_augroup('danwlker/nvim-treesitter-start-and-indentexpr', { clear = true }),
+      callback = function(ctx)
+        -- highlights
+        local started = pcall(vim.treesitter.start) -- errors for filetypes with no parser, note this starts the parser as well
+
+        -- indent
+        if started and not vim.list_contains(dontUseTreesitterIndent, ctx.match) then
+          vim.bo[ctx.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end,
+    })
 
     require('nvim-treesitter').setup()
     require('nvim-treesitter').install {
