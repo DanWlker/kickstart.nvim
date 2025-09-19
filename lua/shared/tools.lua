@@ -23,6 +23,9 @@ M.masonInstalledServers = {
         },
       },
     },
+    before_init = function(_, new_config)
+      new_config.settings.yaml.schemas = vim.tbl_deep_extend('force', new_config.settings.yaml.schemas or {}, require('schemastore').yaml.schemas())
+    end,
     settings = {
       redhat = { telemetry = { enabled = false } },
       yaml = {
@@ -37,20 +40,21 @@ M.masonInstalledServers = {
           enable = false,
           -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
           url = '',
-          schemas = require('schemastore').yaml.schemas(),
         },
       },
     },
   },
   -- jsonls from LazyVim
   jsonls = {
+    before_init = function(_, new_config)
+      new_config.settings.json.schemas = vim.tbl_deep_extend('force', new_config.settings.json.schemas or {}, require('schemastore').json.schemas())
+    end,
     settings = {
       json = {
         format = {
           enable = true,
         },
         validate = { enable = true },
-        schemas = require('schemastore').json.schemas(),
       },
     },
   },
