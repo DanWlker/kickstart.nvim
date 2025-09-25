@@ -7,7 +7,7 @@ return {
       function()
         require('mini.diff').toggle_overlay(0)
       end,
-      desc = '[G]it [D]iff',
+      desc = 'Git Diff',
     },
   },
   opts = {

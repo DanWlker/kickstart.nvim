@@ -20,6 +20,7 @@ return {
         require('substitute').visual()
       end,
       mode = 'x',
+      desc = 'Substitute',
     },
     {
       'S',
@@ -27,12 +28,14 @@ return {
         require('substitute').eol()
       end,
       mode = { 'n', 'x' },
+      desc = 'Substitute to eol',
     },
     {
       'ss',
       function()
         require('substitute').line()
       end,
+      desc = 'Substitute line',
     },
   },
 }

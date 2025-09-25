@@ -1,7 +1,7 @@
 return {
   'nvim-mini/mini.splitjoin',
   keys = {
-    { 'jt', desc = 'Join/Split Toggle' },
+    { 'jt', desc = 'Toggle Join/Split ' },
     { 'js', desc = 'Split' },
     { 'jj', desc = 'Join' },
   },

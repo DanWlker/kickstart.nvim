@@ -9,7 +9,8 @@ return {
       scroll_up = '',
     },
     icons = {
-      mappings = vim.g.have_nerd_font,
+      -- mappings = vim.g.have_nerd_font,
+      mappings = false,
       keys = vim.g.have_nerd_font and {} or {
         Up = '<Up> ',
         Down = '<Down> ',

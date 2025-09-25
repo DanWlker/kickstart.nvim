@@ -5,32 +5,32 @@ return {
     {
       '<leader>xd',
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = 'Diagnostics (Trouble)',
+      desc = 'Diagnostics',
     },
     {
       '<leader>xD',
       '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-      desc = 'Buffer Diagnostics (Trouble)',
+      desc = 'Buffer Diagnostics',
     },
     {
       '<leader>xs',
       '<cmd>Trouble symbols toggle focus=false win.size=0.4<cr>',
-      desc = 'Symbols (Trouble)',
+      desc = 'Symbols',
     },
     {
       '<leader>xl',
       '<cmd>Trouble lsp toggle focus=false win.position=right win.size=0.4<cr>',
-      desc = 'LSP Definitions / references / ... (Trouble)',
+      desc = 'LSP Definitions / references / ...',
     },
     {
       '<leader>xL',
       '<cmd>Trouble loclist toggle<cr>',
-      desc = 'Location List (Trouble)',
+      desc = 'Location List',
     },
     {
       '<leader>xQ',
       '<cmd>Trouble qflist toggle<cr>',
-      desc = 'Quickfix List (Trouble)',
+      desc = 'Quickfix List',
     },
     {
       '<C-p>',
@@ -57,12 +57,12 @@ return {
           require('trouble').close()
         end
       end,
-      desc = 'Trouble Close',
+      desc = 'Close',
     },
     {
       '<leader>xt',
       '<cmd>TodoTrouble<cr>',
-      desc = 'Todo List (Trouble)',
+      desc = 'Todo List',
     },
   },
   config = true,

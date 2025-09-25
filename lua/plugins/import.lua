@@ -17,7 +17,7 @@ return {
       function()
         require('import').pick()
       end,
-      desc = 'Import',
+      desc = 'Find Import',
     },
   },
 }

@@ -8,7 +8,7 @@ return {
     {
       '<leader>gb',
       '<Plug>(git-messenger)',
-      desc = '[G]it [B]lame',
+      desc = 'Git Blame',
     },
   },
   cmd = { 'GitMessenger' },

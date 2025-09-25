@@ -4,12 +4,12 @@ return {
     {
       '<leader>gh',
       '<cmd>DiffviewFileHistory<cr>',
-      desc = '[G]it [H]istory',
+      desc = 'Git History',
     },
     {
       '<leader>gf',
       '<cmd>DiffviewFileHistory %<cr>',
-      desc = '[G]it [F]ile Only History',
+      desc = 'Git File Only History',
     },
   },
 }
