@@ -5,7 +5,7 @@ return {
   opts = {
     auto_integrations = true,
     integrations = {
-      native_lsp = {
+      lsp_styles = {
         underlines = {
           errors = { 'undercurl' },
           hints = { 'undercurl' },

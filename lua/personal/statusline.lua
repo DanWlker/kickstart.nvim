@@ -271,10 +271,18 @@ function M.position_component()
   local line_count = vim.api.nvim_buf_line_count(0)
   local col = vim.fn.virtcol '.'
 
+  -- return table.concat {
+  --   '%#StatuslineItalic#l: ',
+  --   string.format('%%#StatuslineTitle#%d', line),
+  --   string.format('%%#StatuslineItalic#/%d c: %d', line_count, col),
+  -- }
+  -- return table.concat {
+  --   string.format('%%#StatuslineLineCol# %d:%d ', line, col),
+  --   string.format('%%#StatuslineLineCount# %d', line_count),
+  -- }
   return table.concat {
-    '%#StatuslineItalic#l: ',
-    string.format('%%#StatuslineTitle#%d', line),
-    string.format('%%#StatuslineItalic#/%d c: %d', line_count, col),
+    string.format('%%#StatuslineLineItalic# %d:%d ', line, col),
+    string.format('%%#StatuslineLineTitle#[%d]', line_count),
   }
 end
 
