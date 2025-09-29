@@ -74,6 +74,7 @@ return {
       'make',
       'graphql',
       'regex',
+      'kitty',
     }
 
     vim.treesitter.language.register('bash', 'zsh')
