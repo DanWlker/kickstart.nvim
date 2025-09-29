@@ -198,7 +198,10 @@ return {
 
     local builtin = require('telescope.builtin')
     vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('danwlker/lsp-attach', { clear = true }),
+      group = vim.api.nvim_create_augroup(
+        'danwlker/lsp-attach-pickers',
+        { clear = true }
+      ),
       callback = function(event)
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
