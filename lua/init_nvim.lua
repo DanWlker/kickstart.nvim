@@ -1,10 +1,10 @@
+require 'personal.install-lazy'
+
 require 'personal.options'
 
 require 'personal.keymaps'
 
 require 'personal.autocmds'
-
-require 'personal.install-lazy'
 
 require 'personal.statusline'
 

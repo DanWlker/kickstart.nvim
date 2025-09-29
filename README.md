@@ -8,6 +8,6 @@
 
 1. ~~`snacks.input` vs `dressing.nvim` vim.ui.input~~ (dressing deprecated)
 
-1. ~~`nvim-ufo` vs neovim 0.11 fold~~ (done)
+1. ~~`nvim-ufo` vs neovim 0.11 fold~~ (ufo better)
 
 1. `neotest`
