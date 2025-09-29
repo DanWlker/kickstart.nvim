@@ -112,7 +112,9 @@ return {
         group_empty = true,
         indent_markers = { enable = true },
         highlight_git = true,
-        root_folder_label = ':t',
+        -- root_folder_label = ':t',
+        -- root_folder_label = ':~:s?$?//?',
+        root_folder_label = ':~',
       },
       actions = {
         change_dir = {
