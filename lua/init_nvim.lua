@@ -14,8 +14,8 @@ require('lazy').setup({
   -- [[ Themes ]]
   { import = 'themes' },
 
-  -- [[ Lsp ]]
-  { import = 'lsp' },
+  -- [[ Language helpers ]]
+  { import = 'lang' },
 
   -- [[ Git ]]
   { import = 'git' },
