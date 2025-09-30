@@ -67,18 +67,14 @@ return {
         ['!'] = { long = 'Σ(°△°ꪱꪱ)', short = 'Sh', hl = 'MiniStatuslineModeOther' },
         ['t'] = { long = ' (⌐■_■) ', short = 'T', hl = 'MiniStatuslineModeOther' },
       }, {
-        __index = function()
-          return { long = 'Unknown', short = 'U', hl = '%#MiniStatuslineModeOther#' }
-        end,
+        __index = function() return { long = 'Unknown', short = 'U', hl = '%#MiniStatuslineModeOther#' } end,
       })
       local mode_info = modes[vim.fn.mode()]
       local mode = MiniStatusline.is_truncated(args.trunc_width) and mode_info.short or mode_info.long
       return mode, mode_info.hl
     end
 
-    MiniStatusline.section_location = function()
-      return '%2l:%-2v'
-    end
+    MiniStatusline.section_location = function() return '%2l:%-2v' end
 
     MiniStatusline.section_diagnostics = function(args)
       if MiniStatusline.is_truncated(args.trunc_width) or not vim.diagnostic.is_enabled { bufnr = 0 } then
@@ -124,9 +120,7 @@ return {
             { hl = mode_hl, strings = { location } },
           }
         end,
-        inactive = function()
-          return '%=%#MiniStatuslineInactive#%F%='
-        end,
+        inactive = function() return '%=%#MiniStatuslineInactive#%F%=' end,
       },
       use_icons = vim.g.have_nerd_font,
     }

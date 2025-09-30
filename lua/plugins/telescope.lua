@@ -25,9 +25,7 @@ return {
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
-      cond = function()
-        return vim.fn.executable 'make' == 1
-      end,
+      cond = function() return vim.fn.executable 'make' == 1 end,
     },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -35,33 +33,25 @@ return {
   keys = {
     {
       '<leader>fh',
-      function()
-        require('telescope.builtin').help_tags()
-      end,
+      function() require('telescope.builtin').help_tags() end,
       mode = 'n',
       desc = 'Find Help',
     },
     {
       '<leader>fk',
-      function()
-        require('telescope.builtin').keymaps()
-      end,
+      function() require('telescope.builtin').keymaps() end,
       mode = 'n',
       desc = 'Find Keymaps',
     },
     {
       '<leader>ff',
-      function()
-        require('telescope.builtin').find_files()
-      end,
+      function() require('telescope.builtin').find_files() end,
       mode = 'n',
       desc = 'Find Files',
     },
     {
       '<leader>fm',
-      function()
-        require('telescope.builtin').builtin()
-      end,
+      function() require('telescope.builtin').builtin() end,
       mode = 'n',
       desc = 'Find More Telescope Uses',
     },
@@ -81,49 +71,37 @@ return {
     },
     {
       '<leader>fc',
-      function()
-        require('telescope.builtin').commands()
-      end,
+      function() require('telescope.builtin').commands() end,
       mode = 'n',
       desc = 'Find Commands',
     },
     {
       '<leader>fg',
-      function()
-        require('telescope.builtin').live_grep()
-      end,
+      function() require('telescope.builtin').live_grep() end,
       mode = 'n',
       desc = 'Find with Grep',
     },
     {
       '<leader>fd',
-      function()
-        require('telescope.builtin').diagnostics()
-      end,
+      function() require('telescope.builtin').diagnostics() end,
       mode = 'n',
       desc = 'Find Diagnostics',
     },
     {
       '<leader>fa',
-      function()
-        require('telescope.builtin').resume()
-      end,
+      function() require('telescope.builtin').resume() end,
       mode = 'n',
       desc = 'Find Again',
     },
     {
       '<leader>f.',
-      function()
-        require('telescope.builtin').oldfiles()
-      end,
+      function() require('telescope.builtin').oldfiles() end,
       mode = 'n',
       desc = 'Find Recent Files ("." for repeat)',
     },
     {
       '<leader><leader>',
-      function()
-        require('telescope.builtin').buffers()
-      end,
+      function() require('telescope.builtin').buffers() end,
       mode = 'n',
       desc = '[ ] Find Existing Buffers',
     },
@@ -148,16 +126,12 @@ return {
     },
     {
       '<leader>fn',
-      function()
-        require('telescope').extensions.notify.notify()
-      end,
+      function() require('telescope').extensions.notify.notify() end,
       desc = 'Find Notifications',
     },
     {
       '<leader>fN',
-      function()
-        require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
-      end,
+      function() require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' } end,
       desc = 'Find Neovim Files',
     },
     {
@@ -203,9 +177,7 @@ return {
       pickers = {
         live_grep = {
           file_ignore_patterns = { 'node_modules', '.git/', '.github/' },
-          additional_args = function()
-            return { '-F', '--hidden', '--no-ignore' }
-          end,
+          additional_args = function() return { '-F', '--hidden', '--no-ignore' } end,
         },
         find_files = {
           file_ignore_patterns = { 'node_modules', '.git/', '.github/' },

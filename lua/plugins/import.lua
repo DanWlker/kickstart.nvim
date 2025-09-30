@@ -14,9 +14,7 @@ return {
   keys = {
     {
       '<leader>fi',
-      function()
-        require('import').pick()
-      end,
+      function() require('import').pick() end,
       desc = 'Find Import',
     },
   },

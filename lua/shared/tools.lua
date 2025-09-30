@@ -273,9 +273,7 @@ M.manuallyInstalledServers = {
   },
 }
 
-M.allServers = (function()
-  return vim.tbl_extend('force', {}, M.masonInstalledServers, M.manuallyInstalledServers)
-end)()
+M.allServers = (function() return vim.tbl_extend('force', {}, M.masonInstalledServers, M.manuallyInstalledServers) end)()
 
 M.ensureInstalled = (function()
   local ensure_installed = vim.tbl_keys(M.masonInstalledServers)

@@ -9,32 +9,24 @@ return {
   keys = {
     {
       's',
-      function()
-        require('substitute').operator()
-      end,
+      function() require('substitute').operator() end,
       desc = 'Substitute',
     },
     {
       's',
-      function()
-        require('substitute').visual()
-      end,
+      function() require('substitute').visual() end,
       mode = 'x',
       desc = 'Substitute',
     },
     {
       'S',
-      function()
-        require('substitute').eol()
-      end,
+      function() require('substitute').eol() end,
       mode = { 'n', 'x' },
       desc = 'Substitute to eol',
     },
     {
       'ss',
-      function()
-        require('substitute').line()
-      end,
+      function() require('substitute').line() end,
       desc = 'Substitute line',
     },
   },

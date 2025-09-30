@@ -12,9 +12,7 @@ return {
       { opts.mappings.highlight, desc = 'Highlight Matching' },
       { opts.mappings.replace, desc = 'Replace Matching' },
     }
-    mappings = vim.tbl_filter(function(m)
-      return m[1] and #m[1] > 0
-    end, mappings)
+    mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
     return vim.list_extend(mappings, keys)
   end,
   opts = {

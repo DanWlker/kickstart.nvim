@@ -1,7 +1,5 @@
 local folder_icon = require('shared.icons').misc.folder
-local function escape_pattern(text)
-  return text:gsub('([^%w])', '%%%1')
-end
+local function escape_pattern(text) return text:gsub('([^%w])', '%%%1') end
 
 local M = {}
 

@@ -53,9 +53,7 @@ return {
             }
           end,
         },
-        width = function()
-          return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
-        end,
+        width = function() return math.floor(vim.opt.columns:get() * WIDTH_RATIO) end,
       }
     end
 
@@ -63,9 +61,7 @@ return {
 
     require('nvim-tree').setup {
       on_attach = function(bufnr)
-        local function opts(desc)
-          return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-        end
+        local function opts(desc) return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true } end
 
         local map = vim.keymap.set
         map('n', 'K', tree_api.node.show_info_popup, opts 'Info')

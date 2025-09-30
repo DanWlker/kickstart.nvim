@@ -5,9 +5,7 @@ return {
   keys = {
     {
       '<leader>cn', -- Idk what to put for this
-      function()
-        require('neogen').generate()
-      end,
+      function() require('neogen').generate() end,
       desc = 'Generate Annotations (Neogen)',
     },
   },

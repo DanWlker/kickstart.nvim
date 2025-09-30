@@ -39,15 +39,11 @@ return {
     -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
     {
       'zR',
-      function()
-        require('ufo').openAllFolds()
-      end,
+      function() require('ufo').openAllFolds() end,
     },
     {
       'zM',
-      function()
-        require('ufo').closeAllFolds()
-      end,
+      function() require('ufo').closeAllFolds() end,
     },
   },
   init = function()
@@ -58,9 +54,7 @@ return {
   end,
   opts = {
     fold_virt_text_handler = handler,
-    provider_selector = function(_, _, _)
-      return { 'treesitter', 'indent' }
-    end,
+    provider_selector = function(_, _, _) return { 'treesitter', 'indent' } end,
     -- To fix missing required fields:
     -- open_fold_hl_timeout = 400,
     -- close_fold_kinds_for_ft = { default = {} },

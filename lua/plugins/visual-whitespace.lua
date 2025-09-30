@@ -4,9 +4,7 @@ return {
   keys = {
     {
       '<leader>tv',
-      function()
-        require('visual-whitespace').toggle()
-      end,
+      function() require('visual-whitespace').toggle() end,
       desc = 'Toggle visual-whitespace',
     },
   },

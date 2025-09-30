@@ -25,9 +25,7 @@ return {
       },
       {
         name = 'Print: Vim table',
-        execute = function(v)
-          print(vim.inspect(v))
-        end,
+        execute = function(v) print(vim.inspect(v)) end,
       },
       {
         name = 'Copy: Relative path without file',
@@ -53,9 +51,7 @@ return {
       },
       {
         name = 'Copy: Vim table',
-        execute = function(v)
-          vim.fn.setreg('+', vim.inspect(v))
-        end,
+        execute = function(v) vim.fn.setreg('+', vim.inspect(v)) end,
       },
       {
         name = 'Plugin: Reload',
@@ -74,9 +70,7 @@ return {
       },
       {
         name = 'Conform: Format buffer',
-        execute = function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
-        end,
+        execute = function() require('conform').format { async = true, lsp_format = 'fallback' } end,
       },
       {
         name = 'Sql: Open Ui',
@@ -128,15 +122,11 @@ return {
       },
       {
         name = 'Scratch: Toggle buffer',
-        execute = function()
-          require('snacks').scratch()
-        end,
+        execute = function() require('snacks').scratch() end,
       },
       {
         name = 'Scratch: Select buffer',
-        execute = function()
-          require('snacks').scratch.select()
-        end,
+        execute = function() require('snacks').scratch.select() end,
       },
       {
         name = 'Undotree: Focus',

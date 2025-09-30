@@ -144,9 +144,7 @@ vim.api.nvim_create_autocmd('LspProgress', {
     if progress_status.kind == 'end' then
       progress_status.title = nil
       -- Wait a bit before clearing the status.
-      vim.defer_fn(function()
-        vim.cmd.redrawstatus()
-      end, 3000)
+      vim.defer_fn(function() vim.cmd.redrawstatus() end, 3000)
     else
       vim.cmd.redrawstatus()
     end
@@ -288,9 +286,7 @@ end
 
 -- scrollbar ---------------------------------------------
 local SBAR = { '▔', '🮂', '🬂', '🮃', '▀', '▄', '▃', '🬭', '▂', '▁' }
-local function hl_str(hl, str)
-  return '%#' .. hl .. '#' .. str .. '%*'
-end
+local function hl_str(hl, str) return '%#' .. hl .. '#' .. str .. '%*' end
 function M.scrollbar_component()
   local cur = vim.api.nvim_win_get_cursor(0)[1]
   local total = vim.api.nvim_buf_line_count(0)
@@ -299,9 +295,7 @@ function M.scrollbar_component()
 end
 
 -- cwd ---------------------------------------------
-function M.cwd_component()
-  return '%#StatusLine#' .. icons.misc.folder .. ' ' .. vim.uv.cwd()
-end
+function M.cwd_component() return '%#StatusLine#' .. icons.misc.folder .. ' ' .. vim.uv.cwd() end
 
 --- Renders the statusline.
 ---@return string
@@ -309,9 +303,10 @@ function M.render()
   ---@param components string[]
   ---@return string
   local function concat_components(components)
-    return vim.iter(components):skip(1):fold(components[1], function(acc, component)
-      return #component > 0 and string.format('%s    %s', acc, component) or acc
-    end)
+    return vim
+      .iter(components)
+      :skip(1)
+      :fold(components[1], function(acc, component) return #component > 0 and string.format('%s    %s', acc, component) or acc end)
   end
 
   return table.concat {

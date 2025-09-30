@@ -58,9 +58,7 @@ return {
         end
 
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-          map('grh', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-          end, 'LSP: Inlay Hint')
+          map('grh', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, 'LSP: Inlay Hint')
         end
 
         -- if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor, event.buf) then

@@ -11,9 +11,7 @@ return {
     local keys = {
       {
         '<leader>m',
-        function()
-          require('harpoon'):list():add()
-        end,
+        function() require('harpoon'):list():add() end,
         desc = 'Mark Harpoon',
       },
       {
@@ -29,9 +27,7 @@ return {
     for i = 1, #str do
       table.insert(keys, {
         '<C-' .. str:sub(i, i) .. '>',
-        function()
-          require('harpoon'):list():select(i)
-        end,
+        function() require('harpoon'):list():select(i) end,
         desc = 'Harpoon to File ' .. i,
       })
     end

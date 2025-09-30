@@ -10,16 +10,12 @@ return {
   keys = {
     {
       '<leader>tl',
-      function()
-        require('quicker').toggle { loclist = true }
-      end,
+      function() require('quicker').toggle { loclist = true } end,
       desc = 'Toggle loclist',
     },
     {
       '<leader>tq',
-      function()
-        require('quicker').toggle()
-      end,
+      function() require('quicker').toggle() end,
       desc = 'Toggle quickfix',
     },
   },

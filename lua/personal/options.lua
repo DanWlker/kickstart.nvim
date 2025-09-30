@@ -7,9 +7,7 @@ g.have_nerd_font = true
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
-local function isNotEmpty(s)
-  return s ~= nil and s ~= ''
-end
+local function isNotEmpty(s) return s ~= nil and s ~= '' end
 if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   g.clipboard = {
     name = 'WslClipboard',
@@ -94,9 +92,7 @@ o.relativenumber = true
 o.signcolumn = 'yes'
 o.mouse = 'a'
 o.showmode = false
-vim.schedule(function()
-  o.clipboard = 'unnamedplus'
-end)
+vim.schedule(function() o.clipboard = 'unnamedplus' end)
 o.breakindent = true
 o.undofile = true
 o.ignorecase = true

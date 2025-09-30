@@ -31,9 +31,7 @@ return {
         'help',
         'dbout',
       },
-      winopt = function(wo)
-        wo.cursorlineopt = 'line'
-      end,
+      winopt = function(wo) wo.cursorlineopt = 'line' end,
     }
   end,
 }

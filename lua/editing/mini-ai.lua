@@ -1,8 +1,6 @@
 -- Everything in here is from LazyVim
 local function ai_whichkey(opts)
-  local ok, module = pcall(function()
-    return require 'which-key'
-  end)
+  local ok, module = pcall(function() return require 'which-key' end)
   if not ok then
     return
   end

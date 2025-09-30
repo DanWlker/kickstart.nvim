@@ -4,9 +4,7 @@ return {
   keys = {
     {
       '<leader>gd',
-      function()
-        require('mini.diff').toggle_overlay(0)
-      end,
+      function() require('mini.diff').toggle_overlay(0) end,
       desc = 'Git Diff',
     },
   },

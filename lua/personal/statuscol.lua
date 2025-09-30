@@ -25,9 +25,7 @@ local function get_num_wraps()
   return wrapped_lines
 end
 
-function CheckNumberingIsEnabled()
-  return vim.wo.number or vim.wo.relativenumber
-end
+function CheckNumberingIsEnabled() return vim.wo.number or vim.wo.relativenumber end
 
 function CheckSymbolOrNumber(current)
   if vim.v.virtnum < 0 then

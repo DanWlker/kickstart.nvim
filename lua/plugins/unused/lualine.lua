@@ -48,9 +48,7 @@ return {
           -- separator = { right = '' },
           separator = { right = '' },
           -- separator = { right = '' },
-          fmt = function()
-            return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode
-          end,
+          fmt = function() return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode end,
         },
       },
       lualine_b = {
@@ -66,9 +64,7 @@ return {
         },
       },
       lualine_c = {
-        function()
-          return '%='
-        end,
+        function() return '%=' end,
         {
           'filename',
           file_status = true,
@@ -90,9 +86,7 @@ return {
     },
     inactive_sections = {
       lualine_c = {
-        function()
-          return '%='
-        end,
+        function() return '%=' end,
         {
           'filename',
           file_status = true,
