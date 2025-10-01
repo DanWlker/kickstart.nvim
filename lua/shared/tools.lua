@@ -287,7 +287,7 @@ M.ensureInstalled = (function()
     'clang-format',
     'yamllint',
     'gofumpt',
-    -- 'hadolint',
+    'hadolint',
     'sqlfluff',
     'delve',
     'shellcheck', --used by bashls
