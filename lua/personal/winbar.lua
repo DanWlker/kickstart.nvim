@@ -66,7 +66,6 @@ function M.render()
   return table.concat {
     -- '%=',
     -- '%#WinBarEndSeparators#',
-    '[',
     '%#WinBarIndDir# ',
     prefix,
     table.concat(
@@ -81,7 +80,6 @@ function M.render()
     ),
     '%#WinBarIndDir# ',
     -- '%#WinBarEndSeparators#',
-    ']',
     '%=',
   }
 end
