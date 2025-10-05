@@ -15,7 +15,7 @@ function M.render()
   end
 
   -- Replace slashes by arrows.
-  local separator = ' %#WinbarSeparator# '
+  local separator = ' %#WinbarSeparator# '
 
   local prefix, prefix_path = '', ''
 
