@@ -1,17 +1,16 @@
 return {
   'nvim-mini/mini.splitjoin',
-  -- keys = {
-  --   { 'jt', desc = 'Toggle Join/Split' },
-  --   { 'js', desc = 'Split' },
-  --   { 'jj', desc = 'Join' },
-  -- },
-  lazy = true, -- will be triggered by treesj
+  keys = {
+    { 'jT', desc = 'Toggle Join/Split' },
+    { 'jS', desc = 'Split' },
+    { 'jJ', desc = 'Join' },
+  },
   config = function(_, _)
     require('mini.splitjoin').setup {
       mappings = {
-        toggle = '',
-        split = '',
-        join = '',
+        toggle = 'jT',
+        split = 'jS',
+        join = 'jJ',
       },
     }
 

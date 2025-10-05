@@ -5,9 +5,9 @@ return {
     'nvim-mini/mini.splitjoin',
   },
   keys = {
-    { 'jt', desc = 'Toggle Join/Split' },
-    { 'js', desc = 'Split' },
-    { 'jj', desc = 'Join' },
+    { 'jt', desc = 'Toggle Join/Split with treesitter' },
+    { 'js', desc = 'Split with treesitter' },
+    { 'jj', desc = 'Join with treesitter' },
   },
   opts = { use_default_keymaps = false },
   config = function()
