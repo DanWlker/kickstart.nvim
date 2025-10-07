@@ -126,13 +126,7 @@ return {
         custom_stuff['StatuslineModeSeparator' .. mode] = { fg = color, bg = colors.base }
       end
 
-      -- https://github.com/catppuccin/nvim/pull/804#pullrequestreview-3080755868
-      local O = require('catppuccin').options
-      local original_highlight = {
-        ['@property'] = { fg = colors.lavender, style = O.styles.properties or {} }, -- Same as TSField.
-        ['@variable.member'] = { fg = colors.lavender }, -- For fields.
-      }
-      return vim.tbl_extend('error', custom_stuff, original_highlight)
+      return custom_stuff
     end,
   },
 }
