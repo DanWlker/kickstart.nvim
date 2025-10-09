@@ -63,6 +63,13 @@ function M.render()
   --   ),
   -- }
 
+  if package.loaded['yaml_nvim'] then
+    local yamlKey = require('yaml_nvim').get_yaml_key() or ''
+    if yamlKey and yamlKey ~= '' then
+      path = path .. '/' .. yamlKey
+    end
+  end
+
   return table.concat {
     -- '%=',
     -- '%#WinBarEndSeparators#',
