@@ -63,8 +63,8 @@ function M.render()
   --   ),
   -- }
 
-  if vim.bo.ft == 'yaml' and package.loaded['yaml_nvim'] then
-    local yamlKey = require('yaml_nvim').get_yaml_key() or ''
+  if package.loaded['keysmith'] then
+    local yamlKey = require('keysmith').get_key() or ''
     if yamlKey and yamlKey ~= '' then
       path = path .. '/' .. yamlKey
     end
