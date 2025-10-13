@@ -67,10 +67,7 @@ return {
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if
           client
-          and client:supports_method(
-            vim.lsp.protocol.Methods.textDocument_documentHighlight,
-            event.buf
-          )
+          and client:supports_method('textDocument/documentHighlight', event.buf)
         then
           local highlight_augroup =
             vim.api.nvim_create_augroup('danwlker/lsp-highlight', { clear = false })
@@ -103,10 +100,7 @@ return {
 
         if
           client
-          and client:supports_method(
-            vim.lsp.protocol.Methods.textDocument_inlayHint,
-            event.buf
-          )
+          and client:supports_method('textDocument/inlayHint', event.buf)
         then
           map(
             'grh',
@@ -119,7 +113,9 @@ return {
           )
         end
 
-        -- if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor, event.buf) then
+        -- if
+        --   client and client:supports_method('textDocument/documentColor', event.buf)
+        -- then
         --   vim.lsp.document_color.enable(true, event.buf)
         -- end
       end,
