@@ -27,6 +27,67 @@ if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   }
 end
 
+local o = vim.o
+o.number = true
+o.relativenumber = true
+o.signcolumn = 'yes'
+o.mouse = 'a'
+vim.schedule(function() o.clipboard = 'unnamedplus' end)
+o.breakindent = true
+o.breakindentopt = 'list:-1'
+o.linebreak = true
+o.undofile = true
+o.ignorecase = true
+o.smartcase = true
+o.updatetime = 250
+o.timeoutlen = 500
+o.splitright = true
+o.splitbelow = true
+o.list = false
+o.inccommand = 'split'
+o.cursorline = true
+o.scrolloff = 12
+o.sidescrolloff = 12
+o.cursorlineopt = 'number'
+o.laststatus = 3 -- global statusline
+o.termguicolors = true -- True color support
+o.jumpoptions = 'stack' -- Make jumplist more intuitive
+o.grepformat = '%f:%l:%c:%m'
+o.grepprg = 'rg --vimgrep'
+o.shiftround = true
+-- o.smartindent = true
+o.wrap = false
+o.confirm = true
+o.swapfile = false
+o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
+o.pumheight = 10
+o.shortmess = 'CFOSWaco'
+o.formatoptions = 'rqnl1j'
+o.infercase = true
+o.shiftwidth = 2
+o.spelloptions = 'camel'
+o.splitkeep = 'screen'
+o.foldlevel = 10
+o.foldmethod = 'indent'
+o.foldnestmax = 10
+o.foldtext = ''
+o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+o.complete = '.,w,b,kspell'
+o.completeopt = 'menuone,noselect,fuzzy,nosort'
+
+local opt = vim.opt
+opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line
+opt.iskeyword:append('-') -- treat `-` as word character, same as `_`
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.fillchars = {
+  eob = ' ',
+  foldopen = '',
+  foldclose = '',
+  fold = ' ',
+  foldsep = ' ',
+  diff = '╱',
+}
+
 local icons = require('shared.icons')
 vim.diagnostic.config({
   severity_sort = true,
@@ -92,67 +153,6 @@ vim.diagnostic.config({
   },
   update_in_insert = false,
 })
-
-local o = vim.o
-o.number = true
-o.relativenumber = true
-o.signcolumn = 'yes'
-o.mouse = 'a'
-vim.schedule(function() o.clipboard = 'unnamedplus' end)
-o.breakindent = true
-o.breakindentopt = 'list:-1'
-o.linebreak = true
-o.undofile = true
-o.ignorecase = true
-o.smartcase = true
-o.updatetime = 250
-o.timeoutlen = 500
-o.splitright = true
-o.splitbelow = true
-o.list = false
-o.inccommand = 'split'
-o.cursorline = true
-o.scrolloff = 12
-o.sidescrolloff = 12
-o.cursorlineopt = 'number'
-o.laststatus = 3 -- global statusline
-o.termguicolors = true -- True color support
-o.jumpoptions = 'stack' -- Make jumplist more intuitive
-o.grepformat = '%f:%l:%c:%m'
-o.grepprg = 'rg --vimgrep'
-o.shiftround = true
--- o.smartindent = true
-o.wrap = false
-o.confirm = true
-o.swapfile = false
-o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
-o.pumheight = 10
-o.shortmess = 'CFOSWaco'
-o.formatoptions = 'rqnl1j'
-o.infercase = true
-o.shiftwidth = 2
-o.spelloptions = 'camel'
-o.splitkeep = 'screen'
-o.foldlevel = 10
-o.foldmethod = 'indent'
-o.foldnestmax = 10
-o.foldtext = ''
-o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-o.complete = '.,w,b,kspell'
-o.completeopt = 'menuone,noselect,fuzzy,nosort'
-
-local opt = vim.opt
-opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line
-opt.iskeyword:append('-') -- treat `-` as word character, same as `_`
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-opt.fillchars = {
-  eob = ' ',
-  foldopen = '',
-  foldclose = '',
-  fold = ' ',
-  foldsep = ' ',
-  diff = '╱',
-}
 
 -- https://www.reddit.com/r/neovim/comments/1d9gzud/comment/l7e6akp/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 -- vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
