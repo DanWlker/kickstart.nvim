@@ -7,6 +7,7 @@ vim.g.qf_disable_statusline = 1
 
 -- Show the mode in my custom component instead.
 vim.o.showmode = false
+vim.o.ruler = false
 
 --- Keeps track of the highlight groups I've already created.
 ---@type table<string, boolean>

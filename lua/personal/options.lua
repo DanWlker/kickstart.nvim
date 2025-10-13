@@ -7,6 +7,10 @@ g.have_nerd_font = true
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
+-- Enable all filetype plugins and syntax (if not enabled, for better startup)
+vim.cmd('filetype plugin indent on')
+if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
+
 local function isNotEmpty(s) return s ~= nil and s ~= '' end
 if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   g.clipboard = {
@@ -86,6 +90,7 @@ vim.diagnostic.config({
     end,
     suffix = '',
   },
+  update_in_insert = false,
 })
 
 local o = vim.o
@@ -93,9 +98,10 @@ o.number = true
 o.relativenumber = true
 o.signcolumn = 'yes'
 o.mouse = 'a'
-o.showmode = false
 vim.schedule(function() o.clipboard = 'unnamedplus' end)
 o.breakindent = true
+o.breakindentopt = 'list:-1'
+o.linebreak = true
 o.undofile = true
 o.ignorecase = true
 o.smartcase = true
@@ -118,11 +124,22 @@ o.shiftround = true
 -- o.smartindent = true
 o.wrap = false
 o.confirm = true
--- o.foldmethod = 'expr'
--- o.foldtext = ''
--- o.foldlevel = 99
--- o.foldlevelstart = 99
 o.swapfile = false
+o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
+o.pumheight = 10
+o.shortmess = 'CFOSWaco'
+o.formatoptions = 'rqnl1j'
+o.infercase = true
+o.shiftwidth = 2
+o.spelloptions = 'camel'
+o.splitkeep = 'screen'
+o.foldlevel = 10
+o.foldmethod = 'indent'
+o.foldnestmax = 10
+o.foldtext = ''
+o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
+o.complete = '.,w,b,kspell'
+o.completeopt = 'menuone,noselect,fuzzy,nosort'
 
 local opt = vim.opt
 opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line

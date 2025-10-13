@@ -245,7 +245,9 @@ M.masonInstalledServers = {
         completion = {
           callSnippet = 'Replace',
         },
-        workspace = { checkThirdParty = false },
+        workspace = {
+          checkThirdParty = false,
+        },
         telemetry = { enable = false },
         diagnostics = {
           disable = { 'missing-fields' },
