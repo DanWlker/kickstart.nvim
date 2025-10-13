@@ -8,7 +8,10 @@ local function get_num_wraps()
     -- get the width of the buffer
     local winwidth = vim.api.nvim_win_get_width(winid)
     local numberwidth = vim.wo.number and vim.wo.numberwidth or 0
-    local signwidth = vim.fn.exists '*sign_define' == 1 and vim.fn.sign_getdefined() and 2 or 0
+    local signwidth = vim.fn.exists('*sign_define') == 1
+        and vim.fn.sign_getdefined()
+        and 2
+      or 0
     local foldwidth = vim.wo.foldcolumn or 0
 
     -- subtract the number of empty spaces in your statuscol. I have
@@ -28,9 +31,7 @@ end
 function CheckNumberingIsEnabled() return vim.wo.number or vim.wo.relativenumber end
 
 function CheckSymbolOrNumber(current)
-  if vim.v.virtnum < 0 then
-    return '-'
-  end
+  if vim.v.virtnum < 0 then return '-' end
 
   if vim.v.virtnum > 0 and (vim.wo.number or vim.wo.relativenumber) then
     local num_wraps = get_num_wraps()
@@ -41,9 +42,7 @@ function CheckSymbolOrNumber(current)
     end
   end
 
-  if current < 10 then
-    return ' ' .. current
-  end
+  if current < 10 then return ' ' .. current end
 
   return current
 end

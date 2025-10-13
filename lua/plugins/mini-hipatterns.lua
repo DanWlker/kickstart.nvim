@@ -315,10 +315,10 @@ return {
   'nvim-mini/mini.hipatterns',
   event = { 'BufReadPost', 'BufNewFile' },
   opts = function()
-    local hi = require 'mini.hipatterns'
+    local hi = require('mini.hipatterns')
     return {
       highlighters = {
-        hex_color = hi.gen_highlighter.hex_color { priority = 2000 },
+        hex_color = hi.gen_highlighter.hex_color({ priority = 2000 }),
         shorthand = {
           pattern = '()#%x%x%x()%f[^%x%w]',
           group = function(_, _, data)
@@ -341,7 +341,12 @@ return {
     })
     opts.highlighters.tailwind = {
       pattern = function()
-        if not vim.tbl_contains(require('shared.tools').allServers.tailwindcss.filetypes, vim.bo.filetype) then
+        if
+          not vim.tbl_contains(
+            require('shared.tools').allServers.tailwindcss.filetypes,
+            vim.bo.filetype
+          )
+        then
           return
         end
         -- if opts.tailwind.style == 'full' then
@@ -354,7 +359,7 @@ return {
         ---@type string
         local match = m.full_match
         ---@type string, number
-        local color, shade = match:match '[%w-]+%-([a-z%-]+)%-(%d+)'
+        local color, shade = match:match('[%w-]+%-([a-z%-]+)%-(%d+)')
         shade = tonumber(shade)
         local bg = vim.tbl_get(colors, color, shade)
         if bg then

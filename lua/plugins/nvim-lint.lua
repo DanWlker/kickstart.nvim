@@ -3,7 +3,7 @@ return {
   'mfussenegger/nvim-lint',
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
-    local lint = require 'lint'
+    local lint = require('lint')
 
     vim.api.nvim_create_user_command('LintInfo', function()
       local filetype = vim.bo.filetype
@@ -67,9 +67,7 @@ return {
     vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
       group = vim.api.nvim_create_augroup('danwlker/lint', { clear = true }),
       callback = function()
-        if vim.bo.modifiable then
-          lint.try_lint()
-        end
+        if vim.bo.modifiable then lint.try_lint() end
       end,
     })
   end,

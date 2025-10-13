@@ -23,8 +23,8 @@ if isNotEmpty(vim.env.WSL_INTEROP) or isNotEmpty(vim.env.WSL_DISTRO_NAME) then
   }
 end
 
-local icons = require 'shared.icons'
-vim.diagnostic.config {
+local icons = require('shared.icons')
+vim.diagnostic.config({
   severity_sort = true,
   underline = { severity = vim.diagnostic.severity.ERROR },
   signs = false,
@@ -63,12 +63,14 @@ vim.diagnostic.config {
         message = string.format('%s %s', message, diagnostic.code)
       end
       if diagnostic.source then
-        message = string.format('%s[%s]', message, special_sources[diagnostic.source] or diagnostic.source)
+        message = string.format(
+          '%s[%s]',
+          message,
+          special_sources[diagnostic.source] or diagnostic.source
+        )
       end
 
-      if message == '' then
-        message = diagnostic.message
-      end
+      if message == '' then message = diagnostic.message end
 
       return message .. ' '
     end,
@@ -84,7 +86,7 @@ vim.diagnostic.config {
     end,
     suffix = '',
   },
-}
+})
 
 local o = vim.o
 o.number = true
@@ -124,7 +126,7 @@ o.swapfile = false
 
 local opt = vim.opt
 opt.virtualedit = { 'block' } -- in visual block mode, cursor can move beyond end of line
-opt.iskeyword:append '-' -- treat `-` as word character, same as `_`
+opt.iskeyword:append('-') -- treat `-` as word character, same as `_`
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.fillchars = {
   eob = ' ',

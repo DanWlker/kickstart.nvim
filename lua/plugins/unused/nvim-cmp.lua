@@ -5,9 +5,7 @@ return {
     {
       'L3MON4D3/LuaSnip',
       build = (function()
-        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-          return
-        end
+        if vim.fn.has('win32') == 1 or vim.fn.executable('make') == 0 then return end
         return 'make install_jsregexp'
       end)(),
       dependencies = {
@@ -26,9 +24,9 @@ return {
     'hrsh7th/cmp-nvim-lsp-signature-help',
   },
   config = function()
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
-    luasnip.config.setup {}
+    local cmp = require('cmp')
+    local luasnip = require('luasnip')
+    luasnip.config.setup({})
 
     local cmp_kinds = {
       Text = '󰉿 ',
@@ -70,20 +68,20 @@ return {
       return contents
     end
 
-    cmp.setup {
+    cmp.setup({
       snippet = {
         expand = function(args) luasnip.lsp_expand(args.body) end,
       },
       completion = { completeopt = 'menu,menuone,noinsert' },
 
-      mapping = cmp.mapping.preset.insert {
+      mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<CR>'] = cmp.mapping.confirm { select = true },
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping.select_next_item(),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<C-Space>'] = cmp.mapping.complete {},
-      },
+        ['<C-Space>'] = cmp.mapping.complete({}),
+      }),
       sources = {
         {
           name = 'lazydev',
@@ -96,9 +94,9 @@ return {
       },
 
       window = {
-        completion = cmp.config.window.bordered {
+        completion = cmp.config.window.bordered({
           winhighlight = 'Normal:Normal,FloatBorder:BlinkCmpMenuBorder,CursorLine:Visual,Search:None',
-        },
+        }),
         documentation = cmp.config.window.bordered(),
       },
       -- view = {
@@ -158,6 +156,6 @@ return {
         disallow_partial_matching = false,
         disallow_prefix_unmatching = true,
       },
-    }
+    })
   end,
 }

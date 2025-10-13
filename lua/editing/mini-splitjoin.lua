@@ -6,13 +6,13 @@ return {
     { 'jJ', desc = 'Join' },
   },
   config = function(_, _)
-    require('mini.splitjoin').setup {
+    require('mini.splitjoin').setup({
       mappings = {
         toggle = 'jT',
         split = 'jS',
         join = 'jJ',
       },
-    }
+    })
 
     local gen_hook = MiniSplitjoin.gen_hook
     local add_comma_curly = gen_hook.add_trailing_separator()

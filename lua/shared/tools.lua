@@ -25,7 +25,11 @@ M.masonInstalledServers = {
       },
     },
     before_init = function(_, new_config)
-      new_config.settings.yaml.schemas = vim.tbl_deep_extend('force', new_config.settings.yaml.schemas or {}, require('schemastore').yaml.schemas())
+      new_config.settings.yaml.schemas = vim.tbl_deep_extend(
+        'force',
+        new_config.settings.yaml.schemas or {},
+        require('schemastore').yaml.schemas()
+      )
     end,
     settings = {
       redhat = { telemetry = { enabled = false } },
@@ -48,7 +52,11 @@ M.masonInstalledServers = {
   -- jsonls from LazyVim
   jsonls = {
     before_init = function(_, new_config)
-      new_config.settings.json.schemas = vim.tbl_deep_extend('force', new_config.settings.json.schemas or {}, require('schemastore').json.schemas())
+      new_config.settings.json.schemas = vim.tbl_deep_extend(
+        'force',
+        new_config.settings.json.schemas or {},
+        require('schemastore').json.schemas()
+      )
     end,
     settings = {
       json = {
@@ -66,7 +74,11 @@ M.masonInstalledServers = {
   -- Clangd from LazyVim
   clangd = {
     keys = {
-      { '<leader>ch', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Switch Source/Header (C/C++)' },
+      {
+        '<leader>ch',
+        '<cmd>ClangdSwitchSourceHeader<cr>',
+        desc = 'Switch Source/Header (C/C++)',
+      },
     },
     root_markers = {
       'compile_commands.json',
@@ -133,7 +145,13 @@ M.masonInstalledServers = {
         usePlaceholders = true,
         completeUnimported = true,
         staticcheck = true,
-        directoryFilters = { '-.git', '-.vscode', '-.idea', '-.vscode-test', '-node_modules' },
+        directoryFilters = {
+          '-.git',
+          '-.vscode',
+          '-.idea',
+          '-.vscode-test',
+          '-node_modules',
+        },
         semanticTokens = true,
       },
     },
@@ -265,16 +283,23 @@ M.manuallyInstalledServers = {
     settings = {
       dart = {
         analysisExcludedFolders = {
-          vim.fn.expand '$HOME/.pub-cache/',
-          vim.fn.expand '$HOME/fvm/',
-          vim.fn.expand '$HOME/development/flutter/',
+          vim.fn.expand('$HOME/.pub-cache/'),
+          vim.fn.expand('$HOME/fvm/'),
+          vim.fn.expand('$HOME/development/flutter/'),
         },
       },
     },
   },
 }
 
-M.allServers = (function() return vim.tbl_extend('force', {}, M.masonInstalledServers, M.manuallyInstalledServers) end)()
+M.allServers = (function()
+  return vim.tbl_extend(
+    'force',
+    {},
+    M.masonInstalledServers,
+    M.manuallyInstalledServers
+  )
+end)()
 
 M.ensureInstalled = (function()
   local ensure_installed = vim.tbl_keys(M.masonInstalledServers)

@@ -1,17 +1,17 @@
 return {
   s({ trig = 'link', name = 'Insert link' }, {
-    t '[',
+    t('['),
     i(1, 'title'),
-    t '](',
+    t(']('),
     i(2, 'link'),
-    t ')',
+    t(')'),
   }),
   s({ trig = 'caption', name = 'Insert captions' }, {
-    t '<sub>',
+    t('<sub>'),
     i(1, 'caption'),
-    t '</sub>',
+    t('</sub>'),
   }),
   s({ trig = 'checkbox', name = 'Insert checkbox' }, {
-    t '- [ ] ',
+    t('- [ ] '),
   }),
 }

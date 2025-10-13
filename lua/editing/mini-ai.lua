@@ -1,9 +1,7 @@
 -- Everything in here is from LazyVim
 local function ai_whichkey(opts)
-  local ok, module = pcall(function() return require 'which-key' end)
-  if not ok then
-    return
-  end
+  local ok, module = pcall(function() return require('which-key') end)
+  if not ok then return end
 
   local objects = {
     { ' ', desc = 'whitespace' },
@@ -53,9 +51,7 @@ local function ai_whichkey(opts)
     ret[#ret + 1] = { prefix, group = name }
     for _, obj in ipairs(objects) do
       local desc = obj.desc
-      if prefix:sub(1, 1) == 'i' then
-        desc = desc:gsub(' with ws', '')
-      end
+      if prefix:sub(1, 1) == 'i' then desc = desc:gsub(' with ws', '') end
       ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
     end
   end
@@ -71,25 +67,30 @@ return {
     { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'main' },
   },
   opts = function()
-    local ai = require 'mini.ai'
+    local ai = require('mini.ai')
     return {
       n_lines = 500,
       custom_textobjects = {
-        o = ai.gen_spec.treesitter { -- code block
+        o = ai.gen_spec.treesitter({ -- code block
           a = { '@block.outer', '@conditional.outer', '@loop.outer' },
           i = { '@block.inner', '@conditional.inner', '@loop.inner' },
-        },
-        f = ai.gen_spec.treesitter { a = '@function.outer', i = '@function.inner' }, -- function
-        c = ai.gen_spec.treesitter { a = '@class.outer', i = '@class.inner' }, -- class
+        }),
+        f = ai.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }), -- function
+        c = ai.gen_spec.treesitter({ a = '@class.outer', i = '@class.inner' }), -- class
         t = { '<([%p%w]-)%f[^<%w][^<>]->.-</%1>', '^<.->().*()</[^/]->$' }, -- tags
         d = MiniExtra.gen_ai_spec.number(),
         e = { -- Word with case
-          { '%u[%l%d]+%f[^%l%d]', '%f[%S][%l%d]+%f[^%l%d]', '%f[%P][%l%d]+%f[^%l%d]', '^[%l%d]+%f[^%l%d]' },
+          {
+            '%u[%l%d]+%f[^%l%d]',
+            '%f[%S][%l%d]+%f[^%l%d]',
+            '%f[%P][%l%d]+%f[^%l%d]',
+            '^[%l%d]+%f[^%l%d]',
+          },
           '^().*()$',
         },
         g = MiniExtra.gen_ai_spec.buffer(), -- buffer
         u = ai.gen_spec.function_call(), -- u for "Usage"
-        U = ai.gen_spec.function_call { name_pattern = '[%w_]' }, -- without dot in function name
+        U = ai.gen_spec.function_call({ name_pattern = '[%w_]' }), -- without dot in function name
         l = MiniExtra.gen_ai_spec.line(),
       },
       mappings = {

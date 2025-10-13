@@ -10,7 +10,7 @@ return {
   keys = {
     {
       '<leader>tl',
-      function() require('quicker').toggle { loclist = true } end,
+      function() require('quicker').toggle({ loclist = true }) end,
       desc = 'Toggle loclist',
     },
     {

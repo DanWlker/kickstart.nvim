@@ -8,9 +8,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({ 'FocusGained', 'TermClose', 'TermLeave' }, {
   group = vim.api.nvim_create_augroup('danwlker/checktime', { clear = true }),
   callback = function()
-    if vim.o.buftype ~= 'nofile' then
-      vim.cmd 'checktime'
-    end
+    if vim.o.buftype ~= 'nofile' then vim.cmd('checktime') end
   end,
 })
 
@@ -19,7 +17,7 @@ vim.api.nvim_create_autocmd({ 'VimResized' }, {
   group = vim.api.nvim_create_augroup('danwlker/resize-splits', { clear = true }),
   callback = function()
     local current_tab = vim.fn.tabpagenr()
-    vim.cmd 'tabdo wincmd ='
+    vim.cmd('tabdo wincmd =')
     vim.cmd('tabnext ' .. current_tab)
   end,
 })

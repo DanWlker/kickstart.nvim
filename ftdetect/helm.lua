@@ -1,4 +1,4 @@
-vim.filetype.add {
+vim.filetype.add({
   pattern = {
     ['.*/templates/.*%.tpl'] = 'helm',
     ['.*/templates/.*%.ya?ml'] = 'helm',
@@ -11,4 +11,4 @@ vim.filetype.add {
     -- TODO: enable if helm-ls supports Chart.yaml
     ['Chart.yaml'] = 'yaml.helm-chartfile',
   },
-}
+})

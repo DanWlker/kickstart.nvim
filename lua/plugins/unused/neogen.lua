@@ -10,9 +10,7 @@ return {
     },
   },
   opts = function(_, opts)
-    if opts.snippet_engine ~= nil then
-      return
-    end
+    if opts.snippet_engine ~= nil then return end
 
     -- local map = {
     --   ['LuaSnip'] = 'luasnip',

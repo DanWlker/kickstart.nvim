@@ -1,10 +1,8 @@
 local map = vim.keymap.set
 map({ 'i', 'n', 's' }, '<Esc>', function()
-  vim.cmd 'noh'
+  vim.cmd('noh')
 
-  if package.loaded['snacks'] then
-    vim.schedule(require('snacks').notifier.hide)
-  end
+  if package.loaded['snacks'] then vim.schedule(require('snacks').notifier.hide) end
 
   if package.loaded['luasnip'] and require('luasnip').expand_or_jumpable() then
     vim.schedule(require('luasnip').unlink_current)
@@ -15,12 +13,32 @@ map({ 'i', 'n', 's' }, '<Esc>', function()
 end, { expr = true })
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 map('n', 'Q', '<nop>')
-map('n', 'gco', 'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Below' })
-map('n', 'gcO', 'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>', { desc = 'Add Comment Above' })
+map(
+  'n',
+  'gco',
+  'o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>',
+  { desc = 'Add Comment Below' }
+)
+map(
+  'n',
+  'gcO',
+  'O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>',
+  { desc = 'Add Comment Above' }
+)
 map('n', '<M-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
 map('n', '<M-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
-map('n', '<M-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
-map('n', '<M-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+map(
+  'n',
+  '<M-Left>',
+  '<cmd>vertical resize -2<cr>',
+  { desc = 'Decrease Window Width' }
+)
+map(
+  'n',
+  '<M-Right>',
+  '<cmd>vertical resize +2<cr>',
+  { desc = 'Increase Window Width' }
+)
 map('x', '/', '<Esc>/\\%V')
 map('n', 'yc', 'yy<cmd>normal gcc<cr>p')
 
@@ -44,7 +62,12 @@ map({ 'n', 'x' }, 'l', '<nop>') -- this is now mapped to mini.surround ('Lasso')
 
 -- Toggles
 map('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = 'Toggle wrap' })
-map('n', '<leader>tW', '<cmd>windo set wrap!<cr>', { desc = 'Toggle wrap for all windows' })
+map(
+  'n',
+  '<leader>tW',
+  '<cmd>windo set wrap!<cr>',
+  { desc = 'Toggle wrap for all windows' }
+)
 -- map('n', '<leader>td', function()
 --   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 -- end, { desc = 'Toggle diagnostics' })

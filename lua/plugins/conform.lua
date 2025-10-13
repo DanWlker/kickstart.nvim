@@ -9,8 +9,8 @@ end
 local prettier = { 'prettierd', 'prettier', stop_after_first = true }
 
 -- local disable_filetypes = {}
-local prefer_lsp = Set {}
-local fallback_to_lsp = Set { 'lua' }
+local prefer_lsp = Set({})
+local fallback_to_lsp = Set({ 'lua' })
 
 return {
   'stevearc/conform.nvim',

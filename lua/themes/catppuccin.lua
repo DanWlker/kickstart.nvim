@@ -114,16 +114,17 @@ return {
         DiffviewNormal = { fg = colors.text, bg = colors.base },
       }
 
-      for mode, color in pairs {
+      for mode, color in pairs({
         Normal = colors.lavender,
         Pending = colors.pink,
         Visual = colors.yellow,
         Insert = colors.green,
         Command = colors.teal,
         Other = colors.peach,
-      } do
+      }) do
         custom_stuff['StatuslineMode' .. mode] = { fg = colors.base, bg = color }
-        custom_stuff['StatuslineModeSeparator' .. mode] = { fg = color, bg = colors.base }
+        custom_stuff['StatuslineModeSeparator' .. mode] =
+          { fg = color, bg = colors.base }
       end
 
       return custom_stuff

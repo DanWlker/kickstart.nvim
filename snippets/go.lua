@@ -1,10 +1,10 @@
 return {
   s({ trig = 'iferr', name = 'If err != nil snippet' }, {
-    t 'if ',
+    t('if '),
     i(1, 'err'),
-    t { ' != nil {', '\t' },
-    t 'return ',
+    t({ ' != nil {', '\t' }),
+    t('return '),
     i(2, 'err'),
-    t { '\t', '}' },
+    t({ '\t', '}' }),
   }),
 }

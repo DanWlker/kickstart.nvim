@@ -1,14 +1,14 @@
-require 'personal.install-lazy'
+require('personal.install-lazy')
 
-require 'personal.options'
+require('personal.options')
 
-require 'personal.keymaps'
+require('personal.keymaps')
 
-require 'personal.autocmds'
+require('personal.autocmds')
 
-require 'personal.statusline'
+require('personal.statusline')
 
-require 'personal.winbar'
+require('personal.winbar')
 
 require('lazy').setup({
   -- [[ Themes ]]
@@ -46,4 +46,4 @@ require('lazy').setup({
   change_detection = { notify = false },
 })
 
-vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme('catppuccin')

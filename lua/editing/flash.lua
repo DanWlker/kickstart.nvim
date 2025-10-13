@@ -12,11 +12,11 @@ return {
       'h',
       mode = { 'n', 'x', 'o' },
       function()
-        require('flash').jump {
+        require('flash').jump({
           search = {
             multi_window = false,
           },
-        }
+        })
       end,
       desc = 'Flash Hop (On the character)',
     },
@@ -24,7 +24,7 @@ return {
       'H',
       mode = { 'n', 'x', 'o' },
       function()
-        require('flash').jump {
+        require('flash').jump({
           search = {
             multi_window = false,
           },
@@ -32,7 +32,7 @@ return {
             pos = 'end',
             inclusive = false,
           },
-        }
+        })
       end,
       desc = 'Flash Hop (One character before)',
     },

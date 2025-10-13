@@ -12,7 +12,7 @@ local mode_map = {
   c = 'Σ(°△°ꪱꪱ)',
   s = '(´ ▽｀) ',
 }
-local icons = require 'shared.icons'
+local icons = require('shared.icons')
 
 local function show_macro_recording()
   local recording_register = vim.fn.reg_recording()
@@ -48,7 +48,10 @@ return {
           -- separator = { right = '' },
           separator = { right = '' },
           -- separator = { right = '' },
-          fmt = function() return mode_map[vim.api.nvim_get_mode().mode] or vim.api.nvim_get_mode().mode end,
+          fmt = function()
+            return mode_map[vim.api.nvim_get_mode().mode]
+              or vim.api.nvim_get_mode().mode
+          end,
         },
       },
       lualine_b = {

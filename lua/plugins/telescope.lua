@@ -1,6 +1,6 @@
 function vim.getVisualSelection()
-  vim.cmd 'noau normal! "vy"'
-  local text = vim.fn.getreg 'v'
+  vim.cmd('noau normal! "vy"')
+  local text = vim.fn.getreg('v')
   vim.fn.setreg('v', {})
 
   text = string.gsub(text, '\n', '')
@@ -16,7 +16,7 @@ return {
   init = function()
     ---@diagnostic disable-next-line: duplicate-set-field
     vim.ui.select = function(...)
-      require('lazy').load { plugins = { 'telescope.nvim' } }
+      require('lazy').load({ plugins = { 'telescope.nvim' } })
       return vim.ui.select(...)
     end
   end,
@@ -25,7 +25,7 @@ return {
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
-      cond = function() return vim.fn.executable 'make' == 1 end,
+      cond = function() return vim.fn.executable('make') == 1 end,
     },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -60,7 +60,7 @@ return {
       function()
         local text = vim.getVisualSelection()
         if text ~= '' then
-          require('telescope.builtin').grep_string { search = text }
+          require('telescope.builtin').grep_string({ search = text })
           return
         end
 
@@ -108,19 +108,21 @@ return {
     {
       '<leader>f/',
       function()
-        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          previewer = false,
-        })
+        require('telescope.builtin').current_buffer_fuzzy_find(
+          require('telescope.themes').get_dropdown({
+            previewer = false,
+          })
+        )
       end,
       desc = 'Fuzzy Find in Current Buffer [/]',
     },
     {
       '<leader>fo',
       function()
-        require('telescope.builtin').live_grep {
+        require('telescope.builtin').live_grep({
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
-        }
+        })
       end,
       desc = 'Find in Open Files',
     },
@@ -131,7 +133,9 @@ return {
     },
     {
       '<leader>fN',
-      function() require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' } end,
+      function()
+        require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })
+      end,
       desc = 'Find Neovim Files',
     },
     {
@@ -143,7 +147,7 @@ return {
   config = function()
     local open_with_trouble = require('trouble.sources.telescope').open
 
-    require('telescope').setup {
+    require('telescope').setup({
       defaults = {
         mappings = {
           i = {
@@ -185,10 +189,10 @@ return {
           no_ignore = true,
         },
       },
-    }
+    })
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'notify')
-    require('telescope').load_extension 'ui-select'
+    require('telescope').load_extension('ui-select')
   end,
 }

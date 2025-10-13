@@ -12,7 +12,8 @@ return {
       truncate_names = false,
       diagnostics = 'nvim_lsp',
       diagnostics_indicator = function(_, _, diag)
-        local indicator = (diag.error and icons.ERROR .. ' ' or '') .. (diag.warning and icons.WARN or '')
+        local indicator = (diag.error and icons.ERROR .. ' ' or '')
+          .. (diag.warning and icons.WARN or '')
         return vim.trim(indicator)
       end,
     },

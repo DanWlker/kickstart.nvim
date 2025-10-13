@@ -5,9 +5,7 @@ return {
   keys = {
     {
       '<leader>n',
-      function()
-        require('snacks').notifier.show_history()
-      end,
+      function() require('snacks').notifier.show_history() end,
       desc = 'Notification History',
     },
   },

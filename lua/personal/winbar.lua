@@ -7,7 +7,7 @@ local M = {}
 ---@return string
 function M.render()
   -- Get the path and expand variables.
-  local path = vim.fs.normalize(vim.fn.expand '%:p' --[[@as string]])
+  local path = vim.fs.normalize(vim.fn.expand('%:p') --[[@as string]])
 
   -- No special styling for diff views.
   if vim.startswith(path, 'diffview') then
@@ -30,10 +30,10 @@ function M.render()
     CWD = vim.uv.cwd() or '',
   }
   for dir_name, dir_path in pairs(special_dirs) do
-    if dir_path == '' then
-      goto continue
-    end
-    if vim.startswith(path, vim.fs.normalize(dir_path)) and #dir_path > #prefix_path then
+    if dir_path == '' then goto continue end
+    if
+      vim.startswith(path, vim.fs.normalize(dir_path)) and #dir_path > #prefix_path
+    then
       prefix, prefix_path = dir_name, dir_path
     end
     ::continue::
@@ -63,7 +63,7 @@ function M.render()
   --   ),
   -- }
 
-  return table.concat {
+  return table.concat({
     -- '%=',
     -- '%#WinBarEndSeparators#',
     '%#WinBarIndDir# ',
@@ -81,7 +81,7 @@ function M.render()
     '%#WinBarIndDir# ',
     -- '%#WinBarEndSeparators#',
     '%=',
-  }
+  })
 end
 
 vim.api.nvim_create_autocmd('BufWinEnter', {

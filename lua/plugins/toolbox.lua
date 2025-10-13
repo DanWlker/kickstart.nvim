@@ -30,22 +30,22 @@ return {
       {
         name = 'Copy: Relative path without file',
         execute = function()
-          local path = vim.fn.expand '%:.'
-          local dir = path:match '(.*/)'
+          local path = vim.fn.expand('%:.')
+          local dir = path:match('(.*/)')
           vim.fn.setreg('+', dir)
         end,
       },
       {
         name = 'Copy: Relative path',
         execute = function()
-          local path = vim.fn.expand '%:.'
+          local path = vim.fn.expand('%:.')
           vim.fn.setreg('+', path)
         end,
       },
       {
         name = 'Copy: Absolute path',
         execute = function()
-          local path = vim.fn.expand '%:p'
+          local path = vim.fn.expand('%:p')
           vim.fn.setreg('+', path)
         end,
       },
@@ -70,14 +70,16 @@ return {
       },
       {
         name = 'Conform: Format buffer',
-        execute = function() require('conform').format { async = true, lsp_format = 'fallback' } end,
+        execute = function()
+          require('conform').format({ async = true, lsp_format = 'fallback' })
+        end,
       },
       {
         name = 'Sql: Open Ui',
         execute = function()
-          vim.cmd 'tabnew'
-          vim.cmd 'DBUI'
-          vim.cmd 'set shiftwidth=2'
+          vim.cmd('tabnew')
+          vim.cmd('DBUI')
+          vim.cmd('set shiftwidth=2')
         end,
       },
       {

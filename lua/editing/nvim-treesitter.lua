@@ -1,6 +1,9 @@
 vim.api.nvim_create_autocmd('User', {
   pattern = 'TSUpdate',
-  group = vim.api.nvim_create_augroup('danwlker/nvim-treesitter-parser', { clear = true }),
+  group = vim.api.nvim_create_augroup(
+    'danwlker/nvim-treesitter-parser',
+    { clear = true }
+  ),
   callback = function()
     require('nvim-treesitter.parsers').go_tags = {
       install_info = {
@@ -18,15 +21,21 @@ return {
   branch = 'main',
   build = ':TSUpdate',
   config = function()
-    if vim.fn.executable 'tree-sitter' == 0 then
-      vim.notify('**treesitter-main** requires the `tree-sitter` executable to be installed', vim.log.levels.ERROR)
+    if vim.fn.executable('tree-sitter') == 0 then
+      vim.notify(
+        '**treesitter-main** requires the `tree-sitter` executable to be installed',
+        vim.log.levels.ERROR
+      )
       return
     end
 
     local dontUseTreesitterIndent = { 'bash', 'zsh', 'markdown' }
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { '*' },
-      group = vim.api.nvim_create_augroup('danwlker/nvim-treesitter-start-and-indentexpr', { clear = true }),
+      group = vim.api.nvim_create_augroup(
+        'danwlker/nvim-treesitter-start-and-indentexpr',
+        { clear = true }
+      ),
       callback = function(ctx)
         -- highlights
         local started = pcall(vim.treesitter.start) -- errors for filetypes with no parser, note this starts the parser as well
@@ -39,7 +48,7 @@ return {
     })
 
     require('nvim-treesitter').setup()
-    require('nvim-treesitter').install {
+    require('nvim-treesitter').install({
       'bash',
       'c',
       'diff',
@@ -75,7 +84,7 @@ return {
       'graphql',
       'regex',
       'kitty',
-    }
+    })
 
     vim.treesitter.language.register('bash', 'zsh')
   end,

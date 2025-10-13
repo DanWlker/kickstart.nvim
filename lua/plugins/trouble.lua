@@ -36,7 +36,7 @@ return {
       '<C-p>',
       function()
         if require('trouble').is_open() then
-          require('trouble').prev { skip_groups = true, jump = true }
+          require('trouble').prev({ skip_groups = true, jump = true })
         end
       end,
       desc = 'Previous Trouble/Quickfix Item',
@@ -45,7 +45,7 @@ return {
       '<C-n>',
       function()
         if require('trouble').is_open() then
-          require('trouble').next { skip_groups = true, jump = true }
+          require('trouble').next({ skip_groups = true, jump = true })
         end
       end,
       desc = 'Next Trouble/Quickfix Item',
@@ -53,9 +53,7 @@ return {
     {
       '<leader>xc',
       function()
-        if require('trouble').is_open() then
-          require('trouble').close()
-        end
+        if require('trouble').is_open() then require('trouble').close() end
       end,
       desc = 'Close',
     },

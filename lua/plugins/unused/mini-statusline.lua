@@ -5,7 +5,7 @@
 -- MiniStatuslineDiagnosticInfo = { bg = colors.surface0, fg = colors.sky },
 -- MiniStatuslineDiagnosticHint = { bg = colors.surface0, fg = colors.teal },
 
-local icons = require 'shared.icons'
+local icons = require('shared.icons')
 local diagnostics_highlight = {
   { name = 'ERROR', hl = 'MiniStatuslineDiagnosticError' },
   { name = 'WARN', hl = 'MiniStatuslineDiagnosticWarn' },
@@ -31,12 +31,15 @@ return {
       'nvim-mini/mini-git',
       main = 'mini.git',
       config = function()
-        require('mini.git').setup {}
+        require('mini.git').setup({})
 
         -- Use only HEAD name as summary string
         vim.api.nvim_create_autocmd('User', {
           pattern = 'MiniGitUpdated',
-          group = vim.api.nvim_create_augroup('danwlker/mini-git-head', { clear = true }),
+          group = vim.api.nvim_create_augroup(
+            'danwlker/mini-git-head',
+            { clear = true }
+          ),
           callback = function(data)
             -- Utilize buffer-local table summary
             local summary = vim.b[data.buf].minigit_summary
@@ -47,37 +50,91 @@ return {
     },
   },
   config = function()
-    local MiniStatusline = require 'mini.statusline'
+    local MiniStatusline = require('mini.statusline')
 
     local CTRL_S = vim.api.nvim_replace_termcodes('<C-S>', true, true, true)
     local CTRL_V = vim.api.nvim_replace_termcodes('<C-V>', true, true, true)
     MiniStatusline.section_mode = function(args)
       local modes = setmetatable({
-        ['n'] = { long = '(˵•̀ ᴗ -)', short = 'N', hl = 'MiniStatuslineModeNormal' },
+        ['n'] = {
+          long = '(˵•̀ ᴗ -)',
+          short = 'N',
+          hl = 'MiniStatuslineModeNormal',
+        },
         ['v'] = { long = '( -_・)σ', short = 'V', hl = 'MiniStatuslineModeVisual' },
-        ['V'] = { long = '( -_・)σ', short = 'V-L', hl = 'MiniStatuslineModeVisual' },
-        [CTRL_V] = { long = '( -_・)σ', short = 'V-B', hl = 'MiniStatuslineModeVisual' },
-        ['s'] = { long = '(´ ▽｀) ', short = 'S', hl = 'MiniStatuslineModeVisual' },
-        ['S'] = { long = '(´ ▽｀) ', short = 'S-L', hl = 'MiniStatuslineModeVisual' },
-        [CTRL_S] = { long = '(´ ▽｀) ', short = 'S-B', hl = 'MiniStatuslineModeVisual' },
-        ['i'] = { long = '(•̀ - •́ )', short = 'I', hl = 'MiniStatuslineModeInsert' },
-        ['R'] = { long = '( •̯́ ₃ •̯̀)', short = 'R', hl = 'MiniStatuslineModeReplace' },
-        ['c'] = { long = 'Σ(°△°ꪱꪱ)', short = 'C', hl = 'MiniStatuslineModeCommand' },
-        ['r'] = { long = 'Σ(°△°ꪱꪱ)', short = 'P', hl = 'MiniStatuslineModeOther' },
-        ['!'] = { long = 'Σ(°△°ꪱꪱ)', short = 'Sh', hl = 'MiniStatuslineModeOther' },
-        ['t'] = { long = ' (⌐■_■) ', short = 'T', hl = 'MiniStatuslineModeOther' },
+        ['V'] = {
+          long = '( -_・)σ',
+          short = 'V-L',
+          hl = 'MiniStatuslineModeVisual',
+        },
+        [CTRL_V] = {
+          long = '( -_・)σ',
+          short = 'V-B',
+          hl = 'MiniStatuslineModeVisual',
+        },
+        ['s'] = {
+          long = '(´ ▽｀) ',
+          short = 'S',
+          hl = 'MiniStatuslineModeVisual',
+        },
+        ['S'] = {
+          long = '(´ ▽｀) ',
+          short = 'S-L',
+          hl = 'MiniStatuslineModeVisual',
+        },
+        [CTRL_S] = {
+          long = '(´ ▽｀) ',
+          short = 'S-B',
+          hl = 'MiniStatuslineModeVisual',
+        },
+        ['i'] = {
+          long = '(•̀ - •́ )',
+          short = 'I',
+          hl = 'MiniStatuslineModeInsert',
+        },
+        ['R'] = {
+          long = '( •̯́ ₃ •̯̀)',
+          short = 'R',
+          hl = 'MiniStatuslineModeReplace',
+        },
+        ['c'] = {
+          long = 'Σ(°△°ꪱꪱ)',
+          short = 'C',
+          hl = 'MiniStatuslineModeCommand',
+        },
+        ['r'] = {
+          long = 'Σ(°△°ꪱꪱ)',
+          short = 'P',
+          hl = 'MiniStatuslineModeOther',
+        },
+        ['!'] = {
+          long = 'Σ(°△°ꪱꪱ)',
+          short = 'Sh',
+          hl = 'MiniStatuslineModeOther',
+        },
+        ['t'] = {
+          long = ' (⌐■_■) ',
+          short = 'T',
+          hl = 'MiniStatuslineModeOther',
+        },
       }, {
-        __index = function() return { long = 'Unknown', short = 'U', hl = '%#MiniStatuslineModeOther#' } end,
+        __index = function()
+          return { long = 'Unknown', short = 'U', hl = '%#MiniStatuslineModeOther#' }
+        end,
       })
       local mode_info = modes[vim.fn.mode()]
-      local mode = MiniStatusline.is_truncated(args.trunc_width) and mode_info.short or mode_info.long
+      local mode = MiniStatusline.is_truncated(args.trunc_width) and mode_info.short
+        or mode_info.long
       return mode, mode_info.hl
     end
 
     MiniStatusline.section_location = function() return '%2l:%-2v' end
 
     MiniStatusline.section_diagnostics = function(args)
-      if MiniStatusline.is_truncated(args.trunc_width) or not vim.diagnostic.is_enabled { bufnr = 0 } then
+      if
+        MiniStatusline.is_truncated(args.trunc_width)
+        or not vim.diagnostic.is_enabled({ bufnr = 0 })
+      then
         return ''
       end
 
@@ -91,25 +148,24 @@ return {
           table.insert(t, ' ' .. '%#' .. level.hl .. '#' .. icons[level.name] .. n)
         end
       end
-      if #t == 0 then
-        return ''
-      end
+      if #t == 0 then return '' end
 
       return table.concat(t, '')
     end
 
-    MiniStatusline.setup {
+    MiniStatusline.setup({
       content = {
         active = function()
-          local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
-          local git = MiniStatusline.section_git { icon = '', trunc_width = 40 }
-          local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
-          local filename = MiniStatusline.section_filename { trunc_width = 140 }
-          local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
+          local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+          local git = MiniStatusline.section_git({ icon = '', trunc_width = 40 })
+          local diagnostics =
+            MiniStatusline.section_diagnostics({ trunc_width = 75 })
+          local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+          local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
           local location = MiniStatusline.section_location()
           local recording = show_macro_recording()
 
-          return MiniStatusline.combine_groups {
+          return MiniStatusline.combine_groups({
             { hl = mode_hl, strings = { mode } },
             { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
             '%<', -- Mark general truncate point
@@ -118,11 +174,11 @@ return {
             { hl = 'MiniStatuslineRecording', strings = { recording } },
             { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
             { hl = mode_hl, strings = { location } },
-          }
+          })
         end,
         inactive = function() return '%=%#MiniStatuslineInactive#%F%=' end,
       },
       use_icons = vim.g.have_nerd_font,
-    }
+    })
   end,
 }

@@ -1,5 +1,5 @@
 if vim.g.vscode then
-  require 'init_vscode'
+  require('init_vscode')
 else
-  require 'init_nvim'
+  require('init_nvim')
 end

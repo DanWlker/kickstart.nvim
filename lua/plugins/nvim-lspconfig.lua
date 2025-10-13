@@ -7,35 +7,73 @@ return {
       callback = function(event)
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
-          vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          vim.keymap.set(
+            mode,
+            keys,
+            func,
+            { buffer = event.buf, desc = 'LSP: ' .. desc }
+          )
         end
 
-        map('grr', function()
-          require('telescope.builtin').lsp_references { reuse_win = true }
-        end, 'Goto References')
-        map('gri', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
-        map('gO', require('telescope.builtin').lsp_document_symbols, 'Show Document Symbols')
-        map('grc', function()
-          require('telescope.builtin').lsp_incoming_calls()
-        end, 'Goto incoming calls')
-        map('gro', function()
-          require('telescope.builtin').lsp_outgoing_calls()
-        end, 'Goto outgoing calls')
-        map('K', function()
-          vim.lsp.buf.hover { border = 'rounded' }
-        end, '')
-        map('gd', function()
-          require('telescope.builtin').lsp_definitions { reuse_win = true }
-        end, 'Goto Definition')
-        map('grt', function()
-          require('telescope.builtin').lsp_type_definitions { reuse_win = true }
-        end, 'Show Type Definition')
-        map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
+        map(
+          'grr',
+          function()
+            require('telescope.builtin').lsp_references({ reuse_win = true })
+          end,
+          'Goto References'
+        )
+        map(
+          'gri',
+          require('telescope.builtin').lsp_implementations,
+          'Goto Implementation'
+        )
+        map(
+          'gO',
+          require('telescope.builtin').lsp_document_symbols,
+          'Show Document Symbols'
+        )
+        map(
+          'grc',
+          function() require('telescope.builtin').lsp_incoming_calls() end,
+          'Goto incoming calls'
+        )
+        map(
+          'gro',
+          function() require('telescope.builtin').lsp_outgoing_calls() end,
+          'Goto outgoing calls'
+        )
+        map('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, '')
+        map(
+          'gd',
+          function()
+            require('telescope.builtin').lsp_definitions({ reuse_win = true })
+          end,
+          'Goto Definition'
+        )
+        map(
+          'grt',
+          function()
+            require('telescope.builtin').lsp_type_definitions({ reuse_win = true })
+          end,
+          'Show Type Definition'
+        )
+        map(
+          'gW',
+          require('telescope.builtin').lsp_dynamic_workspace_symbols,
+          'Show Workspace Symbols'
+        )
         map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-          local highlight_augroup = vim.api.nvim_create_augroup('danwlker/lsp-highlight', { clear = false })
+        if
+          client
+          and client:supports_method(
+            vim.lsp.protocol.Methods.textDocument_documentHighlight,
+            event.buf
+          )
+        then
+          local highlight_augroup =
+            vim.api.nvim_create_augroup('danwlker/lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
             buffer = event.buf,
             group = highlight_augroup,
@@ -49,16 +87,36 @@ return {
           })
 
           vim.api.nvim_create_autocmd('LspDetach', {
-            group = vim.api.nvim_create_augroup('danwlker/lsp-detach', { clear = true }),
+            group = vim.api.nvim_create_augroup(
+              'danwlker/lsp-detach',
+              { clear = true }
+            ),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds { group = highlight_augroup, buffer = event2.buf }
+              vim.api.nvim_clear_autocmds({
+                group = highlight_augroup,
+                buffer = event2.buf,
+              })
             end,
           })
         end
 
-        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-          map('grh', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, 'LSP: Inlay Hint')
+        if
+          client
+          and client:supports_method(
+            vim.lsp.protocol.Methods.textDocument_inlayHint,
+            event.buf
+          )
+        then
+          map(
+            'grh',
+            function()
+              vim.lsp.inlay_hint.enable(
+                not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
+              )
+            end,
+            'LSP: Inlay Hint'
+          )
         end
 
         -- if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentColor, event.buf) then
