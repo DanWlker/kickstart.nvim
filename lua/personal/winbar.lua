@@ -63,13 +63,6 @@ function M.render()
   --   ),
   -- }
 
-  if package.loaded['keysmith'] then
-    local yamlKey = require('keysmith').get_key() or ''
-    if yamlKey and yamlKey ~= '' then
-      path = path .. '/' .. yamlKey
-    end
-  end
-
   return table.concat {
     -- '%=',
     -- '%#WinBarEndSeparators#',

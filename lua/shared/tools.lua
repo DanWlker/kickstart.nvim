@@ -1,6 +1,7 @@
 local M = {}
 
 M.masonInstalledServers = {
+  tombi = {},
   helm_ls = {
     settings = {
       ['helm-ls'] = {
