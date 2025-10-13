@@ -43,14 +43,13 @@ local function ai_clue()
 
   -- print(vim.inspect(mappings))
 
-  for name, prefix in pairs(mappings) do
+  for _, prefix in pairs(mappings) do
     if prefix == '' then goto continue end
-    name = name:gsub('^around_', ''):gsub('^inside_', '')
     for _, mode in ipairs(modes) do
       for _, obj in ipairs(objects) do
         local desc = obj.desc
         if prefix:sub(1, 1) == 'i' then desc = desc:gsub(' with ws', '') end
-        ret[#ret + 1] = { mode = mode, keys = prefix .. obj[1], desc = obj.desc }
+        ret[#ret + 1] = { mode = mode, keys = prefix .. obj[1], desc = desc }
       end
     end
     ::continue::
