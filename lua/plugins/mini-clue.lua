@@ -1,3 +1,64 @@
+local function ai_clue()
+  local objects = {
+    { ' ', desc = 'whitespace' },
+    { '"', desc = '" string' },
+    { "'", desc = "' string" },
+    { '(', desc = '() block' },
+    { ')', desc = '() block with ws' },
+    { '<', desc = '<> block' },
+    { '>', desc = '<> block with ws' },
+    { '?', desc = 'user prompt' },
+    { 'U', desc = 'use/call without dot' },
+    { '[', desc = '[] block' },
+    { ']', desc = '[] block with ws' },
+    { '_', desc = 'underscore' },
+    { '`', desc = '` string' },
+    { 'a', desc = 'argument' },
+    { 'b', desc = ')]} block' },
+    { 'c', desc = 'class' },
+    { 'd', desc = 'digit(s)' },
+    { 'e', desc = 'CamelCase / snake_case' },
+    { 'f', desc = 'function' },
+    { 'g', desc = 'entire file' },
+    { 'o', desc = 'block, conditional, loop' },
+    { 'q', desc = 'quote `"\'' },
+    { 't', desc = 'tag' },
+    { 'l', desc = 'line' },
+    { 'u', desc = 'use/call' },
+    { '{', desc = '{} block' },
+    { '}', desc = '{} with ws' },
+  }
+
+  local modes = { 'x', 'o' }
+  local ret = {}
+  ---@type table<string, string>
+  local mappings = {
+    around = 'a',
+    inside = 'i',
+    -- around_next = 'an',
+    -- inside_next = 'in',
+    -- around_last = 'al',
+    -- inside_last = 'il',
+  }
+
+  -- print(vim.inspect(mappings))
+
+  for name, prefix in pairs(mappings) do
+    if prefix == '' then goto continue end
+    name = name:gsub('^around_', ''):gsub('^inside_', '')
+    for _, mode in ipairs(modes) do
+      for _, obj in ipairs(objects) do
+        local desc = obj.desc
+        if prefix:sub(1, 1) == 'i' then desc = desc:gsub(' with ws', '') end
+        ret[#ret + 1] = { mode = mode, keys = prefix .. obj[1], desc = obj.desc }
+      end
+    end
+    ::continue::
+  end
+
+  return ret
+end
+
 return {
   'nvim-mini/mini.clue',
   config = function()
@@ -21,6 +82,7 @@ return {
           { keys = '<leader>t', desc = '[T]oggle' },
           { keys = 'gr', desc = 'LSP Actions', mode = { 'n' } },
         },
+        ai_clue(),
         miniclue.gen_clues.builtin_completion(),
         miniclue.gen_clues.g(),
         miniclue.gen_clues.marks(),
@@ -51,6 +113,11 @@ return {
         { mode = 'x', keys = 'z' },
         { mode = 'n', keys = 'j' }, -- `g` key
         { mode = 'x', keys = 'j' },
+
+        { mode = 'x', keys = 'a' },
+        { mode = 'o', keys = 'a' },
+        { mode = 'x', keys = 'i' },
+        { mode = 'o', keys = 'i' },
       },
     })
   end,
