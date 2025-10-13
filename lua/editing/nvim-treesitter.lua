@@ -84,6 +84,7 @@ return {
       'graphql',
       'regex',
       'kitty',
+      'toml',
     })
 
     vim.treesitter.language.register('bash', 'zsh')
