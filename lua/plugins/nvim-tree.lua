@@ -17,7 +17,7 @@ return {
     },
   },
   dependencies = {
-    { 'nvim-mini/mini.icons', version = false },
+    'nvim-mini/mini.icons',
   },
   config = function()
     local HEIGHT_RATIO = 0.85 -- You can change this

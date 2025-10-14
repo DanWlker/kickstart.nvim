@@ -40,7 +40,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   dependencies = {
-    { 'nvim-mini/mini.icons', version = false },
+    'nvim-mini/mini.icons',
     'folke/todo-comments.nvim',
     'folke/trouble.nvim',
   },

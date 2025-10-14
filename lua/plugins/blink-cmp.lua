@@ -17,7 +17,7 @@ return {
         require('luasnip.loaders.from_lua').load({ paths = { './snippets' } })
       end,
     },
-    { 'nvim-mini/mini.icons', version = false },
+    'nvim-mini/mini.icons',
   },
   opts = {
     keymap = {
