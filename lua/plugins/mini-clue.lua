@@ -87,7 +87,6 @@ return {
           { keys = 'gr', desc = 'LSP Actions', mode = { 'n' } },
         },
         ai_clue(),
-        miniclue.gen_clues.builtin_completion(),
         miniclue.gen_clues.g(),
         miniclue.gen_clues.marks(),
         miniclue.gen_clues.registers(),
