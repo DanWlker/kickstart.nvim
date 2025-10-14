@@ -3,7 +3,6 @@ return {
   lazy = false,
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('danwlker/lsp-attach', { clear = true }),
       callback = function(event)
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
@@ -15,53 +14,7 @@ return {
           )
         end
 
-        map(
-          'grr',
-          function()
-            require('telescope.builtin').lsp_references({ reuse_win = true })
-          end,
-          'Goto References'
-        )
-        map(
-          'gri',
-          require('telescope.builtin').lsp_implementations,
-          'Goto Implementation'
-        )
-        map(
-          'gO',
-          require('telescope.builtin').lsp_document_symbols,
-          'Show Document Symbols'
-        )
-        map(
-          'grc',
-          function() require('telescope.builtin').lsp_incoming_calls() end,
-          'Goto incoming calls'
-        )
-        map(
-          'gro',
-          function() require('telescope.builtin').lsp_outgoing_calls() end,
-          'Goto outgoing calls'
-        )
         map('K', function() vim.lsp.buf.hover({ border = 'rounded' }) end, '')
-        map(
-          'gd',
-          function()
-            require('telescope.builtin').lsp_definitions({ reuse_win = true })
-          end,
-          'Goto Definition'
-        )
-        map(
-          'grt',
-          function()
-            require('telescope.builtin').lsp_type_definitions({ reuse_win = true })
-          end,
-          'Show Type Definition'
-        )
-        map(
-          'gW',
-          require('telescope.builtin').lsp_dynamic_workspace_symbols,
-          'Show Workspace Symbols'
-        )
         map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)

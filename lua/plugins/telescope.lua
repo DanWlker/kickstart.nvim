@@ -29,6 +29,7 @@ return {
     },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     { 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'folke/trouble.nvim' },
   },
   keys = {
     {
@@ -194,5 +195,50 @@ return {
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'notify')
     require('telescope').load_extension('ui-select')
+
+    local builtin = require('telescope.builtin')
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('danwlker/lsp-attach', { clear = true }),
+      callback = function(event)
+        local map = function(keys, func, desc, mode)
+          mode = mode or 'n'
+          vim.keymap.set(
+            mode,
+            keys,
+            func,
+            { buffer = event.buf, desc = 'LSP: ' .. desc }
+          )
+        end
+
+        map(
+          'grr',
+          function() builtin.lsp_references({ reuse_win = true }) end,
+          'Goto References'
+        )
+        map('gri', builtin.lsp_implementations, 'Goto Implementation')
+        map('gO', builtin.lsp_document_symbols, 'Show Document Symbols')
+        map(
+          'grc',
+          function() builtin.lsp_incoming_calls() end,
+          'Goto incoming calls'
+        )
+        map(
+          'gro',
+          function() builtin.lsp_outgoing_calls() end,
+          'Goto outgoing calls'
+        )
+        map(
+          'gd',
+          function() builtin.lsp_definitions({ reuse_win = true }) end,
+          'Goto Definition'
+        )
+        map(
+          'grt',
+          function() builtin.lsp_type_definitions({ reuse_win = true }) end,
+          'Show Type Definition'
+        )
+        map('gW', builtin.lsp_dynamic_workspace_symbols, 'Show Workspace Symbols')
+      end,
+    })
   end,
 }
