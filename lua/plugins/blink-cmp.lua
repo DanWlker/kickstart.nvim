@@ -27,17 +27,15 @@ return {
       preset = 'luasnip',
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
       per_filetype = {
         lua = { inherit_defaults = true, 'lazydev' },
+        sql = { 'dadbod' },
       },
       providers = {
         dadbod = {
-          name = 'Dadbod',
           module = 'vim_dadbod_completion.blink',
         },
         lazydev = {
-          name = 'LazyDev',
           module = 'lazydev.integrations.blink',
           score_offset = 100,
         },
@@ -85,6 +83,15 @@ return {
                 return hl
               end,
             },
+            source_name = {
+              text = function(ctx) return '[' .. ctx.source_name .. ']' end,
+            },
+          },
+
+          columns = {
+            { 'kind_icon' },
+            { 'label', 'label_description', gap = 1 },
+            { 'source_name' },
           },
         },
       },
@@ -104,16 +111,8 @@ return {
         enabled = true,
       },
     },
-    fuzzy = {
-      sorts = {
-        'exact',
-        'score',
-        'sort_text',
-      },
-    },
     -- appearance = {
     --   kind_icons = require('shared.icons').symbol_kinds,
     -- },
   },
-  opts_extend = { 'sources.default' },
 }
