@@ -382,7 +382,6 @@ return {
           function() Snacks.picker.lsp_workspace_symbols() end,
           'Open Workspace Symbols'
         )
-        map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
       end,
     })
   end,

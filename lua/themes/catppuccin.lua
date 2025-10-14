@@ -88,6 +88,19 @@ return {
         --
         -- SnacksPickerBorder = { fg = colors.lavender, bg = colors.mantle },
 
+        -- [[ Fzf lua ]]
+        -- With Border
+        FzfLuaBorder = { fg = colors.lavender },
+        -- No Border
+        -- FzfLuaNormal = { bg = colors.mantle },
+        -- FzfLuaBorder = { fg = colors.mantle, bg = colors.mantle },
+        -- FzfLuaTitle = {
+        --   fg = colors.base,
+        --   bg = colors.lavender,
+        -- },
+        -- FzfLuaHeaderBind = { fg = colors.rosewater },
+        -- FzfLuaHeaderText = { fg = colors.green },
+
         -- [[ Winbar from maria's config ]]
         WinBar = { fg = colors.fg, bg = colors.base },
         WinBarIndDir = { fg = colors.fg, bg = colors.base },
