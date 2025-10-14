@@ -42,6 +42,7 @@ return {
   dependencies = {
     { 'nvim-mini/mini.icons', version = false },
     'folke/todo-comments.nvim',
+    'folke/trouble.nvim',
   },
   keys = {
     -- {

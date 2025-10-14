@@ -28,8 +28,9 @@ return {
       cond = function() return vim.fn.executable('make') == 1 end,
     },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'folke/trouble.nvim' },
+    'nvim-telescope/telescope-ui-select.nvim',
+    'folke/trouble.nvim',
+    'folke/todo-comments.nvim',
   },
   keys = {
     {
